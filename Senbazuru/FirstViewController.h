@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MWFeedParser.h"
 
-@interface FirstViewController : UIViewController
+@interface FirstViewController : UITableViewController <MWFeedParserDelegate> {
+    // Parsing
+	MWFeedParser *feedParser;
+	NSMutableArray *parsedItems;
+	
+	// Displaying
+	NSArray *itemsToDisplay;
+	NSDateFormatter *formatter;
+}
+
+// Properties
+@property (nonatomic, retain) NSArray *itemsToDisplay;
 
 @end
