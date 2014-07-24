@@ -23,6 +23,47 @@
             </objects>
             <point key="canvasLocation" x="1179" y="-138"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Fh9-y9-ZT4">
+            <objects>
+                <viewController id="Igd-tg-7yO" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VK5-e1-exO"/>
+                        <viewControllerLayoutGuide type="bottom" id="Aau-qK-uMj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JxO-bA-YJx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dui-Bk-cit">
+                                <rect key="frame" x="0.0" y="65" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Igd-tg-7yO" id="Ebu-bH-pX7"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="HxU-l5-txf"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="ASR-AR-IGJ" id="gon-DI-rnW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AhH-Bv-UQs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="ASR-AR-IGJ">
+                    <connections>
+                        <outlet property="delegate" destination="Igd-tg-7yO" id="z0j-be-SGu"/>
+                        <outlet property="searchBar" destination="dui-Bk-cit" id="K4p-Ou-U6i"/>
+                        <outlet property="searchContentsController" destination="Igd-tg-7yO" id="Bxg-0V-qc5"/>
+                        <outlet property="searchResultsDataSource" destination="Igd-tg-7yO" id="YfA-vQ-TL0"/>
+                        <outlet property="searchResultsDelegate" destination="Igd-tg-7yO" id="Nh5-dl-WEa"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="1179" y="1176"/>
+        </scene>
         <!--Second View Controller - Second-->
         <scene sceneID="ot8-2e-RuS">
             <objects>
@@ -61,7 +102,7 @@
                             <constraint firstAttribute="centerY" secondItem="DcM-Fx-MKR" secondAttribute="centerY" id="lHZ-e8-ii2"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favoris" image="second" id="Z7h-1E-pvt"/>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="Z7h-1E-pvt"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qq-4t-Ow8" sceneMemberID="firstResponder"/>
             </objects>
@@ -80,6 +121,7 @@
                     <connections>
                         <segue destination="xKX-ns-rXN" kind="relationship" relationship="viewControllers" id="SUk-Ux-ee1"/>
                         <segue destination="QUy-BD-bpt" kind="relationship" relationship="viewControllers" id="M8t-EP-wfW"/>
+                        <segue destination="WyG-0S-yht" kind="relationship" relationship="viewControllers" id="2Tv-mF-Dwy"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
@@ -105,10 +147,28 @@
             </objects>
             <point key="canvasLocation" x="653" y="-138"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="C18-xc-VAV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WyG-0S-yht" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="search" id="90d-fu-8i3"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qfo-ph-O12">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Igd-tg-7yO" kind="relationship" relationship="rootViewController" id="Uog-qx-u4S"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CAs-1o-cU5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="653" y="1176"/>
+        </scene>
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
