@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  ThirdViewController.h
 //  Senbazuru
 //
 //  Created by Pierre Chatel on 23/07/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UITableViewController
+@interface ThirdViewController : UIViewController
 
 @end

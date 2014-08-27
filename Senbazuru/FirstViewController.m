@@ -32,7 +32,7 @@
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
 																							target:self
 																							action:@selector(refresh)];
-	// Parse
+    // Parse
 	NSURL *feedURL = [NSURL URLWithString:@"http://senbazuru.fr/files/feed.xml"];
 	feedParser = [[MWFeedParser alloc] initWithFeedURL:feedURL];
 	feedParser.delegate = self;
@@ -110,9 +110,9 @@
 #pragma mark Table view data source
 
 // Customize the number of sections in the table view.
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//    return 1;
+//}
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -150,15 +150,32 @@
     return cell;
 }
 
+#pragma mark -
+#pragma mark Table view delegate
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"detailSegue" sender:[itemsToDisplay objectAtIndex:indexPath.row]];
+}
+
+#pragma mark -
+#pragma mark Storyboard handling
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    UIViewController *destination = segue.destinationViewController;
+    
+    if ([segue.identifier isEqualToString:@"detailSegue"])
+        [destination setValue:sender forKeyPath:@"item"];
+    
+    [destination setValue:self forKeyPath:@"delegate"];
+}
 
 
 
-
-
-
-
-
-
+#pragma mark -
+#pragma mark Other
 
 - (void)didReceiveMemoryWarning
 {

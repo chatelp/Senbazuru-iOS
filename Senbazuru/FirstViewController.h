@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MWFeedParser.h"
 
-@interface FirstViewController : UITableViewController <MWFeedParserDelegate> {
+@interface FirstViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, MWFeedParserDelegate> {
     // Parsing
 	MWFeedParser *feedParser;
 	NSMutableArray *parsedItems;
@@ -19,7 +19,6 @@
 	NSDateFormatter *formatter;
 }
 
-// Properties
 @property (nonatomic, retain) NSArray *itemsToDisplay;
 
 @end
