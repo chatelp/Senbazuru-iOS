@@ -28,24 +28,58 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    //NSError *error;
-    //NSString *content = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"origami" ofType:@"xml"] encoding:NSUTF8StringEncoding error:&error];
-    //[self parseXML:content];
-
-
-    //NSString *xmlDecl = @"<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
-    //NSString *xml = [xmlDecl stringByAppendingString:_item.summary];
-    //[self parseXML:xml];
+    [_webView setDelegate:self];
     
-    [self parseXML:_item.summary];
+    NSString *modifiedHTML = [self parseHTMLKiss:_item.summary];
+    
+    [_webView loadHTMLString:modifiedHTML baseURL:[NSURL URLWithString:@"http://domain.com"]];
+
 }
 
--(void)parseXML:(NSString*)source {
-    //NSError *error = nil;
-    //DDXMLDocument *theDocument = [[DDXMLDocument alloc] initWithXMLString:source options:1 << 9 error:&error];
-    //NSArray *results = [theDocument nodesForXPath:@"/bookstore/book[price>35]" error:&error];
-
+-(NSString *)parseHTMLKiss:(NSString*)source {
+    NSError *error = nil;
     
+    //NSString *content = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"origami" ofType:@"xml"] encoding:NSUTF8StringEncoding error:&error];
+    
+
+    DDXMLDocument *htmlDocument = [[DDXMLDocument alloc]
+                                   initWithHTMLString:source
+                                   options:HTML_PARSE_NOWARNING | HTML_PARSE_NOERROR
+                                   error:&error];
+   
+    
+    DDXMLElement *rootElement = [htmlDocument rootElement];
+    
+//    NSArray *children = [rootElement children];
+//    for (DDXMLNode *child in children) {
+//        NSLog([child description]);
+//    }
+    //NSArray *elements = [rootElement elementsForName:@"html"];
+    //for (DDXMLElement *element in elements) {
+    //    NSLog([element description]);
+    //}
+    
+    NSArray *results = [rootElement nodesForXPath:@"//img" error:&error];
+    for (DDXMLElement *img in results) {
+        
+        DDXMLNode *width = [img attributeForName:@"width"];
+        DDXMLNode *height = [img attributeForName:@"height"];
+        
+        [width setStringValue:@"100"];
+        [height setStringValue:@"100"];
+    }
+    
+    NSString *result = [htmlDocument description];
+    return result;
+}
+
+-(NSString *)parseHTML:(NSString*)source {
+
+    NSData *htmlData = [source dataUsingEncoding:NSUTF8StringEncoding];
+    TFHpple *parser = [TFHpple hppleWithHTMLData:htmlData];
+    
+    //NSString* newStr = [NSString stringWithUTF8String:[theData bytes]];
+    return source;
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,6 +100,21 @@
 */
 
 - (IBAction)favoriteOrigami:(id)sender {
+}
+
+#pragma mark -
+#pragma mark Web view delegate
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    //[webView reload];
+    //    if ([webView respondsToSelector:@selector(scrollView)])
+    //    {
+    //        UIScrollView *scroll=[webView scrollView];
+    //
+    //        float zoom=webView.bounds.size.width/scroll.contentSize.width;
+    //        [scroll setZoomScale:zoom animated:YES];
+    //    }
+    
 }
 
 @end

@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "MWFeedItem.h"
-#import "DDXML.h"
+#import "DDXML+HTML.h"
+#import "TFHpple.h"
 
-@interface OrigamiDetailViewController : UIViewController {
+
+@interface OrigamiDetailViewController : UIViewController <UIWebViewDelegate> {
     
 }
 
