@@ -39,7 +39,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="az3-JS-Lc1">
-                                <rect key="frame" x="0.0" y="64" width="320" height="453"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <dataDetectorType key="dataDetectorTypes"/>
@@ -161,7 +161,7 @@
             </objects>
             <point key="canvasLocation" x="1059" y="-132"/>
         </scene>
-        <!--View Controller - About us-->
+        <!--View Controller - A propos-->
         <scene sceneID="hFQ-py-rjr">
             <objects>
                 <viewController id="OVw-dw-UOO" sceneMemberID="viewController">
@@ -172,9 +172,43 @@
                     <view key="view" contentMode="scaleToFill" id="RQy-j5-Hfa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="logo_senbazuru_smaller" translatesAutoresizingMaskIntoConstraints="NO" id="FnW-Tn-3ca">
+                                <rect key="frame" x="19" y="34" width="283" height="283"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Les origami de Senbazuru" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBk-fg-lYG">
+                                <rect key="frame" x="60" y="325" width="200" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4b-gv-Adu">
+                                <rect key="frame" x="19" y="354" width="283" height="131"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" staticText="YES" notEnabled="YES"/>
+                                </accessibility>
+                                <string key="text">Tous nos tutoriels vidéos, photos et news dans une même app spécialement conçue pour iPhone et iPad.
+
+Contenu entièrement gratuit - vidéos toutes réalisées par senbazuru.fr - pliages non traditionnels créés par leurs auteurs respectifs dont les noms sont indiqués lorsque connus.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="v1.0 - www.senbazuru.fr" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3XT-uG-HjT">
+                                <rect key="frame" x="56" y="479" width="209" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="About us" image="second" id="MS9-xc-Uxy"/>
+                    <tabBarItem key="tabBarItem" title="A propos" image="second" id="MS9-xc-Uxy"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kvt-KQ-VCC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -222,6 +256,7 @@
     <resources>
         <image name="first" width="30" height="30"/>
         <image name="like-25" width="25" height="25"/>
+        <image name="logo_senbazuru_smaller" width="283" height="283"/>
         <image name="second" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

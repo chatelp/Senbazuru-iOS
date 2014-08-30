@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "MWFeedItem.h"
 #import "DDXML+HTML.h"
-#import "TFHpple.h"
-
 
 @interface OrigamiDetailViewController : UIViewController <UIWebViewDelegate> {
     
@@ -20,6 +18,5 @@
 @property (assign, nonatomic) id delegate;
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-@property (weak, nonatomic) IBOutlet UITextField *testTextField;
 
 @end

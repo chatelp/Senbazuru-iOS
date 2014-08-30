@@ -12,8 +12,5 @@
                options:(NSUInteger)options
                  error:(NSError **)error;
 
-- (id)initWithData:(NSData *)data
-           options:(NSUInteger)options
-             error:(NSError **)error;
 
 @end

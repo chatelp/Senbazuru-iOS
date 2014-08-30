@@ -80,16 +80,6 @@ typedef NSUInteger DocumentContent;
     ];
 }
 
-- (id)initWithData:(NSData *)data
-           options:(NSUInteger)options
-             error:(NSError **)error
-{
-    return [self
-        initWithData:data
-             content:XMLDocument
-             options:options
-               error:error
-    ];
-}
+
 
 @end
