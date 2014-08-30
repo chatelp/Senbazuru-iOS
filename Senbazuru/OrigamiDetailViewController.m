@@ -44,6 +44,7 @@
     
     DDXMLElement *rootElement = [htmlDocument rootElement];
     
+    //1 - change la taille des images
     NSArray *results = [rootElement nodesForXPath:@"//img" error:&error];
     for (DDXMLElement *img in results) {
         
@@ -53,14 +54,18 @@
         [width setStringValue:@"300"];
     }
     
+    //2 - supprime les <br> supperflus
     results = [rootElement nodesForXPath:@"//br" error:&error];
     for (DDXMLElement *breaks in results) {
         [breaks detach];
     }
     
+    //3 - change la taille des videos youtubes OU remplace par des bouttons (CAS <iframe>)
     results = [rootElement nodesForXPath:@"//iframe" error:&error];
     for (DDXMLElement *iframe in results) {
+        
         if(showVideoButton) {
+        
             DDXMLNode *src = [iframe attributeForName:@"src"];
             NSString *videoURL = [src stringValue];
             NSString *newVideoURL = nil;
@@ -94,12 +99,65 @@
             [p addChild:ahref];
             
         } else {
+            
             DDXMLNode *width = [iframe attributeForName:@"width"];
             DDXMLNode *height = [iframe attributeForName:@"height"];
             [height detach];
             [width setStringValue:@"300"];
+        
         }
 
+    }
+    
+    //4 - change la taille des videos youtubes OU remplace par des bouttons (CAS <embed>)
+    if(results == nil || [results count] == 0) {
+        results = [rootElement nodesForXPath:@"//embed" error:&error];
+        
+        for (DDXMLElement *iframe in results) {
+            
+            if(showVideoButton) {
+                
+                DDXMLNode *src = [iframe attributeForName:@"src"];
+                NSString *videoURL = [src stringValue];
+                NSString *newVideoURL = nil;
+                NSLog(@"Video URL: %@", videoURL);
+                
+                NSString *regexSource = @"(?<=v(=|/))([-a-zA-Z0-9_]+)|(?<=youtu.be/)([-a-zA-Z0-9_]+)";
+                //@".*embed/([-a-zA-Z0-9_]+)";
+                
+                NSError *error = NULL;
+                NSRegularExpression *regex = [NSRegularExpression
+                                              regularExpressionWithPattern:regexSource
+                                              options:NSRegularExpressionCaseInsensitive
+                                              error:&error];
+                
+                NSTextCheckingResult *match = [regex firstMatchInString:videoURL
+                                                                options:0
+                                                                  range:NSMakeRange(0, [videoURL length])];
+                if (match) {
+                    NSRange videoIDRange = [match rangeAtIndex:0];
+                    NSString *videoID = [videoURL substringWithRange:videoIDRange];
+                    NSLog(@"Video ID: %@", videoID);
+                    newVideoURL = [NSString stringWithFormat:@"http://www.youtube.com/watch?v=%@", videoID];
+                    NSLog(@"New video URL: %@", newVideoURL);
+                }
+                
+                NSString *initString = [NSString stringWithFormat:@"<a href=\"%@\"><img src=\"http://senbazuru.fr/ios/ios_play_video_button.jpg\" width=\"50\" border=\"0\"/></a>",
+                                        newVideoURL?newVideoURL:videoURL];
+                DDXMLElement *ahref = [[DDXMLElement alloc] initWithXMLString:initString error:&error];
+                DDXMLElement *p = (DDXMLElement *)[iframe parent];
+                [iframe detach];
+                [p addChild:ahref];
+                
+            } else {
+                
+                DDXMLNode *width = [iframe attributeForName:@"width"];
+                DDXMLNode *height = [iframe attributeForName:@"height"];
+                [height detach];
+                [width setStringValue:@"300"];
+                
+            }
+        }
     }
     
     NSString *result = [htmlDocument description];
