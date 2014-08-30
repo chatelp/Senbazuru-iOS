@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MWFeedParser.h"
 
-@interface FirstViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, MWFeedParserDelegate> {
+@interface FirstViewController : UITableViewController <MWFeedParserDelegate> {
     // Parsing
 	MWFeedParser *feedParser;
 	NSMutableArray *parsedItems;

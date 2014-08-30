@@ -82,12 +82,18 @@
                                     <outlet property="delegate" destination="Igd-tg-7yO" id="Ebu-bH-pX7"/>
                                 </connections>
                             </searchBar>
+                            <tableView appearanceType="aqua" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="LpI-vr-xzS">
+                                <rect key="frame" x="0.0" y="109" width="320" height="459"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Trouver un origami" id="HxU-l5-txf"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="ASR-AR-IGJ" id="gon-DI-rnW"/>
+                        <segue destination="24f-52-Zav" kind="push" identifier="detailSegue" id="chL-85-GxT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AhH-Bv-UQs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -121,10 +127,10 @@
             </objects>
             <point key="canvasLocation" x="1929" y="590"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Controller-->
         <scene sceneID="Vex-rW-GRa">
             <objects>
-                <tabBarController id="8YX-ce-x5E" sceneMemberID="viewController">
+                <tabBarController id="8YX-ce-x5E" customClass="MainController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="JQR-rB-NYL">
                         <rect key="frame" x="0.0" y="431" width="320" height="49"/>

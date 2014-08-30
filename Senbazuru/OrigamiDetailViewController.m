@@ -181,6 +181,9 @@
 }
 */
 
+#pragma mark -
+#pragma mark Actions (buttons, ...)
+
 - (IBAction)favoriteOrigami:(id)sender {
 }
 
