@@ -8,7 +8,7 @@
 
 #import "FirstViewController.h"
 #import "NSString+HTML.h"
-#import "MainController.h";
+#import "MainController.h"
 
 @implementation FirstViewController
 
@@ -26,9 +26,11 @@
 	formatter = [[NSDateFormatter alloc] init];
 	[formatter setDateStyle:NSDateFormatterShortStyle];
 	[formatter setTimeStyle:NSDateFormatterNoStyle];
-	parsedItems = [NSMutableArray array];
 	itemsToDisplay = [NSArray array];
-
+    
+    //Au cas où la notification serait déjà passée, avant même l'abonnement
+    [self itemsParsed:nil];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(itemsParsed:)
                                                  name:ItemsParsed
@@ -40,7 +42,7 @@
 #pragma mark Parsing
 
 - (void)itemsParsed:(NSNotification *) notification {
-    parsedItems = notification.object;
+    parsedItems = ((MainController *)self.tabBarController).parsedItems;
     [self updateTableWithParsedItems];
 }
 

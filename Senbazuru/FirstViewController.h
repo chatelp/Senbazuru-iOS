@@ -12,7 +12,7 @@
 @interface FirstViewController : UITableViewController <MWFeedParserDelegate> {
     // Parsing
 	MWFeedParser *feedParser;
-	NSMutableArray *parsedItems;
+	NSArray *parsedItems;
 	
 	// Displaying
 	NSArray *itemsToDisplay;

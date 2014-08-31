@@ -7,6 +7,7 @@
 //
 
 #import "ThirdViewController.h"
+#import "MainController.h"
 
 @interface ThirdViewController ()
 
@@ -18,7 +19,25 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+   
+    //Au cas où la notification serait déjà passée, avant même l'abonnement
+    [self itemsParsed:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(itemsParsed:)
+                                                 name:ItemsParsed
+                                               object:nil];
 }
+
+
+#pragma mark -
+#pragma mark Parsing
+
+- (void)itemsParsed:(NSNotification *) notification {
+    parsedItems = ((MainController *)self.tabBarController).parsedItems;
+    NSLog(@"ThirdViewController: notification received");
+}
+
 
 - (void)didReceiveMemoryWarning
 {

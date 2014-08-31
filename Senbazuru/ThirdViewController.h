@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ThirdViewController : UIViewController
+@interface ThirdViewController : UIViewController {
+    NSArray *parsedItems;
+}
 
 @end

@@ -16,6 +16,8 @@ NSString * const ItemsParsed = @"ItemsParsed";
 
 @implementation MainController
 
+@synthesize parsedItems;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -57,7 +59,7 @@ NSString * const ItemsParsed = @"ItemsParsed";
 - (void)feedParserDidFinish:(MWFeedParser *)parser {
 	NSLog(@"Finished Parsing%@", (parser.stopped ? @" (Stopped)" : @""));
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:ItemsParsed object:parsedItems];
+    [[NSNotificationCenter defaultCenter] postNotificationName:ItemsParsed object:self];
 
     //[self updateTableWithParsedItems]; TODO NOTIFICATION
 }

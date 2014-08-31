@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "MWFeedParser.h"
 
+FOUNDATION_EXPORT NSString * const ItemsParsed;
+
 @interface MainController : UITabBarController <MWFeedParserDelegate> {
     // Parsing
 	MWFeedParser *feedParser;
 	NSMutableArray *parsedItems;
 }
 
-FOUNDATION_EXPORT NSString * const ItemsParsed;
+@property (nonatomic, copy) NSArray *parsedItems;
 
 @end
