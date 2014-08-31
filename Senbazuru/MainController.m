@@ -8,6 +8,8 @@
 
 #import "MainController.h"
 
+NSString * const ItemsParsed = @"ItemsParsed";
+
 @interface MainController ()
 
 @end
@@ -40,20 +42,12 @@
 }
 
 #pragma mark -
-#pragma mark Parsing
-
-#pragma mark -
 #pragma mark MWFeedParserDelegate
 
 - (void)feedParserDidStart:(MWFeedParser *)parser {
 	NSLog(@"Started Parsing: %@", parser.url);
 }
 
-- (void)feedParser:(MWFeedParser *)parser didParseFeedInfo:(MWFeedInfo *)info {
-	NSLog(@"Parsed Feed Info: “%@”", info.title);
-	//self.title = info.title;
-    self.title = @"Tous les origami";
-}
 
 - (void)feedParser:(MWFeedParser *)parser didParseFeedItem:(MWFeedItem *)item {
 	NSLog(@"Parsed Feed Item: “%@”", item.title);
@@ -62,7 +56,10 @@
 
 - (void)feedParserDidFinish:(MWFeedParser *)parser {
 	NSLog(@"Finished Parsing%@", (parser.stopped ? @" (Stopped)" : @""));
-    [self updateTableWithParsedItems];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:ItemsParsed object:parsedItems];
+
+    //[self updateTableWithParsedItems]; TODO NOTIFICATION
 }
 
 - (void)feedParser:(MWFeedParser *)parser didFailWithError:(NSError *)error {
@@ -78,7 +75,7 @@
                                               otherButtonTitles:nil];
         [alert show];
     }
-    [self updateTableWithParsedItems];
+    //[self updateTableWithParsedItems]; TODO NOTIFICATION
 }
 
 #pragma mark -

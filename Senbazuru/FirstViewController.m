@@ -8,6 +8,7 @@
 
 #import "FirstViewController.h"
 #import "NSString+HTML.h"
+#import "MainController.h";
 
 @implementation FirstViewController
 
@@ -27,33 +28,20 @@
 	[formatter setTimeStyle:NSDateFormatterNoStyle];
 	parsedItems = [NSMutableArray array];
 	itemsToDisplay = [NSArray array];
-	
-	// Refresh button
-	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
-																							target:self
-																							action:@selector(refresh)];
-    // Parse
-//	NSURL *feedURL = [NSURL URLWithString:@"http://senbazuru.fr/files/feed.xml"];
-//	feedParser = [[MWFeedParser alloc] initWithFeedURL:feedURL];
-//	feedParser.delegate = self;
-//	feedParser.feedParseType = ParseTypeFull; // Parse feed info and all items
-//	feedParser.connectionType = ConnectionTypeAsynchronously;
-//	[feedParser parse];
 
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(itemsParsed:)
+                                                 name:ItemsParsed
+                                               object:nil];
 }
 
 
 #pragma mark -
 #pragma mark Parsing
 
-// Reset and reparse
-- (void)refresh {
-	self.title = @"Rafraichissement...";
-	[parsedItems removeAllObjects];
-	[feedParser stopParsing];
-	[feedParser parse];
-	self.tableView.userInteractionEnabled = NO;
-	self.tableView.alpha = 0.3;
+- (void)itemsParsed:(NSNotification *) notification {
+    parsedItems = notification.object;
+    [self updateTableWithParsedItems];
 }
 
 
@@ -61,50 +49,9 @@
 	self.itemsToDisplay = [parsedItems sortedArrayUsingDescriptors:
 						   [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"date"
 																				 ascending:NO]]];
-	self.tableView.userInteractionEnabled = YES;
-	self.tableView.alpha = 1;
+    self.title = @"Tous les origami";
 	[self.tableView reloadData];
 }
-
-
-#pragma mark -
-#pragma mark MWFeedParserDelegate
-
-//- (void)feedParserDidStart:(MWFeedParser *)parser {
-//	NSLog(@"Started Parsing: %@", parser.url);
-//}
-//
-//- (void)feedParser:(MWFeedParser *)parser didParseFeedInfo:(MWFeedInfo *)info {
-//	NSLog(@"Parsed Feed Info: “%@”", info.title);
-//	//self.title = info.title;
-//    self.title = @"Tous les origami";
-//}
-//
-//- (void)feedParser:(MWFeedParser *)parser didParseFeedItem:(MWFeedItem *)item {
-//	NSLog(@"Parsed Feed Item: “%@”", item.title);
-//	if (item) [parsedItems addObject:item];
-//}
-//
-//- (void)feedParserDidFinish:(MWFeedParser *)parser {
-//	NSLog(@"Finished Parsing%@", (parser.stopped ? @" (Stopped)" : @""));
-//    [self updateTableWithParsedItems];
-//}
-//
-//- (void)feedParser:(MWFeedParser *)parser didFailWithError:(NSError *)error {
-//	NSLog(@"Finished Parsing With Error: %@", error);
-//    if (parsedItems.count == 0) {
-//        self.title = @"Failed"; // Show failed message in title
-//    } else {
-//        // Failed but some items parsed, so show and inform of error
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Parsing Incomplete"
-//                                                         message:@"There was an error during the parsing of this feed. Not all of the feed items could parsed."
-//                                                        delegate:nil
-//                                               cancelButtonTitle:@"Dismiss"
-//                                               otherButtonTitles:nil];
-//        [alert show];
-//    }
-//    [self updateTableWithParsedItems];
-//}
 
 #pragma mark -
 #pragma mark Table view data source

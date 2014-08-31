@@ -15,4 +15,6 @@
 	NSMutableArray *parsedItems;
 }
 
+FOUNDATION_EXPORT NSString * const ItemsParsed;
+
 @end
