@@ -27,7 +27,6 @@
 		8FA4BE6A197FD5D300B2928F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8FA4BE68197FD5D300B2928F /* InfoPlist.strings */; };
 		8FA4BE6C197FD5D300B2928F /* SenbazuruTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA4BE6B197FD5D300B2928F /* SenbazuruTests.m */; };
 		8FB096B019825EE3004E2EB5 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB096AE19825EE3004E2EB5 /* libxml2.dylib */; };
-		8FB096B4198262A3004E2EB5 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB096B3198262A3004E2EB5 /* ThirdViewController.m */; };
 		8FCF616919AB6FF100876365 /* origami.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8FCF616819AB6FF100876365 /* origami.xml */; };
 		8FF965E719AE14E400ACE234 /* DDXMLDocument+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF965E319AE14E400ACE234 /* DDXMLDocument+HTML.m */; };
 		8FF965E819AE14E400ACE234 /* DDXMLNode+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF965E519AE14E400ACE234 /* DDXMLNode+HTML.m */; };
@@ -72,8 +71,6 @@
 		8FA4BE69197FD5D300B2928F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8FA4BE6B197FD5D300B2928F /* SenbazuruTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SenbazuruTests.m; sourceTree = "<group>"; };
 		8FB096AE19825EE3004E2EB5 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		8FB096B219826295004E2EB5 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
-		8FB096B3198262A3004E2EB5 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 		8FCF616819AB6FF100876365 /* origami.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = origami.xml; sourceTree = "<group>"; };
 		8FF965E119AE14E400ACE234 /* DDXML+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDXML+HTML.h"; sourceTree = "<group>"; };
 		8FF965E219AE14E400ACE234 /* DDXMLDocument+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDXMLDocument+HTML.h"; sourceTree = "<group>"; };
@@ -159,9 +156,7 @@
 				8FA4BE52197FD5D300B2928F /* FirstViewController.h */,
 				8FA4BE53197FD5D300B2928F /* FirstViewController.m */,
 				8FA4BE55197FD5D300B2928F /* SecondViewController.h */,
-				8FB096B219826295004E2EB5 /* ThirdViewController.h */,
 				8FA4BE56197FD5D300B2928F /* SecondViewController.m */,
-				8FB096B3198262A3004E2EB5 /* ThirdViewController.m */,
 				8FA4BE58197FD5D300B2928F /* Images.xcassets */,
 				8FA4BE41197FD5D300B2928F /* Supporting Files */,
 				8FCF616819AB6FF100876365 /* origami.xml */,
@@ -349,7 +344,6 @@
 				8FA4BE57197FD5D300B2928F /* SecondViewController.m in Sources */,
 				8F63A02A19B21C6400918FCD /* MainController.m in Sources */,
 				8FF965E819AE14E400ACE234 /* DDXMLNode+HTML.m in Sources */,
-				8FB096B4198262A3004E2EB5 /* ThirdViewController.m in Sources */,
 				8FA3F9081982951500318069 /* OrigamiDetailViewController.m in Sources */,
 				8FA4BE4B197FD5D300B2928F /* AppDelegate.m in Sources */,
 				8FA4BE54197FD5D300B2928F /* FirstViewController.m in Sources */,

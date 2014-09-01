@@ -22,7 +22,6 @@
     [super viewDidLoad];
 
     // Setup
-	self.title = @"Chargement...";
 	formatter = [[NSDateFormatter alloc] init];
 	[formatter setDateStyle:NSDateFormatterShortStyle];
 	[formatter setTimeStyle:NSDateFormatterNoStyle];
@@ -51,7 +50,7 @@
 	self.itemsToDisplay = [parsedItems sortedArrayUsingDescriptors:
 						   [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"date"
 																				 ascending:NO]]];
-    self.title = @"Tous les origami";
+    //self.title = @"Tous les origami";
 	[self.tableView reloadData];
 }
 
@@ -65,7 +64,12 @@
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return itemsToDisplay.count;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [searchResults count];
+        
+    } else {
+        return itemsToDisplay.count;
+    }
 }
 
 // Customize the appearance of table view cells.
@@ -79,8 +83,14 @@
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-	// Configure the cell.
-	MWFeedItem *item = [itemsToDisplay objectAtIndex:indexPath.row];
+	// Configure the cell to display
+	MWFeedItem *item = nil;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        item = [searchResults objectAtIndex:indexPath.row];
+    } else {
+        item = [itemsToDisplay objectAtIndex:indexPath.row];
+    }
+    
 	if (item) {
 		
 		// Process
@@ -99,17 +109,22 @@
     return cell;
 }
 
-#pragma mark -
-#pragma mark Table view delegate
 
+#pragma mark -
+#pragma mark Storyboard & selection handling
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"detailSegue" sender:[itemsToDisplay objectAtIndex:indexPath.row]];
+    MWFeedItem *item = nil;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        item = [searchResults objectAtIndex:indexPath.row];
+    } else {
+        item = [itemsToDisplay objectAtIndex:indexPath.row];
+    }
+    
+    [self performSegueWithIdentifier:@"detailSegue" sender:item];
 }
 
-#pragma mark -
-#pragma mark Storyboard handling
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -121,7 +136,24 @@
     [destination setValue:self forKeyPath:@"delegate"];
 }
 
+#pragma mark -
+#pragma mark Search handling
 
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
+{
+    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"title contains[c] %@", searchText];
+    searchResults = [itemsToDisplay filteredArrayUsingPredicate:resultPredicate];
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString
+                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
+                                      objectAtIndex:[self.searchDisplayController.searchBar
+                                                     selectedScopeButtonIndex]]];
+    
+    return YES;
+}
 
 #pragma mark -
 #pragma mark Other

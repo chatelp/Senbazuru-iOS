@@ -17,6 +17,10 @@
 	// Displaying
 	NSArray *itemsToDisplay;
 	NSDateFormatter *formatter;
+    
+    // Search
+    NSArray *searchResults;
+
 }
 
 @property (nonatomic, retain) NSArray *itemsToDisplay;

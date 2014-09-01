@@ -35,7 +35,7 @@
 
 - (void)itemsParsed:(NSNotification *) notification {
     parsedItems = ((MainController *)self.tabBarController).parsedItems;
-    NSLog(@"ThirdViewController: notification received");
+    NSLog(@"SecondViewController: notification received");
 }
 
 - (void)didReceiveMemoryWarning
