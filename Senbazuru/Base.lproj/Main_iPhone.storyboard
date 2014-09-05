@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14A329f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--First View Controller-->
@@ -21,7 +22,7 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="VkL-er-brU">
+                            <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="prototypeCell" id="VkL-er-brU">
                                 <rect key="frame" x="0.0" y="130" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VkL-er-brU" id="O4d-Ks-0vC">
@@ -159,9 +160,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="logo_senbazuru_smaller" translatesAutoresizingMaskIntoConstraints="NO" id="FnW-Tn-3ca">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="logo_senbazuru_smaller" translatesAutoresizingMaskIntoConstraints="NO" id="FnW-Tn-3ca">
                                 <rect key="frame" x="19" y="20" width="283" height="283"/>
                                 <autoresizingMask key="autoresizingMask"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="FnW-Tn-3ca" secondAttribute="height" multiplier="1:1" id="jk1-GN-lS8"/>
+                                </constraints>
                             </imageView>
                             <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Les origami de Senbazuru" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBk-fg-lYG">
                                 <rect key="frame" x="60" y="311" width="200" height="21"/>
@@ -171,13 +175,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4b-gv-Adu">
-                                <rect key="frame" x="20" y="373" width="283" height="74"/>
+                                <rect key="frame" x="20" y="373" width="283" height="102"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" staticText="YES" notEnabled="YES"/>
                                 </accessibility>
-                                <string key="text">Contenu entièrement gratuit - vidéos toutes réalisées par senbazuru.fr - pliages non traditionnels créés par leurs auteurs respectifs dont les noms sont indiqués lorsque connus.</string>
+                                <string key="text">Contenu entièrement gratuit - vidéos toutes réalisées par senbazuru.fr - pliages non-traditionnels créés par leurs auteurs respectifs dont les noms sont indiqués lorsque connus. Les diagrammes originals non-traditionnels ne sont jamais distribués par senbazuru.fr.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -199,6 +203,10 @@
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FnW-Tn-3ca" firstAttribute="top" secondItem="FPf-Zn-wqk" secondAttribute="bottom" id="lQx-e6-ixS"/>
+                            <constraint firstAttribute="centerX" secondItem="FnW-Tn-3ca" secondAttribute="centerX" id="r15-9J-aef"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="A propos" image="second" id="MS9-xc-Uxy"/>
                 </viewController>
