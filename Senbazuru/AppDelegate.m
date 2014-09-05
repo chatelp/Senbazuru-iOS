@@ -16,6 +16,9 @@
 	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:
      (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     
+    // Clear application badge when app launches
+	application.applicationIconBadgeNumber = 0;
+    
     return YES;
 }
 							
@@ -48,26 +51,83 @@
 
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
-	NSLog(@"My token is: %@", deviceToken);
+//    NSLog(@"My token is: %@", deviceToken);
+//    
+//    NSString *newToken = [deviceToken description];
+//	newToken = [newToken stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+//    newToken = [newToken stringByReplacingOccurrencesOfString:@" " withString:@""];
+//    
+//    NSLog(@"My new token is: %@", newToken);
+//    
+//    
+//    NSString *stringURL = [NSString stringWithFormat:@"http://senbazuru.fr/ios/apns/registerDevice.php?appId=1&deviceToken=%@",
+//                           newToken];
+//    NSURL *url = [NSURL URLWithString:stringURL];
+//    
+//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+//    
+//    NSHTTPURLResponse *response = nil;
+//    NSError *error = nil;
+//    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+//
+//    NSLog(@"");
     
-    NSString *newToken = [deviceToken description];
-	newToken = [newToken stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
-    newToken = [newToken stringByReplacingOccurrencesOfString:@" " withString:@""];
+    #if !TARGET_IPHONE_SIMULATOR
     
-    NSLog(@"My new token is: %@", newToken);
+    NSLog(@"My token is: %@", deviceToken);
     
+	// Get Bundle Info for Remote Registration (handy if you have more than one app)
+	NSString *appName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"];
+	NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+	
+	// Check what Notifications the user has turned on.  We registered for all three, but they may have manually disabled some or all of them.
+	NSUInteger rntypes = [[UIApplication sharedApplication] enabledRemoteNotificationTypes];
+	
+	// Set the defaults to disabled unless we find otherwise...
+	NSString *pushBadge = (rntypes & UIRemoteNotificationTypeBadge) ? @"enabled" : @"disabled";
+	NSString *pushAlert = (rntypes & UIRemoteNotificationTypeAlert) ? @"enabled" : @"disabled";
+	NSString *pushSound = (rntypes & UIRemoteNotificationTypeSound) ? @"enabled" : @"disabled";
+	
     
-    NSString *stringURL = [NSString stringWithFormat:@"http://senbazuru.fr/ios/apns/registerDevice.php?appId=1&deviceToken=%@",
-                           newToken];
-    NSURL *url = [NSURL URLWithString:stringURL];
-    
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    
-    NSHTTPURLResponse *response = nil;
-    NSError *error = nil;
-    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+	// Get the users Device Model, Display Name, Unique ID, Token & Version Number
+	UIDevice *dev = [UIDevice currentDevice];
 
-    NSLog(@"");
+    NSString *deviceUuid = dev.identifierForVendor.UUIDString;
+	NSString *deviceName = dev.name;
+	NSString *deviceModel = dev.model;
+	NSString *deviceSystemVersion = dev.systemVersion;
+	
+	// Prepare the Device Token for Registration (remove spaces and < >)
+	NSString *newToken = [[[[deviceToken description]
+                               stringByReplacingOccurrencesOfString:@"<"withString:@""]
+                              stringByReplacingOccurrencesOfString:@">" withString:@""]
+                             stringByReplacingOccurrencesOfString: @" " withString: @""];
+	
+	// Build URL String for Registration
+	// !!! CHANGE "www.mywebsite.com" TO YOUR WEBSITE. Leave out the http://
+	// !!! SAMPLE: "secure.awesomeapp.com"
+	NSString *host = @"senbazuru.fr/ios/easyapns";
+	
+	// !!! CHANGE "/apns.php?" TO THE PATH TO WHERE apns.php IS INSTALLED
+	// !!! ( MUST START WITH / AND END WITH ? ).
+	// !!! SAMPLE: "/path/to/apns.php?"
+	NSString *urlString = [NSString stringWithFormat:@"/apns.php?task=%@&appname=%@&appversion=%@&deviceuid=%@&devicetoken=%@&devicename=%@&devicemodel=%@&deviceversion=%@&pushbadge=%@&pushalert=%@&pushsound=%@", @"register", appName,appVersion, deviceUuid, newToken, deviceName, deviceModel, deviceSystemVersion, pushBadge, pushAlert, pushSound];
+	
+	// Register the Device Data
+	// !!! CHANGE "http" TO "https" IF YOU ARE USING HTTPS PROTOCOL
+	NSURL *url = [[NSURL alloc] initWithScheme:@"http" host:host path:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *urlR, NSData *returnData, NSError *e) {
+                               NSLog(@"Return Data: %@", returnData);
+                               
+                           }];
+	
+	NSLog(@"Register URL: %@", url);
+	
+    #endif
+    
 }
 
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
