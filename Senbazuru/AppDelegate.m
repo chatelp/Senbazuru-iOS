@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MainController.h"
 
 @implementation AppDelegate
 
@@ -15,9 +16,6 @@
     // Let the device know we want to receive push notifications
 	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:
      (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
-    
-    // Clear application badge when app launches
-	application.applicationIconBadgeNumber = 0;
     
     return YES;
 }
@@ -42,6 +40,9 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    // Clear application badge
+	application.applicationIconBadgeNumber = 0;
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -51,27 +52,6 @@
 
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
-//    NSLog(@"My token is: %@", deviceToken);
-//    
-//    NSString *newToken = [deviceToken description];
-//	newToken = [newToken stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
-//    newToken = [newToken stringByReplacingOccurrencesOfString:@" " withString:@""];
-//    
-//    NSLog(@"My new token is: %@", newToken);
-//    
-//    
-//    NSString *stringURL = [NSString stringWithFormat:@"http://senbazuru.fr/ios/apns/registerDevice.php?appId=1&deviceToken=%@",
-//                           newToken];
-//    NSURL *url = [NSURL URLWithString:stringURL];
-//    
-//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-//    
-//    NSHTTPURLResponse *response = nil;
-//    NSError *error = nil;
-//    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-//
-//    NSLog(@"");
-    
     #if !TARGET_IPHONE_SIMULATOR
     
     NSLog(@"My token is: %@", deviceToken);
@@ -104,8 +84,6 @@
                              stringByReplacingOccurrencesOfString: @" " withString: @""];
 	
 	// Build URL String for Registration
-	// !!! CHANGE "www.mywebsite.com" TO YOUR WEBSITE. Leave out the http://
-	// !!! SAMPLE: "secure.awesomeapp.com"
 	NSString *host = @"senbazuru.fr/ios/easyapns";
 	
 	// !!! CHANGE "/apns.php?" TO THE PATH TO WHERE apns.php IS INSTALLED
@@ -130,9 +108,30 @@
     
 }
 
+/**
+ * Failed to Register for Remote Notifications
+ */
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
 {
-	NSLog(@"Failed to get token, error: %@", error);
+    #if !TARGET_IPHONE_SIMULATOR
+	
+	NSLog(@"Error in registration. Error: %@", error);
+	
+    #endif
 }
+
+/**
+ * Remote Notification Received while application was open.
+ */
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+	
+    #if !TARGET_IPHONE_SIMULATOR
+    	
+    MainController *mainController = (MainController *) [[self window] rootViewController];
+    [mainController parseFeed];
+    
+    #endif
+}
+
 
 @end

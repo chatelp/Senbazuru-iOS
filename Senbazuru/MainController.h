@@ -17,6 +17,8 @@ FOUNDATION_EXPORT NSString * const ItemsParsed;
 	NSMutableArray *parsedItems;
 }
 
+- (void)parseFeed;
+
 @property (nonatomic, copy) NSArray *parsedItems;
 
 @end

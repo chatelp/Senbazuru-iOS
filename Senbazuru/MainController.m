@@ -31,9 +31,13 @@ NSString * const ItemsParsed = @"ItemsParsed";
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self parseFeed];
     
-    parsedItems = [NSMutableArray array];
+}
 
+- (void)parseFeed {
+    parsedItems = [NSMutableArray array];
+    
     NSURL *feedURL = [NSURL URLWithString:@"http://senbazuru.fr/files/feed.xml"];
 	
     feedParser = [[MWFeedParser alloc] initWithFeedURL:feedURL];
@@ -60,8 +64,6 @@ NSString * const ItemsParsed = @"ItemsParsed";
 	NSLog(@"Finished Parsing%@", (parser.stopped ? @" (Stopped)" : @""));
     
     [[NSNotificationCenter defaultCenter] postNotificationName:ItemsParsed object:self];
-
-    //[self updateTableWithParsedItems]; TODO NOTIFICATION
 }
 
 - (void)feedParser:(MWFeedParser *)parser didFailWithError:(NSError *)error {
