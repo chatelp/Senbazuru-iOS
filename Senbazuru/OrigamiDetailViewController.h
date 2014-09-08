@@ -14,6 +14,7 @@ FOUNDATION_EXPORT NSString * const FavoritesChanged;
 
 
 @interface OrigamiDetailViewController : UIViewController <UIWebViewDelegate> {
+    NSUserDefaults *defaults;
 }
 
 @property (assign, nonatomic) MWFeedItem *item;

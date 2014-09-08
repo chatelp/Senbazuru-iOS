@@ -31,6 +31,18 @@ NSString * const FavoritesChanged = @"FavoritesChanged";
     //Senbazuru scrapping
     NSString *modifiedHTML = [self parseHTML:_item.summary showVideoButton:YES];
     [_webView loadHTMLString:modifiedHTML baseURL:[NSURL URLWithString:@"http://domain.com"]];
+    
+    //Defaults
+    defaults = [NSUserDefaults standardUserDefaults];
+    NSArray *favorites = [defaults arrayForKey:@"Favorites"];
+    if(favorites) {
+        if([favorites containsObject:_item.title]) {
+            [_favoriteButton setImage:[UIImage imageNamed:@"like-50_selected"] forState:UIControlStateSelected];
+            [_favoriteButton setSelected:YES];
+
+        }
+    }
+    
 }
 
 //Scrap content of Senbazuru for this page (through DOM)
@@ -180,8 +192,7 @@ NSString * const FavoritesChanged = @"FavoritesChanged";
 #pragma mark Actions (buttons, ...)
 
 - (IBAction)favoriteOrigami:(id)sender {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-
+    
     NSArray *favorites = [defaults arrayForKey:@"Favorites"];
     NSMutableArray *mutableFavorites;
     if(favorites) {
@@ -193,9 +204,15 @@ NSString * const FavoritesChanged = @"FavoritesChanged";
     if([mutableFavorites containsObject:_item.title]) {
         //Remove favorite
         [mutableFavorites removeObject:_item.title];
+        
+        [sender setSelected:NO];
+
     } else {
         //Add favorite
         [mutableFavorites addObject:_item.title];
+        
+        [sender setImage:[UIImage imageNamed:@"like-50_selected"] forState:UIControlStateSelected];
+        [sender setSelected:YES];
     }
     
     [defaults setObject:mutableFavorites forKey:@"Favorites"];

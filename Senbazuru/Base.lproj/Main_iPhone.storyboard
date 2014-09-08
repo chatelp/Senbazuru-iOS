@@ -81,7 +81,7 @@
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3hJ-GJ-aIf">
                                 <rect key="frame" x="279" y="9" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="like-25"/>
+                                <state key="normal" image="like-50"/>
                                 <state key="disabled" image="first"/>
                                 <state key="selected" image="like-25" backgroundImage="like-25"/>
                                 <connections>
@@ -152,7 +152,7 @@
         <scene sceneID="uI2-hI-Umm">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xKX-ns-rXN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Pliages" image="first" id="u1e-5L-l1D"/>
+                    <tabBarItem key="tabBarItem" title="Pliages" image="home" id="u1e-5L-l1D"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kb1-Qj-2vQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -227,7 +227,7 @@
                             <constraint firstAttribute="centerX" secondItem="FnW-Tn-3ca" secondAttribute="centerX" id="r15-9J-aef"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="A propos" image="second" id="MS9-xc-Uxy"/>
+                    <tabBarItem key="tabBarItem" title="A propos" image="info" id="MS9-xc-Uxy"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kvt-KQ-VCC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -254,10 +254,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="like-25" width="50" height="50"/>
+        <image name="first" width="25" height="25"/>
+        <image name="home" width="25" height="25"/>
+        <image name="info" width="25" height="25"/>
+        <image name="like-25" width="25" height="25"/>
+        <image name="like-50" width="50" height="50"/>
         <image name="logo_senbazuru_smaller" width="283" height="283"/>
-        <image name="second" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
