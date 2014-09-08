@@ -1,18 +1,16 @@
 //
-//  FirstViewController.m
+//  AllOrigamiViewController.m
 //  Senbazuru
 //
 //  Created by Pierre Chatel on 23/07/14.
 //  Copyright (c) 2014 Pierre Chatel. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "AllOrigamiViewController.h"
 #import "NSString+HTML.h"
 #import "MainController.h"
 
-@implementation FirstViewController
-
-@synthesize itemsToDisplay;
+@implementation AllOrigamiViewController
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -47,10 +45,10 @@
 
 
 - (void)updateTableWithParsedItems {
-	self.itemsToDisplay = [parsedItems sortedArrayUsingDescriptors:
+	itemsToDisplay = [parsedItems sortedArrayUsingDescriptors:
 						   [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"date"
 																				 ascending:NO]]];
-    //self.title = @"Tous les origami";
+    self.title = @"Nos origami";
 	[self.tableView reloadData];
 }
 

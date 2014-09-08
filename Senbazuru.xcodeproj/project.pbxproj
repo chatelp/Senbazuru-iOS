@@ -18,8 +18,8 @@
 		8FA4BE4B197FD5D300B2928F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA4BE4A197FD5D300B2928F /* AppDelegate.m */; };
 		8FA4BE4E197FD5D300B2928F /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FA4BE4C197FD5D300B2928F /* Main_iPhone.storyboard */; };
 		8FA4BE51197FD5D300B2928F /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FA4BE4F197FD5D300B2928F /* Main_iPad.storyboard */; };
-		8FA4BE54197FD5D300B2928F /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA4BE53197FD5D300B2928F /* FirstViewController.m */; };
-		8FA4BE57197FD5D300B2928F /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA4BE56197FD5D300B2928F /* SecondViewController.m */; };
+		8FA4BE54197FD5D300B2928F /* AllOrigamiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA4BE53197FD5D300B2928F /* AllOrigamiViewController.m */; };
+		8FA4BE57197FD5D300B2928F /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA4BE56197FD5D300B2928F /* FavoritesViewController.m */; };
 		8FA4BE59197FD5D300B2928F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FA4BE58197FD5D300B2928F /* Images.xcassets */; };
 		8FA4BE60197FD5D300B2928F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA4BE5F197FD5D300B2928F /* XCTest.framework */; };
 		8FA4BE61197FD5D300B2928F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA4BE3A197FD5D300B2928F /* Foundation.framework */; };
@@ -60,10 +60,10 @@
 		8FA4BE4A197FD5D300B2928F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		8FA4BE4D197FD5D300B2928F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		8FA4BE50197FD5D300B2928F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		8FA4BE52197FD5D300B2928F /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		8FA4BE53197FD5D300B2928F /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		8FA4BE55197FD5D300B2928F /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		8FA4BE56197FD5D300B2928F /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		8FA4BE52197FD5D300B2928F /* AllOrigamiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllOrigamiViewController.h; sourceTree = "<group>"; };
+		8FA4BE53197FD5D300B2928F /* AllOrigamiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllOrigamiViewController.m; sourceTree = "<group>"; };
+		8FA4BE55197FD5D300B2928F /* FavoritesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
+		8FA4BE56197FD5D300B2928F /* FavoritesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
 		8FA4BE58197FD5D300B2928F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8FA4BE5E197FD5D300B2928F /* SenbazuruTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SenbazuruTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FA4BE5F197FD5D300B2928F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -153,10 +153,10 @@
 				8FA3F9061982951500318069 /* OrigamiDetailViewController.h */,
 				8FA3F9071982951500318069 /* OrigamiDetailViewController.m */,
 				8FA4BE4F197FD5D300B2928F /* Main_iPad.storyboard */,
-				8FA4BE52197FD5D300B2928F /* FirstViewController.h */,
-				8FA4BE53197FD5D300B2928F /* FirstViewController.m */,
-				8FA4BE55197FD5D300B2928F /* SecondViewController.h */,
-				8FA4BE56197FD5D300B2928F /* SecondViewController.m */,
+				8FA4BE52197FD5D300B2928F /* AllOrigamiViewController.h */,
+				8FA4BE53197FD5D300B2928F /* AllOrigamiViewController.m */,
+				8FA4BE55197FD5D300B2928F /* FavoritesViewController.h */,
+				8FA4BE56197FD5D300B2928F /* FavoritesViewController.m */,
 				8FA4BE58197FD5D300B2928F /* Images.xcassets */,
 				8FA4BE41197FD5D300B2928F /* Supporting Files */,
 				8FCF616819AB6FF100876365 /* origami.xml */,
@@ -344,12 +344,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8FA4BE57197FD5D300B2928F /* SecondViewController.m in Sources */,
+				8FA4BE57197FD5D300B2928F /* FavoritesViewController.m in Sources */,
 				8F63A02A19B21C6400918FCD /* MainController.m in Sources */,
 				8FF965E819AE14E400ACE234 /* DDXMLNode+HTML.m in Sources */,
 				8FA3F9081982951500318069 /* OrigamiDetailViewController.m in Sources */,
 				8FA4BE4B197FD5D300B2928F /* AppDelegate.m in Sources */,
-				8FA4BE54197FD5D300B2928F /* FirstViewController.m in Sources */,
+				8FA4BE54197FD5D300B2928F /* AllOrigamiViewController.m in Sources */,
 				8FA4BE47197FD5D300B2928F /* main.m in Sources */,
 				8FF965E719AE14E400ACE234 /* DDXMLDocument+HTML.m in Sources */,
 			);

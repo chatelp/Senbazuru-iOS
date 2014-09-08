@@ -8,9 +8,7 @@
 
 #import "OrigamiDetailViewController.h"
 
-@interface OrigamiDetailViewController ()
-
-@end
+NSString * const FavoritesChanged = @"FavoritesChanged";
 
 @implementation OrigamiDetailViewController
 
@@ -26,14 +24,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
+    //Webview init
     [_webView setDelegate:self];
     
+    //Senbazuru scrapping
     NSString *modifiedHTML = [self parseHTML:_item.summary showVideoButton:YES];
     [_webView loadHTMLString:modifiedHTML baseURL:[NSURL URLWithString:@"http://domain.com"]];
 }
 
+//Scrap content of Senbazuru for this page (through DOM)
 -(NSString *)parseHTML:(NSString*)source showVideoButton:(BOOL)showVideoButton{
     NSError *error = nil;
     
@@ -164,11 +164,6 @@
     return result;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 /*
 #pragma mark - Navigation
@@ -185,6 +180,29 @@
 #pragma mark Actions (buttons, ...)
 
 - (IBAction)favoriteOrigami:(id)sender {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+    NSArray *favorites = [defaults arrayForKey:@"Favorites"];
+    NSMutableArray *mutableFavorites;
+    if(favorites) {
+        mutableFavorites = [NSMutableArray arrayWithArray:favorites];
+    } else {
+        mutableFavorites = [[NSMutableArray alloc] init];
+    }
+    
+    if([mutableFavorites containsObject:_item.title]) {
+        //Remove favorite
+        [mutableFavorites removeObject:_item.title];
+    } else {
+        //Add favorite
+        [mutableFavorites addObject:_item.title];
+    }
+    
+    [defaults setObject:mutableFavorites forKey:@"Favorites"];
+    [defaults synchronize];
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:FavoritesChanged object:self];
+
 }
 
 #pragma mark -
@@ -202,5 +220,15 @@
     
     return YES;
 }
+
+#pragma mark -
+#pragma mark Other
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
 
 @end

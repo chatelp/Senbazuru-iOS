@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  FavoritesViewController.h
 //  Senbazuru
 //
 //  Created by Pierre Chatel on 23/07/14.
@@ -7,11 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MWFeedParser.h"
 
-@interface FirstViewController : UITableViewController <MWFeedParserDelegate> {
+@interface FavoritesViewController : UITableViewController {
     // Parsing
-	MWFeedParser *feedParser;
 	NSArray *parsedItems;
 	
 	// Displaying
@@ -20,9 +18,10 @@
     
     // Search
     NSArray *searchResults;
-
+    
+    // Defaults
+    NSUserDefaults *defaults;
+    NSMutableArray *favorites;
 }
-
-@property (nonatomic, retain) NSArray *itemsToDisplay;
 
 @end

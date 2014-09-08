@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14A329f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14A343f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -8,7 +8,7 @@
         <!--First View Controller-->
         <scene sceneID="W3I-pn-N6e">
             <objects>
-                <viewController title="First" id="CZ4-MO-1fc" userLabel="First View Controller" customClass="FirstViewController" sceneMemberID="viewController">
+                <viewController title="First" id="CZ4-MO-1fc" userLabel="First View Controller" customClass="AllOrigamiViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="HmZ-RL-gAt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -36,7 +36,7 @@
                             <outlet property="delegate" destination="CZ4-MO-1fc" id="GwM-T9-X9y"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Nos origami" id="Tuo-PI-tSq"/>
+                    <navigationItem key="navigationItem" title="Chargement..." id="Tuo-PI-tSq"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="Kou-ZU-5Am" id="CSf-i4-wLl"/>
                         <segue destination="24f-52-Zav" kind="push" identifier="detailSegue" id="hJa-be-aZk"/>
@@ -77,13 +77,22 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="bss-dF-l1i">
-                        <barButtonItem key="rightBarButtonItem" image="like-25" id="YDE-UC-ezg">
-                            <connections>
-                                <action selector="favoriteOrigami:" destination="24f-52-Zav" id="b06-Ta-PwW"/>
-                            </connections>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="D8m-JZ-lXT">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3hJ-GJ-aIf">
+                                <rect key="frame" x="279" y="9" width="25" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="like-25"/>
+                                <state key="disabled" image="first"/>
+                                <state key="selected" image="like-25" backgroundImage="like-25"/>
+                                <connections>
+                                    <action selector="favoriteOrigami:" destination="24f-52-Zav" eventType="touchUpInside" id="F1R-O2-tqw"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="favoriteButton" destination="3hJ-GJ-aIf" id="Pva-7B-98S"/>
+                        <outlet property="favoriteButtonItem" destination="D8m-JZ-lXT" id="hwa-CA-YxD"/>
                         <outlet property="webView" destination="az3-JS-Lc1" id="F3T-kW-Gyl"/>
                     </connections>
                 </viewController>
@@ -94,13 +103,23 @@
         <!--Second View Controller-->
         <scene sceneID="ot8-2e-RuS">
             <objects>
-                <viewController title="Second" id="QUy-BD-bpt" userLabel="Second View Controller" customClass="SecondViewController" sceneMemberID="viewController">
+                <viewController title="Second" id="QUy-BD-bpt" userLabel="Second View Controller" customClass="FavoritesViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="o3L-zP-Yqf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="prototypeCell" id="jS5-7j-Wdc">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jS5-7j-Wdc" id="3AQ-XT-9XB">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" id="pG3-Vv-EiN"/>
+                    <navigationItem key="navigationItem" title="Favoris" id="pG3-Vv-EiN"/>
                     <connections>
                         <segue destination="24f-52-Zav" kind="push" identifier="detailSegue" id="RJy-t5-fD8"/>
                     </connections>
@@ -236,7 +255,7 @@
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
-        <image name="like-25" width="25" height="25"/>
+        <image name="like-25" width="50" height="50"/>
         <image name="logo_senbazuru_smaller" width="283" height="283"/>
         <image name="second" width="30" height="30"/>
     </resources>
