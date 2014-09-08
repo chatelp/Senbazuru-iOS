@@ -24,7 +24,7 @@
 	formatter = [[NSDateFormatter alloc] init];
 	[formatter setDateStyle:NSDateFormatterShortStyle];
 	[formatter setTimeStyle:NSDateFormatterNoStyle];
-	itemsToDisplay = [NSArray array];
+	itemsToDisplay = [NSMutableArray array];
 
     //Defaults
     defaults = [NSUserDefaults standardUserDefaults];
@@ -58,10 +58,19 @@
 }
 
 - (void)updateTableWithParsedItems {
-	//TODO !!
-    itemsToDisplay = [parsedItems sortedArrayUsingDescriptors:
-                      [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"date"
-                                                                           ascending:NO]]];
+    if(!sortedParsedItems)
+        sortedParsedItems = [parsedItems sortedArrayUsingDescriptors:
+                             [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"date"
+                                                                                  ascending:NO]]];
+    favorites = [defaults arrayForKey:@"Favorites"];
+    
+    itemsToDisplay = [NSMutableArray array];
+    for (MWFeedItem *item in sortedParsedItems) {
+        if ([favorites containsObject:item.title]) {
+            [itemsToDisplay addObject:item];
+        }
+    }
+    
 	[self.tableView reloadData];
 }
 

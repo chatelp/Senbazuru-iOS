@@ -11,9 +11,10 @@
 @interface FavoritesViewController : UITableViewController {
     // Parsing
 	NSArray *parsedItems;
+    NSArray *sortedParsedItems;
 	
 	// Displaying
-	NSArray *itemsToDisplay;
+	NSMutableArray *itemsToDisplay;
 	NSDateFormatter *formatter;
     
     // Search
@@ -21,7 +22,7 @@
     
     // Defaults
     NSUserDefaults *defaults;
-    NSMutableArray *favorites;
+    NSArray *favorites;
 }
 
 @end
