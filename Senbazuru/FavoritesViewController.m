@@ -50,14 +50,14 @@
 
 - (void)itemsParsed:(NSNotification *) notification {
     parsedItems = ((MainController *)self.tabBarController).parsedItems;
-    [self updateTableWithParsedItems];
+    [self updateTable];
 }
 
 - (void)favoritesChanged:(NSNotification *) notification {
-    [self updateTableWithParsedItems];
+    [self updateTable];
 }
 
-- (void)updateTableWithParsedItems {
+- (void)updateTable {
     if(!sortedParsedItems)
         sortedParsedItems = [parsedItems sortedArrayUsingDescriptors:
                              [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"date"

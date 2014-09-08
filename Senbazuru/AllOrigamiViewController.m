@@ -40,11 +40,11 @@
 
 - (void)itemsParsed:(NSNotification *) notification {
     parsedItems = ((MainController *)self.tabBarController).parsedItems;
-    [self updateTableWithParsedItems];
+    [self updateTable];
 }
 
 
-- (void)updateTableWithParsedItems {
+- (void)updateTable {
 	itemsToDisplay = [parsedItems sortedArrayUsingDescriptors:
 						   [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"date"
 																				 ascending:NO]]];
