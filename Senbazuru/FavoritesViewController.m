@@ -10,6 +10,7 @@
 #import "NSString+HTML.h"
 #import "MainController.h"
 #import "OrigamiDetailViewController.h"
+#import "IconDownloader.h"
 
 @implementation FavoritesViewController
 
@@ -114,9 +115,100 @@
 		if (item.date) [subtitle appendFormat:@"%@: ", [formatter stringFromDate:item.date]];
 		[subtitle appendString:itemSummary];
 		cell.detailTextLabel.text = subtitle;
+        
+        // Lazy image loading
+        // Only load cached images; defer new downloads until scrolling ends
+        if (!item.icon)
+        {
+            if (self.tableView.dragging == NO && self.tableView.decelerating == NO)
+            {
+                [self startIconDownload:item forIndexPath:indexPath];
+            }
+            // if a download is deferred or in progress, return a placeholder image
+            cell.imageView.image = [UIImage imageNamed:@"picture-50"];
+        }
+        else
+        {
+            cell.imageView.image = item.icon;
+        }
+
 		
 	}
     return cell;
+}
+
+#pragma mark - Table cell image support
+
+// -------------------------------------------------------------------------------
+//	startIconDownload:forIndexPath:
+// -------------------------------------------------------------------------------
+- (void)startIconDownload:(MWFeedItem *)item forIndexPath:(NSIndexPath *)indexPath
+{
+    IconDownloader *iconDownloader = [self.imageDownloadsInProgress objectForKey:indexPath];
+    if (iconDownloader == nil)
+    {
+        iconDownloader = [[IconDownloader alloc] init];
+        iconDownloader.item = item;
+        [iconDownloader setCompletionHandler:^{
+            
+            UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+            
+            // Display the newly loaded image
+            cell.imageView.image = item.icon;
+            
+            // Remove the IconDownloader from the in progress list.
+            // This will result in it being deallocated.
+            [self.imageDownloadsInProgress removeObjectForKey:indexPath];
+            
+        }];
+        [self.imageDownloadsInProgress setObject:iconDownloader forKey:indexPath];
+        [iconDownloader startDownload];
+    }
+}
+
+// -------------------------------------------------------------------------------
+//	loadImagesForOnscreenRows
+//  This method is used in case the user scrolled into a set of cells that don't
+//  have their app icons yet.
+// -------------------------------------------------------------------------------
+- (void)loadImagesForOnscreenRows
+{
+    if ([itemsToDisplay count] > 0)
+    {
+        NSArray *visiblePaths = [self.tableView indexPathsForVisibleRows];
+        for (NSIndexPath *indexPath in visiblePaths)
+        {
+            MWFeedItem *item = [itemsToDisplay objectAtIndex:indexPath.row];
+            
+            if (!item.icon)
+                // Avoid icon download if already has an icon
+            {
+                [self startIconDownload:item forIndexPath:indexPath];
+            }
+        }
+    }
+}
+
+#pragma mark - UIScrollViewDelegate
+
+// -------------------------------------------------------------------------------
+//	scrollViewDidEndDragging:willDecelerate:
+//  Load images for all onscreen rows when scrolling is finished.
+// -------------------------------------------------------------------------------
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (!decelerate)
+	{
+        [self loadImagesForOnscreenRows];
+    }
+}
+
+// -------------------------------------------------------------------------------
+//	scrollViewDidEndDecelerating:
+// -------------------------------------------------------------------------------
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self loadImagesForOnscreenRows];
 }
 
 

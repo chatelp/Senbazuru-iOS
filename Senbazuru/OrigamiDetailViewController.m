@@ -30,14 +30,14 @@ NSString * const FavoritesChanged = @"FavoritesChanged";
     [_webView setDelegate:self];
     
     //Senbazuru scrapping
-    NSString *modifiedHTML = [self parseHTML:_item.summary showVideoButton:YES];
+    NSString *modifiedHTML = [self parseHTML:self.item.summary showVideoButton:YES];
     [_webView loadHTMLString:modifiedHTML baseURL:[NSURL URLWithString:@"http://domain.com"]];
     
     //Defaults
     defaults = [NSUserDefaults standardUserDefaults];
     NSArray *favorites = [defaults arrayForKey:@"Favorites"];
     if(favorites) {
-        if([favorites containsObject:_item.title]) {
+        if([favorites containsObject:self.item.title]) {
             [_favoriteButton setImage:[UIImage imageNamed:@"like-50_selected"] forState:UIControlStateSelected];
             [_favoriteButton setSelected:YES];
 
@@ -202,15 +202,15 @@ NSString * const FavoritesChanged = @"FavoritesChanged";
         mutableFavorites = [[NSMutableArray alloc] init];
     }
     
-    if([mutableFavorites containsObject:_item.title]) {
+    if([mutableFavorites containsObject:self.item.title]) {
         //Remove favorite
-        [mutableFavorites removeObject:_item.title];
+        [mutableFavorites removeObject:self.item.title];
         
         [sender setSelected:NO];
 
     } else {
         //Add favorite
-        [mutableFavorites addObject:_item.title];
+        [mutableFavorites addObject:self.item.title];
         
         [sender setImage:[UIImage imageNamed:@"like-50_selected"] forState:UIControlStateSelected];
         [sender setSelected:YES];

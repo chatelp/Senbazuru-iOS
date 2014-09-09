@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		76BA592B75294FBCB211A7EE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F16AC8CBAD4F4B02B8F719A7 /* libPods.a */; };
 		8F3CC53419BE0C6D00FEAF1D /* IconDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F3CC53319BE0C6D00FEAF1D /* IconDownloader.m */; };
+		8F3CC53819BEEDE100FEAF1D /* Origami.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F3CC53719BEEDE100FEAF1D /* Origami.m */; };
 		8F63A02A19B21C6400918FCD /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F63A02919B21C6400918FCD /* MainController.m */; };
 		8FA3F9081982951500318069 /* OrigamiDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA3F9071982951500318069 /* OrigamiDetailViewController.m */; };
 		8FA4BE3B197FD5D300B2928F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA4BE3A197FD5D300B2928F /* Foundation.framework */; };
@@ -47,6 +48,8 @@
 /* Begin PBXFileReference section */
 		8F3CC53219BE0C6D00FEAF1D /* IconDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconDownloader.h; sourceTree = "<group>"; };
 		8F3CC53319BE0C6D00FEAF1D /* IconDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconDownloader.m; sourceTree = "<group>"; };
+		8F3CC53619BEEDE100FEAF1D /* Origami.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Origami.h; sourceTree = "<group>"; };
+		8F3CC53719BEEDE100FEAF1D /* Origami.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Origami.m; sourceTree = "<group>"; };
 		8F63A02819B21C6400918FCD /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
 		8F63A02919B21C6400918FCD /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainController.m; sourceTree = "<group>"; };
 		8FA3F9061982951500318069 /* OrigamiDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrigamiDetailViewController.h; sourceTree = "<group>"; };
@@ -111,6 +114,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F3CC53519BEEDC100FEAF1D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8F3CC53619BEEDE100FEAF1D /* Origami.h */,
+				8F3CC53719BEEDE100FEAF1D /* Origami.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		8FA4BE2E197FD5D300B2928F = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +159,7 @@
 		8FA4BE40197FD5D300B2928F /* Senbazuru */ = {
 			isa = PBXGroup;
 			children = (
+				8F3CC53519BEEDC100FEAF1D /* Model */,
 				8FF965E019AE14CC00ACE234 /* DDXML+HTML */,
 				8FA4BE4C197FD5D300B2928F /* Main_iPhone.storyboard */,
 				8FA4BE4F197FD5D300B2928F /* Main_iPad.storyboard */,
@@ -351,6 +364,7 @@
 			files = (
 				8FA4BE57197FD5D300B2928F /* FavoritesViewController.m in Sources */,
 				8F63A02A19B21C6400918FCD /* MainController.m in Sources */,
+				8F3CC53819BEEDE100FEAF1D /* Origami.m in Sources */,
 				8FF965E819AE14E400ACE234 /* DDXMLNode+HTML.m in Sources */,
 				8FA3F9081982951500318069 /* OrigamiDetailViewController.m in Sources */,
 				8F3CC53419BE0C6D00FEAF1D /* IconDownloader.m in Sources */,

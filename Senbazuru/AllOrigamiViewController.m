@@ -27,6 +27,9 @@
 	itemsToDisplay = [NSArray array];
     self.imageDownloadsInProgress = [NSMutableDictionary dictionary];
     
+    // Style des cellules de la recherche
+    [self.searchDisplayController.searchResultsTableView setRowHeight:self.tableView.rowHeight];
+    
     //Au cas où la notification de fin de parsing serait déjà passée, avant même l'abonnement
     [self itemsParsed:nil];
     
@@ -34,6 +37,8 @@
                                              selector:@selector(itemsParsed:)
                                                  name:ItemsParsed
                                                object:nil];
+    
+    
 }
 
 
@@ -50,7 +55,6 @@
 	itemsToDisplay = [parsedItems sortedArrayUsingDescriptors:
 						   [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"date"
 																				 ascending:NO]]];
-    self.title = @"Nos origami";
 	[self.tableView reloadData];
 }
 
@@ -75,13 +79,14 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"PrototypeCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+//		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//    }
     
 	// Configure the cell to display
 	MWFeedItem *item = nil;
