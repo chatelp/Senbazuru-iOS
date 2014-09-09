@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "MWFeedItem.h"
-#import "DDXML+HTML.h"
 
 FOUNDATION_EXPORT NSString * const FavoritesChanged;
 

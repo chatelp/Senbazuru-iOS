@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MWFeedParser.h"
 
-@interface AllOrigamiViewController : UITableViewController {
+@interface AllOrigamiViewController : UITableViewController <UIScrollViewDelegate> {
     // Parsing
 	NSArray *parsedItems;
 	
@@ -20,5 +20,8 @@
     // Search
     NSArray *searchResults;
 }
+
+// the set of ImageDownloader objects for each app
+@property (nonatomic, strong) NSMutableDictionary *imageDownloadsInProgress;
 
 @end

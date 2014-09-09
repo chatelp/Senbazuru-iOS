@@ -8,13 +8,17 @@
 
 #import "MainController.h"
 
+static NSString *const senbazuruRSSfeed = @"http://senbazuru.fr/files/feed.xml";
+
 NSString * const ItemsParsed = @"ItemsParsed";
+
 
 @interface MainController ()
 
 @end
 
 @implementation MainController
+
 
 @synthesize parsedItems;
 
@@ -38,7 +42,7 @@ NSString * const ItemsParsed = @"ItemsParsed";
 - (void)parseFeed {
     parsedItems = [NSMutableArray array];
     
-    NSURL *feedURL = [NSURL URLWithString:@"http://senbazuru.fr/files/feed.xml"];
+    NSURL *feedURL = [NSURL URLWithString:senbazuruRSSfeed];
 	
     feedParser = [[MWFeedParser alloc] initWithFeedURL:feedURL];
 	feedParser.delegate = self;
@@ -51,6 +55,7 @@ NSString * const ItemsParsed = @"ItemsParsed";
 #pragma mark MWFeedParserDelegate
 
 - (void)feedParserDidStart:(MWFeedParser *)parser {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	NSLog(@"Started Parsing: %@", parser.url);
 }
 
@@ -61,21 +66,24 @@ NSString * const ItemsParsed = @"ItemsParsed";
 }
 
 - (void)feedParserDidFinish:(MWFeedParser *)parser {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	NSLog(@"Finished Parsing%@", (parser.stopped ? @" (Stopped)" : @""));
     
     [[NSNotificationCenter defaultCenter] postNotificationName:ItemsParsed object:self];
 }
 
 - (void)feedParser:(MWFeedParser *)parser didFailWithError:(NSError *)error {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	NSLog(@"Finished Parsing With Error: %@", error);
     if (parsedItems.count == 0) {
-        self.title = @"Failed"; // Show failed message in title
+        [self handleError:error];
     } else {
         // Failed but some items parsed, so show and inform of error
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Parsing Incomplete"
-                                                        message:@"There was an error during the parsing of this feed. Not all of the feed items could parsed."
+        NSString *errorMessage = [error localizedDescription];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Tous les origami n'ont pu être chargés"
+                                                        message:errorMessage
                                                        delegate:nil
-                                              cancelButtonTitle:@"Dismiss"
+                                              cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
     }
@@ -90,6 +98,19 @@ NSString * const ItemsParsed = @"ItemsParsed";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+- (void)handleError:(NSError *)error
+{
+    NSString *errorMessage = [error localizedDescription];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Impossible d'accéder au contenu de Senbazuru.fr"
+														message:errorMessage
+													   delegate:nil
+											  cancelButtonTitle:@"OK"
+											  otherButtonTitles:nil];
+    [alertView show];
+}
+
 
 /*
 #pragma mark - Navigation

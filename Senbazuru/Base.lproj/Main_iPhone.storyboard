@@ -9,7 +9,7 @@
         <scene sceneID="W3I-pn-N6e">
             <objects>
                 <viewController title="First" id="CZ4-MO-1fc" userLabel="All Origami View Controller" customClass="AllOrigamiViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="HmZ-RL-gAt">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="HmZ-RL-gAt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -22,11 +22,11 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="prototypeCell" id="VkL-er-brU">
-                                <rect key="frame" x="0.0" y="130" width="320" height="44"/>
+                            <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="prototypeCell" rowHeight="60" id="VkL-er-brU">
+                                <rect key="frame" x="0.0" y="130" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VkL-er-brU" id="O4d-Ks-0vC">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -53,7 +53,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1929" y="-132"/>
+            <point key="canvasLocation" x="1457" y="-134"/>
         </scene>
         <!--Origami Detail View Controller-->
         <scene sceneID="NKI-cy-hlb">
@@ -98,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N2a-DO-9Pi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2564" y="-132"/>
+            <point key="canvasLocation" x="2092" y="-134"/>
         </scene>
         <!--Favorites View Controller-->
         <scene sceneID="ot8-2e-RuS">
@@ -126,7 +126,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qq-4t-Ow8" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1929" y="590"/>
+            <point key="canvasLocation" x="1457" y="588"/>
         </scene>
         <!--Main Controller-->
         <scene sceneID="Vex-rW-GRa">
@@ -165,7 +165,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bda-xR-TzA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1059" y="-132"/>
+            <point key="canvasLocation" x="807" y="-134"/>
         </scene>
         <!--View Controller - A propos-->
         <scene sceneID="hFQ-py-rjr">
@@ -231,7 +231,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kvt-KQ-VCC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1059" y="1315"/>
+            <point key="canvasLocation" x="807" y="1313"/>
         </scene>
         <!--Navigation Controller - Favoris-->
         <scene sceneID="w9z-RL-7oi">
@@ -250,7 +250,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fOr-e7-VSG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1059" y="590"/>
+            <point key="canvasLocation" x="807" y="588"/>
         </scene>
     </scenes>
     <resources>
@@ -267,6 +267,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="RJy-t5-fD8"/>
+        <segue reference="hJa-be-aZk"/>
     </inferredMetricsTieBreakers>
 </document>

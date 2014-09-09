@@ -7,6 +7,7 @@
 //
 
 #import "OrigamiDetailViewController.h"
+#import "DDXML+HTML.h"
 
 NSString * const FavoritesChanged = @"FavoritesChanged";
 

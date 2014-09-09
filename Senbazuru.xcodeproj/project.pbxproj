@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		76BA592B75294FBCB211A7EE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F16AC8CBAD4F4B02B8F719A7 /* libPods.a */; };
+		8F3CC53419BE0C6D00FEAF1D /* IconDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F3CC53319BE0C6D00FEAF1D /* IconDownloader.m */; };
 		8F63A02A19B21C6400918FCD /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F63A02919B21C6400918FCD /* MainController.m */; };
 		8FA3F9081982951500318069 /* OrigamiDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA3F9071982951500318069 /* OrigamiDetailViewController.m */; };
 		8FA4BE3B197FD5D300B2928F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA4BE3A197FD5D300B2928F /* Foundation.framework */; };
@@ -44,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8F3CC53219BE0C6D00FEAF1D /* IconDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconDownloader.h; sourceTree = "<group>"; };
+		8F3CC53319BE0C6D00FEAF1D /* IconDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconDownloader.m; sourceTree = "<group>"; };
 		8F63A02819B21C6400918FCD /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
 		8F63A02919B21C6400918FCD /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainController.m; sourceTree = "<group>"; };
 		8FA3F9061982951500318069 /* OrigamiDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrigamiDetailViewController.h; sourceTree = "<group>"; };
@@ -145,18 +148,20 @@
 			isa = PBXGroup;
 			children = (
 				8FF965E019AE14CC00ACE234 /* DDXML+HTML */,
+				8FA4BE4C197FD5D300B2928F /* Main_iPhone.storyboard */,
+				8FA4BE4F197FD5D300B2928F /* Main_iPad.storyboard */,
 				8FA4BE49197FD5D300B2928F /* AppDelegate.h */,
 				8FA4BE4A197FD5D300B2928F /* AppDelegate.m */,
-				8FA4BE4C197FD5D300B2928F /* Main_iPhone.storyboard */,
 				8F63A02819B21C6400918FCD /* MainController.h */,
 				8F63A02919B21C6400918FCD /* MainController.m */,
 				8FA3F9061982951500318069 /* OrigamiDetailViewController.h */,
 				8FA3F9071982951500318069 /* OrigamiDetailViewController.m */,
-				8FA4BE4F197FD5D300B2928F /* Main_iPad.storyboard */,
 				8FA4BE52197FD5D300B2928F /* AllOrigamiViewController.h */,
 				8FA4BE53197FD5D300B2928F /* AllOrigamiViewController.m */,
 				8FA4BE55197FD5D300B2928F /* FavoritesViewController.h */,
 				8FA4BE56197FD5D300B2928F /* FavoritesViewController.m */,
+				8F3CC53219BE0C6D00FEAF1D /* IconDownloader.h */,
+				8F3CC53319BE0C6D00FEAF1D /* IconDownloader.m */,
 				8FA4BE58197FD5D300B2928F /* Images.xcassets */,
 				8FA4BE41197FD5D300B2928F /* Supporting Files */,
 				8FCF616819AB6FF100876365 /* origami.xml */,
@@ -348,6 +353,7 @@
 				8F63A02A19B21C6400918FCD /* MainController.m in Sources */,
 				8FF965E819AE14E400ACE234 /* DDXMLNode+HTML.m in Sources */,
 				8FA3F9081982951500318069 /* OrigamiDetailViewController.m in Sources */,
+				8F3CC53419BE0C6D00FEAF1D /* IconDownloader.m in Sources */,
 				8FA4BE4B197FD5D300B2928F /* AppDelegate.m in Sources */,
 				8FA4BE54197FD5D300B2928F /* AllOrigamiViewController.m in Sources */,
 				8FA4BE47197FD5D300B2928F /* main.m in Sources */,

@@ -46,7 +46,9 @@
 	//     length: how big it is in bytes (NSNumber)
 	//     type: what its type is, a standard MIME type  (NSString)
 	NSArray *enclosures;
-
+    
+    UIImage *icon;
+    NSString *imageURLString;
 }
 
 @property (nonatomic, copy) NSString *identifier;
@@ -58,5 +60,8 @@
 @property (nonatomic, copy) NSString *content;
 @property (nonatomic, copy) NSString *author;
 @property (nonatomic, copy) NSArray *enclosures;
+
+@property (nonatomic, strong) NSString *imageURLString;
+@property (nonatomic, strong) UIImage *icon;
 
 @end
