@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MWFeedItem.h"
+#import "Origami.h"
 
 FOUNDATION_EXPORT NSString * const FavoritesChanged;
 
@@ -16,7 +16,7 @@ FOUNDATION_EXPORT NSString * const FavoritesChanged;
     NSUserDefaults *defaults;
 }
 
-@property (assign, nonatomic) MWFeedItem *item;
+@property (assign, nonatomic) Origami *origami;
 @property (assign, nonatomic) id delegate;
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;

@@ -172,9 +172,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MWFeedItem *item = [(Origami *)[origamisToDisplay objectAtIndex:indexPath.row] wrappedItem]; //TODO
+    Origami *origami = [origamisToDisplay objectAtIndex:indexPath.row];
     
-    [self performSegueWithIdentifier:@"detailSegue" sender:item];
+    [self performSegueWithIdentifier:@"detailSegue" sender:origami];
 
 }
 
@@ -184,7 +184,7 @@
     UIViewController *destination = segue.destinationViewController;
     
     if ([segue.identifier isEqualToString:@"detailSegue"])
-        [destination setValue:sender forKeyPath:@"item"];
+        [destination setValue:sender forKeyPath:@"origami"];
     
     [destination setValue:self forKeyPath:@"delegate"];
 }
