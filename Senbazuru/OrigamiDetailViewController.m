@@ -26,12 +26,23 @@ NSString * const FavoritesChanged = @"FavoritesChanged";
 {
     [super viewDidLoad];
     
-    //Webview init
-    [_webView setDelegate:self];
+    //Init
+    [self.webView setDelegate:self];
+    self.navigationItem.title = self.item.title;
     
     //Senbazuru scrapping
     NSString *modifiedHTML = [self parseHTML:self.item.summary showVideoButton:YES];
-    [_webView loadHTMLString:modifiedHTML baseURL:[NSURL URLWithString:@"http://domain.com"]];
+    [self.webView loadHTMLString:modifiedHTML baseURL:[NSURL URLWithString:@"http://domain.com"]];
+    
+    //NavigationBar additional buttons
+    UIBarButtonItem *shareButton         = [[UIBarButtonItem alloc]
+                                             initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+                                             target:self
+                                             action:@selector(shareOrigami:)];
+    
+  
+    
+    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:self.navigationItem.rightBarButtonItems.firstObject, shareButton, nil];
     
     //Defaults
     defaults = [NSUserDefaults standardUserDefaults];
@@ -45,6 +56,10 @@ NSString * const FavoritesChanged = @"FavoritesChanged";
     }
     
 }
+
+- (IBAction)shareOrigami:(id)sender {
+}
+
 
 //Scrap content of Senbazuru for this page (through DOM)
 -(NSString *)parseHTML:(NSString*)source showVideoButton:(BOOL)showVideoButton{
@@ -173,8 +188,12 @@ NSString * const FavoritesChanged = @"FavoritesChanged";
         }
     }
     
-    NSString *result = [htmlDocument description];
-    return result;
+    NSString *htmlString = [NSString stringWithFormat:@"<span style=\"font-family: %@; font-size: %i\">%@</span>",
+                  @"HelveticaNeue",
+                  14,
+                  [htmlDocument description]];
+
+    return htmlString;
 }
 
 
