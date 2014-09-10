@@ -7,7 +7,6 @@
 //
 
 #import "IconDownloader.h"
-#import "MWFeedItem.h"
 #import "DDXML+HTML.h"
 
 #define kAppIconSize 48
@@ -53,7 +52,7 @@
 {
     self.activeDownload = [NSMutableData data];
 
-    NSURLRequest *request = [NSURLRequest requestWithURL:[self getImageURL:self.item.summary]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[self getImageURL:self.origami.summary]];
     
     // alloc+init and start an NSURLConnection; release on completion/failure
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -95,12 +94,12 @@
 		UIGraphicsBeginImageContextWithOptions(itemSize, NO, 0.0f);
 		CGRect imageRect = CGRectMake(0.0, 0.0, itemSize.width, itemSize.height);
 		[image drawInRect:imageRect];
-		self.item.icon = UIGraphicsGetImageFromCurrentImageContext();
+		self.origami.icon = UIGraphicsGetImageFromCurrentImageContext();
 		UIGraphicsEndImageContext();
     }
     else
     {
-        self.item.icon = image;
+        self.origami.icon = image;
     }
     
     self.activeDownload = nil;

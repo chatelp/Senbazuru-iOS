@@ -9,23 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface FavoritesViewController : UITableViewController <UIScrollViewDelegate> {
-    // Parsing
-	NSArray *parsedItems;
-    NSArray *sortedParsedItems;
-	
-	// Displaying
-	NSMutableArray *itemsToDisplay;
-	NSDateFormatter *formatter;
-    
-    // Search
+   	NSArray *parsedOrigamis;
+    NSDateFormatter *formatter;
+    NSMutableArray *origamisToDisplay;
     NSArray *searchResults;
     
     // Defaults
     NSUserDefaults *defaults;
     NSArray *favorites;
 }
-
-// the set of ImageDownloader objects for each app
-@property (nonatomic, strong) NSMutableDictionary *imageDownloadsInProgress;
 
 @end

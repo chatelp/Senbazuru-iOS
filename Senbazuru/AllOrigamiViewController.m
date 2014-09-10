@@ -10,6 +10,7 @@
 #import "NSString+HTML.h"
 #import "MainController.h"
 #import "IconDownloader.h"
+#import "Origami.h"
 
 @implementation AllOrigamiViewController
 
@@ -24,8 +25,7 @@
 	formatter = [[NSDateFormatter alloc] init];
 	[formatter setDateStyle:NSDateFormatterShortStyle];
 	[formatter setTimeStyle:NSDateFormatterNoStyle];
-	itemsToDisplay = [NSArray array];
-    self.imageDownloadsInProgress = [NSMutableDictionary dictionary];
+    origamisToDisplay = [NSArray array];
     
     // Style des cellules de la recherche
     [self.searchDisplayController.searchResultsTableView setRowHeight:self.tableView.rowHeight];
@@ -46,13 +46,13 @@
 #pragma mark Parsing
 
 - (void)itemsParsed:(NSNotification *) notification {
-    parsedItems = ((MainController *)self.tabBarController).parsedItems;
+    parsedOrigamis = ((MainController *)self.tabBarController).parsedOrigamis;
     [self updateTable];
 }
 
 
 - (void)updateTable {
-	itemsToDisplay = [parsedItems sortedArrayUsingDescriptors:
+	origamisToDisplay = [parsedOrigamis sortedArrayUsingDescriptors:
 						   [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"date"
 																				 ascending:NO]]];
 	[self.tableView reloadData];
@@ -72,7 +72,7 @@
         return [searchResults count];
         
     } else {
-        return itemsToDisplay.count;
+        return origamisToDisplay.count;
     }
 }
 
@@ -89,76 +89,33 @@
 //    }
     
 	// Configure the cell to display
-	MWFeedItem *item = nil;
+	Origami *origami = nil;
     if (tableView == self.searchDisplayController.searchResultsTableView) {
-        item = [searchResults objectAtIndex:indexPath.row];
+        origami = [searchResults objectAtIndex:indexPath.row];
     } else {
-        item = [itemsToDisplay objectAtIndex:indexPath.row];
+        origami = [origamisToDisplay objectAtIndex:indexPath.row];
     }
     
-	if (item) {
-		
-		// Process
-		NSString *itemTitle = item.title ? [item.title stringByConvertingHTMLToPlainText] : @"[No Title]";
-		NSString *itemSummary = item.summary ? [item.summary stringByConvertingHTMLToPlainText] : @"[No Summary]";
-		
-		// Set
+	if (origami) {
+				
 		cell.textLabel.font = [UIFont boldSystemFontOfSize:15];
-		cell.textLabel.text = itemTitle;
+		cell.textLabel.text = origami.title;
 		NSMutableString *subtitle = [NSMutableString string];
-		if (item.date) [subtitle appendFormat:@"%@: ", [formatter stringFromDate:item.date]];
-		[subtitle appendString:itemSummary];
+		if (origami.date)
+            [subtitle appendFormat:@"%@: ", [formatter stringFromDate:origami.date]];
+		[subtitle appendString:origami.summaryPlainText];
 		cell.detailTextLabel.text = subtitle;
 
-        // Lazy image loading
-        // Only load cached images; defer new downloads until scrolling ends
-        if (!item.icon)
-        {
-            if (self.tableView.dragging == NO && self.tableView.decelerating == NO)
-            {
-                [self startIconDownload:item forIndexPath:indexPath];
-            }
-            // if a download is deferred or in progress, return a placeholder image
-            cell.imageView.image = [UIImage imageNamed:@"picture-50"];
-        }
-        else
-        {
-            cell.imageView.image = item.icon;
-        }
-
-		
+        
+        cell.imageView.image = [origami iconWithBlock:^{
+            cell.imageView.image = origami.icon;
+        }];
 	}
     return cell;
 }
 
 #pragma mark - Table cell image support
 
-// -------------------------------------------------------------------------------
-//	startIconDownload:forIndexPath:
-// -------------------------------------------------------------------------------
-- (void)startIconDownload:(MWFeedItem *)item forIndexPath:(NSIndexPath *)indexPath
-{
-    IconDownloader *iconDownloader = [self.imageDownloadsInProgress objectForKey:indexPath];
-    if (iconDownloader == nil)
-    {
-        iconDownloader = [[IconDownloader alloc] init];
-        iconDownloader.item = item;
-        [iconDownloader setCompletionHandler:^{
-            
-            UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-            
-            // Display the newly loaded image
-            cell.imageView.image = item.icon;
-            
-            // Remove the IconDownloader from the in progress list.
-            // This will result in it being deallocated.
-            [self.imageDownloadsInProgress removeObjectForKey:indexPath];
-            
-        }];
-        [self.imageDownloadsInProgress setObject:iconDownloader forKey:indexPath];
-        [iconDownloader startDownload];
-    }
-}
 
 // -------------------------------------------------------------------------------
 //	loadImagesForOnscreenRows
@@ -167,17 +124,20 @@
 // -------------------------------------------------------------------------------
 - (void)loadImagesForOnscreenRows
 {
-    if ([itemsToDisplay count] > 0)
+    if ([origamisToDisplay count] > 0)
     {
         NSArray *visiblePaths = [self.tableView indexPathsForVisibleRows];
         for (NSIndexPath *indexPath in visiblePaths)
         {
-            MWFeedItem *item = [itemsToDisplay objectAtIndex:indexPath.row];
+            Origami *origami = [origamisToDisplay objectAtIndex:indexPath.row];
+            UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
             
-            if (!item.icon)
+            if (!origami.icon)
                 // Avoid icon download if already has an icon
             {
-                [self startIconDownload:item forIndexPath:indexPath];
+                cell.imageView.image = [origami iconWithBlock:^{
+                    cell.imageView.image = origami.icon;
+                }];
             }
         }
     }
@@ -213,9 +173,9 @@
 {
     MWFeedItem *item = nil;
     if (tableView == self.searchDisplayController.searchResultsTableView) {
-        item = [searchResults objectAtIndex:indexPath.row];
+        item = [(Origami *)[searchResults objectAtIndex:indexPath.row] wrappedItem]; //TODO
     } else {
-        item = [itemsToDisplay objectAtIndex:indexPath.row];
+        item = [(Origami *)[origamisToDisplay objectAtIndex:indexPath.row] wrappedItem]; //TODO
     }
     
     [self performSegueWithIdentifier:@"detailSegue" sender:item];
@@ -238,7 +198,7 @@
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
 {
     NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"title contains[c] %@", searchText];
-    searchResults = [itemsToDisplay filteredArrayUsingPredicate:resultPredicate];
+    searchResults = [origamisToDisplay filteredArrayUsingPredicate:resultPredicate];
 }
 
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
@@ -259,11 +219,10 @@
     [super didReceiveMemoryWarning];
     
     // terminate all pending download connections
-    NSArray *allDownloads = [self.imageDownloadsInProgress allValues];
-    [allDownloads makeObjectsPerformSelector:@selector(cancelDownload)];
-    
-    [self.imageDownloadsInProgress removeAllObjects];
-
+    for (Origami *origami in origamisToDisplay) {
+        [origami.iconDownloader cancelDownload];
+        origami.iconDownloader = nil;
+    }
 }
 
 @end

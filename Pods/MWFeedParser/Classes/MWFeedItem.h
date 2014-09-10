@@ -61,7 +61,4 @@
 @property (nonatomic, copy) NSString *author;
 @property (nonatomic, copy) NSArray *enclosures;
 
-@property (nonatomic, strong) NSString *imageURLString;
-@property (nonatomic, strong) UIImage *icon;
-
 @end

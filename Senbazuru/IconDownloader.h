@@ -6,12 +6,11 @@
 //  Copyright (c) 2014 Pierre Chatel. All rights reserved.
 //
 
-@class MWFeedItem;
-
+#import "Origami.h"
 
 @interface IconDownloader : NSObject
 
-@property (nonatomic, strong) MWFeedItem *item;
+@property (nonatomic, strong) Origami *origami;
 @property (nonatomic, copy) void (^completionHandler)(void);
 
 - (void)startDownload;

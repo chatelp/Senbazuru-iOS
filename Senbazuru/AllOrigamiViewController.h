@@ -10,18 +10,10 @@
 #import "MWFeedParser.h"
 
 @interface AllOrigamiViewController : UITableViewController <UIScrollViewDelegate> {
-    // Parsing
-	NSArray *parsedItems;
-	
-	// Displaying
-	NSArray *itemsToDisplay;
-	NSDateFormatter *formatter;
-    
-    // Search
+	NSArray *parsedOrigamis;
+    NSDateFormatter *formatter;
+    NSArray *origamisToDisplay;
     NSArray *searchResults;
 }
-
-// the set of ImageDownloader objects for each app
-@property (nonatomic, strong) NSMutableDictionary *imageDownloadsInProgress;
 
 @end

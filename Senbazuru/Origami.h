@@ -9,13 +9,27 @@
 #import <Foundation/Foundation.h>
 #import "MWFeedItem.h"
 
+@class IconDownloader;
 
 @interface Origami : NSObject
 
+
+-(Origami *)initWithWrappedItem:(MWFeedItem *)item;
+
 @property (nonatomic, strong) MWFeedItem *wrappedItem;
 
+@property (nonatomic, readonly) NSDate *date;
+@property (nonatomic, readonly) NSString *title;
+@property (nonatomic, readonly) NSString *summary;
+@property (nonatomic, readonly) NSString *content;
+
+@property (nonatomic, readonly) NSString *summaryPlainText;
+@property (nonatomic, readonly) NSString *contentPlainText;
 @property (nonatomic, copy) UIImage *icon;
-@property (nonatomic, copy) NSString *imageURLString;
-@property (nonatomic, copy) NSString *parsedHTML;
+@property (nonatomic, readonly) NSString *parsedHTML;
+
+@property (nonatomic, strong) IconDownloader *iconDownloader;
+
+-(UIImage *) iconWithBlock:(void (^)(void))completionHandler;
 
 @end

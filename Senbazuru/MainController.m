@@ -7,6 +7,7 @@
 //
 
 #import "MainController.h"
+#import "Origami.h"
 
 static NSString *const senbazuruRSSfeed = @"http://senbazuru.fr/files/feed.xml";
 
@@ -20,7 +21,7 @@ NSString * const ItemsParsed = @"ItemsParsed";
 @implementation MainController
 
 
-@synthesize parsedItems;
+@synthesize parsedOrigamis;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,7 +41,7 @@ NSString * const ItemsParsed = @"ItemsParsed";
 }
 
 - (void)parseFeed {
-    parsedItems = [NSMutableArray array];
+    parsedOrigamis = [NSMutableArray array];
     
     NSURL *feedURL = [NSURL URLWithString:senbazuruRSSfeed];
 	
@@ -62,7 +63,9 @@ NSString * const ItemsParsed = @"ItemsParsed";
 
 - (void)feedParser:(MWFeedParser *)parser didParseFeedItem:(MWFeedItem *)item {
 	NSLog(@"Parsed Feed Item: “%@”", item.title);
-	if (item) [parsedItems addObject:item];
+	if (item) {
+        [parsedOrigamis addObject:[[Origami alloc] initWithWrappedItem:item]];
+    }
 }
 
 - (void)feedParserDidFinish:(MWFeedParser *)parser {
@@ -75,7 +78,7 @@ NSString * const ItemsParsed = @"ItemsParsed";
 - (void)feedParser:(MWFeedParser *)parser didFailWithError:(NSError *)error {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	NSLog(@"Finished Parsing With Error: %@", error);
-    if (parsedItems.count == 0) {
+    if (parsedOrigamis.count == 0) {
         [self handleError:error];
     } else {
         // Failed but some items parsed, so show and inform of error

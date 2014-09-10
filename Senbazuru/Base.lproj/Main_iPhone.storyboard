@@ -126,7 +126,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="prototypeCell" textLabel="dMj-8S-gbi" detailTextLabel="v44-Zd-XpZ" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="jS5-7j-Wdc">
+                            <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PrototypeCell" textLabel="dMj-8S-gbi" detailTextLabel="v44-Zd-XpZ" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="jS5-7j-Wdc">
                                 <rect key="frame" x="0.0" y="86" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jS5-7j-Wdc" id="3AQ-XT-9XB">
@@ -300,6 +300,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="hJa-be-aZk"/>
+        <segue reference="RJy-t5-fD8"/>
     </inferredMetricsTieBreakers>
 </document>

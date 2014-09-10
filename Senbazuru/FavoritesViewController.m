@@ -25,7 +25,7 @@
 	formatter = [[NSDateFormatter alloc] init];
 	[formatter setDateStyle:NSDateFormatterShortStyle];
 	[formatter setTimeStyle:NSDateFormatterNoStyle];
-	itemsToDisplay = [NSMutableArray array];
+	origamisToDisplay = [NSMutableArray array];
 
     //Defaults
     defaults = [NSUserDefaults standardUserDefaults];
@@ -50,7 +50,7 @@
 #pragma mark Parsing and updating
 
 - (void)itemsParsed:(NSNotification *) notification {
-    parsedItems = ((MainController *)self.tabBarController).parsedItems;
+    parsedOrigamis = ((MainController *)self.tabBarController).parsedOrigamis;
     [self updateTable];
 }
 
@@ -59,16 +59,15 @@
 }
 
 - (void)updateTable {
-    if(!sortedParsedItems)
-        sortedParsedItems = [parsedItems sortedArrayUsingDescriptors:
-                             [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"date"
-                                                                                  ascending:NO]]];
+    NSArray *sortedParsedOrigamis = [parsedOrigamis sortedArrayUsingDescriptors:
+                         [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"date"
+                                                                              ascending:NO]]];
     favorites = [defaults arrayForKey:@"Favorites"];
     
-    itemsToDisplay = [NSMutableArray array];
-    for (MWFeedItem *item in sortedParsedItems) {
-        if ([favorites containsObject:item.title]) {
-            [itemsToDisplay addObject:item];
+    origamisToDisplay = [NSMutableArray array];
+    for (Origami *origami in sortedParsedOrigamis) {
+        if ([favorites containsObject:origami.title]) {
+            [origamisToDisplay addObject:origami];
         }
     }
     
@@ -80,91 +79,44 @@
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return itemsToDisplay.count;
+    return origamisToDisplay.count;
 }
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"PrototypeCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    //    if (cell == nil) {
+    //        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    //		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    //    }
     
 	// Configure the cell to display
-	MWFeedItem *item = nil;
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
-        item = [searchResults objectAtIndex:indexPath.row];
-    } else {
-        item = [itemsToDisplay objectAtIndex:indexPath.row];
-    }
+	Origami *origami = [origamisToDisplay objectAtIndex:indexPath.row];
     
-	if (item) {
-		
-		// Process
-		NSString *itemTitle = item.title ? [item.title stringByConvertingHTMLToPlainText] : @"[No Title]";
-		NSString *itemSummary = item.summary ? [item.summary stringByConvertingHTMLToPlainText] : @"[No Summary]";
-		
-		// Set
+	if (origami) {
+        
 		cell.textLabel.font = [UIFont boldSystemFontOfSize:15];
-		cell.textLabel.text = itemTitle;
+		cell.textLabel.text = origami.title;
 		NSMutableString *subtitle = [NSMutableString string];
-		if (item.date) [subtitle appendFormat:@"%@: ", [formatter stringFromDate:item.date]];
-		[subtitle appendString:itemSummary];
+		if (origami.date)
+            [subtitle appendFormat:@"%@: ", [formatter stringFromDate:origami.date]];
+		[subtitle appendString:origami.summaryPlainText];
 		cell.detailTextLabel.text = subtitle;
         
-        // Lazy image loading
-        // Only load cached images; defer new downloads until scrolling ends
-        if (!item.icon)
-        {
-            if (self.tableView.dragging == NO && self.tableView.decelerating == NO)
-            {
-                [self startIconDownload:item forIndexPath:indexPath];
-            }
-            // if a download is deferred or in progress, return a placeholder image
-            cell.imageView.image = [UIImage imageNamed:@"picture-50"];
-        }
-        else
-        {
-            cell.imageView.image = item.icon;
-        }
-
-		
+        
+        cell.imageView.image = [origami iconWithBlock:^{
+            cell.imageView.image = origami.icon;
+        }];
 	}
     return cell;
 }
 
 #pragma mark - Table cell image support
 
-// -------------------------------------------------------------------------------
-//	startIconDownload:forIndexPath:
-// -------------------------------------------------------------------------------
-- (void)startIconDownload:(MWFeedItem *)item forIndexPath:(NSIndexPath *)indexPath
-{
-    IconDownloader *iconDownloader = [self.imageDownloadsInProgress objectForKey:indexPath];
-    if (iconDownloader == nil)
-    {
-        iconDownloader = [[IconDownloader alloc] init];
-        iconDownloader.item = item;
-        [iconDownloader setCompletionHandler:^{
-            
-            UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-            
-            // Display the newly loaded image
-            cell.imageView.image = item.icon;
-            
-            // Remove the IconDownloader from the in progress list.
-            // This will result in it being deallocated.
-            [self.imageDownloadsInProgress removeObjectForKey:indexPath];
-            
-        }];
-        [self.imageDownloadsInProgress setObject:iconDownloader forKey:indexPath];
-        [iconDownloader startDownload];
-    }
-}
 
 // -------------------------------------------------------------------------------
 //	loadImagesForOnscreenRows
@@ -173,17 +125,20 @@
 // -------------------------------------------------------------------------------
 - (void)loadImagesForOnscreenRows
 {
-    if ([itemsToDisplay count] > 0)
+    if ([origamisToDisplay count] > 0)
     {
         NSArray *visiblePaths = [self.tableView indexPathsForVisibleRows];
         for (NSIndexPath *indexPath in visiblePaths)
         {
-            MWFeedItem *item = [itemsToDisplay objectAtIndex:indexPath.row];
+            Origami *origami = [origamisToDisplay objectAtIndex:indexPath.row];
+            UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
             
-            if (!item.icon)
+            if (!origami.icon)
                 // Avoid icon download if already has an icon
             {
-                [self startIconDownload:item forIndexPath:indexPath];
+                cell.imageView.image = [origami iconWithBlock:^{
+                    cell.imageView.image = origami.icon;
+                }];
             }
         }
     }
@@ -217,10 +172,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MWFeedItem *item = nil;
-    item = [itemsToDisplay objectAtIndex:indexPath.row];
+    MWFeedItem *item = [(Origami *)[origamisToDisplay objectAtIndex:indexPath.row] wrappedItem]; //TODO
     
     [self performSegueWithIdentifier:@"detailSegue" sender:item];
+
 }
 
 
@@ -242,7 +197,12 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+    // terminate all pending download connections
+    for (Origami *origami in origamisToDisplay) {
+        [origami.iconDownloader cancelDownload];
+        origami.iconDownloader = nil;
+    }
 }
 
 @end

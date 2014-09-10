@@ -14,11 +14,11 @@ FOUNDATION_EXPORT NSString * const ItemsParsed;
 @interface MainController : UITabBarController <MWFeedParserDelegate> {
     // Parsing
 	MWFeedParser *feedParser;
-	NSMutableArray *parsedItems;
+    NSMutableArray *parsedOrigamis;
 }
 
 - (void)parseFeed;
 
-@property (nonatomic, copy) NSArray *parsedItems;
+@property (nonatomic, copy) NSArray *parsedOrigamis;
 
 @end
