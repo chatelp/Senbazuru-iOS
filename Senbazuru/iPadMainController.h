@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MWFeedParser.h"
 
-@interface iPadMainController : UISplitViewController
+@interface iPadMainController : UISplitViewController <MWFeedParserDelegate> {
+    // Parsing
+	MWFeedParser *feedParser;
+    NSMutableArray *parsedOrigamis;
+}
+
+- (void)parseFeed;
+
+@property (nonatomic, copy) NSArray *parsedOrigamis;
 
 @end

@@ -8,15 +8,9 @@
 
 #import "MainController.h"
 #import "Origami.h"
+#import "Constants.h"
 
 static NSString *const senbazuruRSSfeed = @"http://senbazuru.fr/files/feed.xml";
-
-NSString * const ItemsParsed = @"ItemsParsed";
-
-
-@interface MainController ()
-
-@end
 
 @implementation MainController
 

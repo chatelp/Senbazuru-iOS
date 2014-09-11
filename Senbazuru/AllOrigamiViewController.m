@@ -9,8 +9,10 @@
 #import "AllOrigamiViewController.h"
 #import "NSString+HTML.h"
 #import "MainController.h"
+#import "iPadMainController.h"
 #import "IconDownloader.h"
 #import "Origami.h"
+#import "Constants.h"
 
 @implementation AllOrigamiViewController
 
@@ -46,7 +48,11 @@
 #pragma mark Parsing
 
 - (void)itemsParsed:(NSNotification *) notification {
-    parsedOrigamis = ((MainController *)self.tabBarController).parsedOrigamis;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        parsedOrigamis = ((iPadMainController *)self.splitViewController).parsedOrigamis;
+    } else {
+        parsedOrigamis = ((MainController *)self.tabBarController).parsedOrigamis;
+    }
     [self updateTable];
 }
 
@@ -178,7 +184,9 @@
         origami = [origamisToDisplay objectAtIndex:indexPath.row];
     }
     
-    [self performSegueWithIdentifier:@"detailSegue" sender:origami];
+    if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) {
+        [self performSegueWithIdentifier:@"detailSegue" sender:origami];
+    }
 }
 
 
