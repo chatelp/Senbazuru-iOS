@@ -52,14 +52,12 @@
                             <outlet property="delegate" destination="CZ4-MO-1fc" id="GwM-T9-X9y"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Tous nos origami" id="Tuo-PI-tSq"/>
+                    <navigationItem key="navigationItem" title="Tous nos origamis" id="Tuo-PI-tSq"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="Kou-ZU-5Am" id="CSf-i4-wLl"/>
-                        <outlet property="tableView" destination="HmZ-RL-gAt" id="6BQ-tt-7WI"/>
                         <segue destination="24f-52-Zav" kind="push" identifier="detailSegue" id="hJa-be-aZk"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
                 <searchDisplayController id="Kou-ZU-5Am">
                     <connections>
                         <outlet property="delegate" destination="CZ4-MO-1fc" id="zFC-YN-Duf"/>
@@ -69,6 +67,7 @@
                         <outlet property="searchResultsDelegate" destination="CZ4-MO-1fc" id="n6g-mX-lme"/>
                     </connections>
                 </searchDisplayController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1457" y="-134"/>
         </scene>
@@ -181,11 +180,11 @@
             </objects>
             <point key="canvasLocation" x="140" y="590"/>
         </scene>
-        <!--Navigation Controller - Pliages-->
+        <!--Navigation Controller - Origamis-->
         <scene sceneID="uI2-hI-Umm">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xKX-ns-rXN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Pliages" image="home" id="u1e-5L-l1D"/>
+                    <tabBarItem key="tabBarItem" title="Origamis" image="home" id="u1e-5L-l1D"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kb1-Qj-2vQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

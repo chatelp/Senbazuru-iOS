@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		76BA592B75294FBCB211A7EE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F16AC8CBAD4F4B02B8F719A7 /* libPods.a */; };
 		8F0F978E19C07ACB00D729C7 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F0F978C19C07A3000D729C7 /* Social.framework */; };
+		8F17629C19C180F100EC8577 /* iPadMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F17629B19C180F100EC8577 /* iPadMainController.m */; };
 		8F3CC53419BE0C6D00FEAF1D /* IconDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F3CC53319BE0C6D00FEAF1D /* IconDownloader.m */; };
 		8F3CC53819BEEDE100FEAF1D /* Origami.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F3CC53719BEEDE100FEAF1D /* Origami.m */; };
 		8F63A02A19B21C6400918FCD /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F63A02919B21C6400918FCD /* MainController.m */; };
@@ -48,6 +49,8 @@
 
 /* Begin PBXFileReference section */
 		8F0F978C19C07A3000D729C7 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		8F17629A19C180F100EC8577 /* iPadMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadMainController.h; sourceTree = "<group>"; };
+		8F17629B19C180F100EC8577 /* iPadMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadMainController.m; sourceTree = "<group>"; };
 		8F3CC53219BE0C6D00FEAF1D /* IconDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconDownloader.h; sourceTree = "<group>"; };
 		8F3CC53319BE0C6D00FEAF1D /* IconDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconDownloader.m; sourceTree = "<group>"; };
 		8F3CC53619BEEDE100FEAF1D /* Origami.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Origami.h; sourceTree = "<group>"; };
@@ -171,6 +174,8 @@
 				8FA4BE4A197FD5D300B2928F /* AppDelegate.m */,
 				8F63A02819B21C6400918FCD /* MainController.h */,
 				8F63A02919B21C6400918FCD /* MainController.m */,
+				8F17629A19C180F100EC8577 /* iPadMainController.h */,
+				8F17629B19C180F100EC8577 /* iPadMainController.m */,
 				8FA3F9061982951500318069 /* OrigamiDetailViewController.h */,
 				8FA3F9071982951500318069 /* OrigamiDetailViewController.m */,
 				8FA4BE52197FD5D300B2928F /* AllOrigamiViewController.h */,
@@ -376,6 +381,7 @@
 				8FA4BE54197FD5D300B2928F /* AllOrigamiViewController.m in Sources */,
 				8FA4BE47197FD5D300B2928F /* main.m in Sources */,
 				8FF965E719AE14E400ACE234 /* DDXMLDocument+HTML.m in Sources */,
+				8F17629C19C180F100EC8577 /* iPadMainController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
