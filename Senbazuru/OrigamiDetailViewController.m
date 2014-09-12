@@ -27,9 +27,6 @@
     //Init
     [self.webView setDelegate:self];
 
-    //If origami already assigned, display it (iPhone/segue case)
-    [self configureView];
-    
     //NavigationBar additional buttons
     UIBarButtonItem *shareButton = [[UIBarButtonItem alloc]
                                     initWithBarButtonSystemItem:UIBarButtonSystemItemAction
@@ -40,15 +37,10 @@
     
     //Defaults
     defaults = [NSUserDefaults standardUserDefaults];
-    NSArray *favorites = [defaults arrayForKey:@"Favorites"];
-    if(favorites) {
-        if([favorites containsObject:self.origami.title]) {
-            [_favoriteButton setImage:[UIImage imageNamed:@"like-50_selected"] forState:UIControlStateSelected];
-            [_favoriteButton setSelected:YES];
-
-        }
-    }
     
+
+    //If origami already assigned, display it (iPhone/segue case)
+    [self configureView];
 }
 
 // Update user interface elements for assigned origami
@@ -57,6 +49,16 @@
     if (self.origami && self.isViewLoaded) {
         self.navigationItem.title = self.origami.title;
         [self.webView loadHTMLString:self.origami.parsedHTML baseURL:[NSURL URLWithString:@"http://domain.com"]];
+        
+        NSArray *favorites = [defaults arrayForKey:@"Favorites"];
+        if(favorites) {
+            if([favorites containsObject:self.origami.title]) {
+                [_favoriteButton setImage:[UIImage imageNamed:@"like-50_selected"] forState:UIControlStateSelected];
+                [_favoriteButton setSelected:YES];
+            } else {
+                [_favoriteButton setSelected:NO];
+            }
+        }
     }
 }
 

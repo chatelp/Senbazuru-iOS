@@ -34,7 +34,7 @@
     
     NSArray *results = [rootElement nodesForXPath:@"//img" error:&error];
     
-    NSString *imageURL = @"http://www.senbazuru.fr/files/gyroscope.jpg"; //TODO Changer vers une URL d'image placeholder dediée
+    NSString *imageURL = @"http://www.senbazuru.fr/ios/logo_senbazuru_smallest.png";
     
     if ((results != nil) && [results count] > 0) {
         
