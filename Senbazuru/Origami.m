@@ -221,8 +221,29 @@
     
     DDXMLElement *rootElement = [htmlDocument rootElement];
     
-    //1 - change la taille des images
-    NSArray *results = [rootElement nodesForXPath:@"//img" error:&error];
+    //1 - Ajout d'un <head> pour redimensionnement auto en fonction de l'écran (rotation,...)
+//    NSString *headString = @"<head><meta name=\"viewport\" content=\"width=device-width\" /></head>";
+//    DDXMLElement *head = [[DDXMLElement alloc] initWithXMLString:headString error:&error];
+//    [rootElement insertChild:head atIndex:0];
+   
+     //2 - change la police d'écriture et sa taille
+    
+    NSString *spanString = [NSString stringWithFormat:@"<span style=\"font-family: %@; font-size: %i\"></span>",
+                            @"HelveticaNeue",
+                            14];
+    DDXMLElement *span = [[DDXMLElement alloc] initWithXMLString:spanString error:&error];
+    //[DDXMLElement elementWithName:@"span"];
+    NSArray *results = [rootElement nodesForXPath:@"//body" error:&error];
+    DDXMLElement *body = results.firstObject;
+    NSArray *bodyChildren = body.children;
+    for(DDXMLNode *node in bodyChildren) {
+        [node detach];
+    }
+    [span setChildren:bodyChildren];
+    [body addChild:span];
+    
+    //3 - change la taille des images
+    results = [rootElement nodesForXPath:@"//img" error:&error];
     for (DDXMLElement *img in results) {
         
         DDXMLNode *width = [img attributeForName:@"width"];
@@ -231,13 +252,13 @@
         [width setStringValue:@"300"];
     }
     
-    //2 - supprime les <br> supperflus
+    //4 - supprime les <br> supperflus
     results = [rootElement nodesForXPath:@"//br" error:&error];
     for (DDXMLElement *breaks in results) {
         [breaks detach];
     }
     
-    //3 - change la taille des videos youtubes OU remplace par des bouttons (CAS <iframe>)
+    //5 - change la taille des videos youtubes OU remplace par des bouttons (CAS <iframe>)
     results = [rootElement nodesForXPath:@"//iframe" error:&error];
     
     for (DDXMLElement *iframe in results) {
@@ -287,7 +308,7 @@
         
     }
     
-    //4 - change la taille des videos youtubes OU remplace par des bouttons (CAS <embed>)
+    //6 - change la taille des videos youtubes OU remplace par des bouttons (CAS <embed>)
     if(results == nil || [results count] == 0) {
         results = [rootElement nodesForXPath:@"//embed" error:&error];
         
@@ -338,12 +359,8 @@
         }
     }
     
-    NSString *htmlString = [NSString stringWithFormat:@"<span style=\"font-family: %@; font-size: %i\">%@</span>",
-                            @"HelveticaNeue",
-                            14,
-                            [htmlDocument description]];
     
-    return htmlString;
+    return [htmlDocument description];
 }
 
 @end

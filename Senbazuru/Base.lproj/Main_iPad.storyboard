@@ -9,10 +9,9 @@
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="E2o-cr-NU8" customClass="AllOrigamiViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="vw5-L8-diD">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <searchBar key="tableHeaderView" appearanceType="aqua" contentMode="redraw" id="fhX-6w-uv7">
                             <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -96,7 +95,6 @@
                 <splitViewController id="s0G-U8-C2g" customClass="iPadMainController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home - Split" image="home" id="WKO-bF-eCu"/>
                     <toolbarItems/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <segue destination="fDD-tH-QNJ" kind="relationship" relationship="detailViewController" id="qh2-H7-QEr"/>
                         <segue destination="zOc-EL-pBR" kind="relationship" relationship="masterViewController" id="FcH-Rf-Sjg"/>
@@ -174,23 +172,22 @@
                         <viewControllerLayoutGuide type="bottom" id="8aX-hq-N1C"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ArC-5n-ACy">
-                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView appearanceType="aqua" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qtA-ki-BUP">
-                                <rect key="frame" x="-1" y="1" width="703" height="768"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="ILA-wV-wWC">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="KWy-aO-1Qu">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7VZ-9Q-Moj">
-                                <rect key="frame" x="662" y="9" width="25" height="25"/>
+                                <rect key="frame" x="727" y="9" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="like-50">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -274,10 +271,9 @@
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="XTw-H0-N6I" customClass="FavoritesViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="mjQ-HL-eI0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PrototypeCell" textLabel="Unw-5J-VT4" detailTextLabel="mmu-LM-IkT" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="pbw-vu-D5I">
                                 <rect key="frame" x="0.0" y="86" width="320" height="60"/>

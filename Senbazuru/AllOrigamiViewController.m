@@ -10,6 +10,7 @@
 #import "NSString+HTML.h"
 #import "MainController.h"
 #import "iPadMainController.h"
+#import "iPadDetailViewController.h"
 #import "IconDownloader.h"
 #import "Origami.h"
 #import "Constants.h"
@@ -184,7 +185,12 @@
         origami = [origamisToDisplay objectAtIndex:indexPath.row];
     }
     
-    if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) {
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        //For iPad -> due to splitViewUsage can't rely on segue to pass data to OrigamiDetailViewController
+        iPadDetailViewController * iPadDetailViewController = [self.splitViewController.viewControllers objectAtIndex:1]; //Right Hand Side: Detail View Controller
+        iPadDetailViewController.origami = origami;
+    } else {
+        //For iPhone -> use segue to pass data to OrigamiDetailViewController
         [self performSegueWithIdentifier:@"detailSegue" sender:origami];
     }
 }

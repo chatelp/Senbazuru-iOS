@@ -83,7 +83,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="az3-JS-Lc1">
+                            <webView appearanceType="aqua" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="az3-JS-Lc1">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -91,6 +91,12 @@
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="az3-JS-Lc1" secondAttribute="trailing" id="M6U-Lo-aWU"/>
+                            <constraint firstItem="az3-JS-Lc1" firstAttribute="top" secondItem="uos-uI-9p1" secondAttribute="top" id="Rwn-si-rz4"/>
+                            <constraint firstItem="az3-JS-Lc1" firstAttribute="leading" secondItem="uos-uI-9p1" secondAttribute="leading" id="gCM-1n-gWI"/>
+                            <constraint firstAttribute="bottom" secondItem="az3-JS-Lc1" secondAttribute="bottom" id="gsQ-8U-Z90"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bss-dF-l1i">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="D8m-JZ-lXT">

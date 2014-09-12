@@ -27,10 +27,11 @@ NSString * const FavoritesChanged = @"FavoritesChanged";
     
     //Init
     [self.webView setDelegate:self];
-    self.navigationItem.title = self.origami.title;
-    
-    //Webview init
-    [self.webView loadHTMLString:self.origami.parsedHTML baseURL:[NSURL URLWithString:@"http://domain.com"]];
+
+    if(self.origami) {
+        self.navigationItem.title = self.origami.title;
+        [self.webView loadHTMLString:self.origami.parsedHTML baseURL:[NSURL URLWithString:@"http://domain.com"]];
+    }
     
     //NavigationBar additional buttons
     UIBarButtonItem *shareButton         = [[UIBarButtonItem alloc]
@@ -55,6 +56,29 @@ NSString * const FavoritesChanged = @"FavoritesChanged";
     
 }
 
+//Handle rotation in split view (iPad)
+- (void)viewDidAppear:(BOOL)animated
+{
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        [self.webView setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+}
+
+//Handle rotation in split view (iPad)
+- (void)willAnimateRotationToInterfaceOrientation: (UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        [self.webView setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+}
+
+-(void) setOrigami:(Origami *)origami {
+    _origami = origami;
+    
+    if(self.isViewLoaded) {
+        self.navigationItem.title = self.origami.title;
+        [self.webView loadHTMLString:self.origami.parsedHTML baseURL:[NSURL URLWithString:@"http://domain.com"]];
+    }
+
+}
 
 
 #pragma mark -
