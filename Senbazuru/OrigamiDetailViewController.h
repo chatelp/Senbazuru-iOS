@@ -9,9 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "Origami.h"
 
-FOUNDATION_EXPORT NSString * const FavoritesChanged;
-
-
 @interface OrigamiDetailViewController : UIViewController <UIWebViewDelegate> {
     NSUserDefaults *defaults;
 }

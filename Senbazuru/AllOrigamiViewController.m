@@ -10,7 +10,6 @@
 #import "NSString+HTML.h"
 #import "MainController.h"
 #import "iPadMainController.h"
-#import "iPadDetailViewController.h"
 #import "IconDownloader.h"
 #import "Origami.h"
 #import "Constants.h"
@@ -19,6 +18,12 @@
 
 #pragma mark -
 #pragma mark View lifecycle
+
+- (void)awakeFromNib
+{
+    //self.clearsSelectionOnViewWillAppear = NO;
+    [super awakeFromNib];
+}
 
 - (void)viewDidLoad
 {
@@ -29,6 +34,10 @@
 	[formatter setDateStyle:NSDateFormatterShortStyle];
 	[formatter setTimeStyle:NSDateFormatterNoStyle];
     origamisToDisplay = [NSArray array];
+    
+    // iPad (splitView)
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        self.detailViewController = (OrigamiDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
     // Style des cellules de la recherche
     [self.searchDisplayController.searchResultsTableView setRowHeight:self.tableView.rowHeight];
@@ -67,11 +76,6 @@
 
 #pragma mark -
 #pragma mark Table view data source
-
-// Customize the number of sections in the table view.
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//    return 1;
-//}
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -187,8 +191,7 @@
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         //For iPad -> due to splitViewUsage can't rely on segue to pass data to OrigamiDetailViewController
-        iPadDetailViewController * iPadDetailViewController = [self.splitViewController.viewControllers objectAtIndex:1]; //Right Hand Side: Detail View Controller
-        iPadDetailViewController.origami = origami;
+        self.detailViewController.origami = origami;
     } else {
         //For iPhone -> use segue to pass data to OrigamiDetailViewController
         [self performSegueWithIdentifier:@"detailSegue" sender:origami];

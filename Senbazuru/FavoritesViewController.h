@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OrigamiDetailViewController.h"
 
 @interface FavoritesViewController : UITableViewController <UIScrollViewDelegate> {
    	NSArray *parsedOrigamis;
@@ -18,5 +19,8 @@
     NSUserDefaults *defaults;
     NSArray *favorites;
 }
+
+//iPad
+@property (strong, nonatomic) OrigamiDetailViewController *detailViewController;
 
 @end

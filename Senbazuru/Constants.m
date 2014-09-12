@@ -9,3 +9,4 @@
 #import "Constants.h"
 
 NSString * const ItemsParsed = @"ItemsParsed";
+NSString * const FavoritesChanged = @"FavoritesChanged";

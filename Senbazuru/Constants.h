@@ -10,5 +10,6 @@
 #define Senbazuru_Constants_h
 
 FOUNDATION_EXPORT NSString * const ItemsParsed;
+FOUNDATION_EXPORT NSString * const FavoritesChanged;
 
 #endif

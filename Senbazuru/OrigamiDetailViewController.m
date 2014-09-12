@@ -7,8 +7,7 @@
 //
 
 #import "OrigamiDetailViewController.h"
-
-NSString * const FavoritesChanged = @"FavoritesChanged";
+#import "Constants.h"
 
 @implementation OrigamiDetailViewController
 
@@ -28,18 +27,14 @@ NSString * const FavoritesChanged = @"FavoritesChanged";
     //Init
     [self.webView setDelegate:self];
 
-    if(self.origami) {
-        self.navigationItem.title = self.origami.title;
-        [self.webView loadHTMLString:self.origami.parsedHTML baseURL:[NSURL URLWithString:@"http://domain.com"]];
-    }
+    //If origami already assigned, display it (iPhone/segue case)
+    [self configureView];
     
     //NavigationBar additional buttons
-    UIBarButtonItem *shareButton         = [[UIBarButtonItem alloc]
-                                             initWithBarButtonSystemItem:UIBarButtonSystemItemAction
-                                             target:self
-                                             action:@selector(shareOrigami:)];
-    
-  
+    UIBarButtonItem *shareButton = [[UIBarButtonItem alloc]
+                                    initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+                                    target:self
+                                    action:@selector(shareOrigami:)];
     
     self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:self.navigationItem.rightBarButtonItems.firstObject, shareButton, nil];
     
@@ -56,28 +51,34 @@ NSString * const FavoritesChanged = @"FavoritesChanged";
     
 }
 
-//Handle rotation in split view (iPad)
+// Update user interface elements for assigned origami
+- (void)configureView
+{
+    if (self.origami && self.isViewLoaded) {
+        self.navigationItem.title = self.origami.title;
+        [self.webView loadHTMLString:self.origami.parsedHTML baseURL:[NSURL URLWithString:@"http://domain.com"]];
+    }
+}
+
+// Handle rotation in split view (iPad)
 - (void)viewDidAppear:(BOOL)animated
 {
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
         [self.webView setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
 }
 
-//Handle rotation in split view (iPad)
+// Handle rotation in split view (iPad)
 - (void)willAnimateRotationToInterfaceOrientation: (UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
         [self.webView setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
 }
 
--(void) setOrigami:(Origami *)origami {
+// Update interface when origami is assigned
+-(void) setOrigami:(Origami *)origami
+{
     _origami = origami;
-    
-    if(self.isViewLoaded) {
-        self.navigationItem.title = self.origami.title;
-        [self.webView loadHTMLString:self.origami.parsedHTML baseURL:[NSURL URLWithString:@"http://domain.com"]];
-    }
-
+    [self configureView];
 }
 
 
@@ -133,6 +134,9 @@ NSString * const FavoritesChanged = @"FavoritesChanged";
 
 }
 
+- (IBAction)aboutSenbazuru:(id)sender {
+}
+
 #pragma mark -
 #pragma mark Web view delegate
 
@@ -149,6 +153,15 @@ NSString * const FavoritesChanged = @"FavoritesChanged";
     return YES;
 }
 
+
+#pragma mark -
+#pragma mark iPad UISplitView delegate
+
+- (BOOL)splitViewController:(UISplitViewController *)svc shouldHideViewController:(UIViewController *)vc inOrientation:(UIInterfaceOrientation)orientation {
+    return NO;
+}
+
+
 #pragma mark -
 #pragma mark Other
 
@@ -157,17 +170,6 @@ NSString * const FavoritesChanged = @"FavoritesChanged";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 
 @end

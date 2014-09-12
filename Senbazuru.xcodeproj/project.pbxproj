@@ -10,7 +10,6 @@
 		76BA592B75294FBCB211A7EE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F16AC8CBAD4F4B02B8F719A7 /* libPods.a */; };
 		8F0F978E19C07ACB00D729C7 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F0F978C19C07A3000D729C7 /* Social.framework */; };
 		8F17629C19C180F100EC8577 /* iPadMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F17629B19C180F100EC8577 /* iPadMainController.m */; };
-		8F1762E619C1CC0600EC8577 /* iPadDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1762E519C1CC0600EC8577 /* iPadDetailViewController.m */; };
 		8F1762EA19C1F2D100EC8577 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1762E919C1F2D100EC8577 /* Constants.m */; };
 		8F3CC53419BE0C6D00FEAF1D /* IconDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F3CC53319BE0C6D00FEAF1D /* IconDownloader.m */; };
 		8F3CC53819BEEDE100FEAF1D /* Origami.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F3CC53719BEEDE100FEAF1D /* Origami.m */; };
@@ -52,8 +51,6 @@
 		8F0F978C19C07A3000D729C7 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		8F17629A19C180F100EC8577 /* iPadMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadMainController.h; sourceTree = "<group>"; };
 		8F17629B19C180F100EC8577 /* iPadMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadMainController.m; sourceTree = "<group>"; };
-		8F1762E419C1CC0600EC8577 /* iPadDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadDetailViewController.h; sourceTree = "<group>"; };
-		8F1762E519C1CC0600EC8577 /* iPadDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadDetailViewController.m; sourceTree = "<group>"; };
 		8F1762E819C1F25600EC8577 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		8F1762E919C1F2D100EC8577 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		8F3CC53219BE0C6D00FEAF1D /* IconDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconDownloader.h; sourceTree = "<group>"; };
@@ -138,8 +135,6 @@
 			children = (
 				8F17629A19C180F100EC8577 /* iPadMainController.h */,
 				8F17629B19C180F100EC8577 /* iPadMainController.m */,
-				8F1762E419C1CC0600EC8577 /* iPadDetailViewController.h */,
-				8F1762E519C1CC0600EC8577 /* iPadDetailViewController.m */,
 			);
 			name = iPad;
 			sourceTree = "<group>";
@@ -403,7 +398,6 @@
 				8F1762EA19C1F2D100EC8577 /* Constants.m in Sources */,
 				8FA4BE54197FD5D300B2928F /* AllOrigamiViewController.m in Sources */,
 				8FA4BE47197FD5D300B2928F /* main.m in Sources */,
-				8F1762E619C1CC0600EC8577 /* iPadDetailViewController.m in Sources */,
 				8FF965E719AE14E400ACE234 /* DDXMLDocument+HTML.m in Sources */,
 				8F17629C19C180F100EC8577 /* iPadMainController.m in Sources */,
 			);

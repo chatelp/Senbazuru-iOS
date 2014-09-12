@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MWFeedParser.h"
+#import "OrigamiDetailViewController.h"
 
 @interface AllOrigamiViewController : UITableViewController <UIScrollViewDelegate> {
 	NSArray *parsedOrigamis;
@@ -15,5 +15,9 @@
     NSArray *origamisToDisplay;
     NSArray *searchResults;
 }
+
+//iPad
+@property (strong, nonatomic) OrigamiDetailViewController *detailViewController;
+
 
 @end

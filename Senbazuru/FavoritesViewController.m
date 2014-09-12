@@ -29,6 +29,11 @@
 	[formatter setTimeStyle:NSDateFormatterNoStyle];
 	origamisToDisplay = [NSMutableArray array];
 
+    // iPad (splitView)
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        self.detailViewController = (OrigamiDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+
+    
     //Defaults
     defaults = [NSUserDefaults standardUserDefaults];
 
@@ -180,9 +185,14 @@
 {
     Origami *origami = [origamisToDisplay objectAtIndex:indexPath.row];
     
-    if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) {
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        //For iPad -> due to splitViewUsage can't rely on segue to pass data to OrigamiDetailViewController
+        self.detailViewController.origami = origami;
+    } else {
+        //For iPhone -> use segue to pass data to OrigamiDetailViewController
         [self performSegueWithIdentifier:@"detailSegue" sender:origami];
     }
+
 }
 
 
