@@ -185,7 +185,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="ILA-wV-wWC">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="KWy-aO-1Qu">
+                        <barButtonItem key="rightBarButtonItem" id="KWy-aO-1Qu">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7VZ-9Q-Moj">
                                 <rect key="frame" x="727" y="9" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
