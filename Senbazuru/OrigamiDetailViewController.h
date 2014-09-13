@@ -11,6 +11,7 @@
 
 @interface OrigamiDetailViewController : UIViewController <UIWebViewDelegate> {
     NSUserDefaults *defaults;
+    NSMutableArray *haikus;
 }
 
 @property (assign, nonatomic) Origami *origami;
@@ -20,4 +21,9 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *favoriteButtonItem;
 @property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
 
+@property (weak, nonatomic) IBOutlet UIView *haikuView;
+@property (weak, nonatomic) IBOutlet UILabel *vers1;
+@property (weak, nonatomic) IBOutlet UILabel *vers2;
+@property (weak, nonatomic) IBOutlet UILabel *vers3;
+@property (weak, nonatomic) IBOutlet UILabel *auteur;
 @end

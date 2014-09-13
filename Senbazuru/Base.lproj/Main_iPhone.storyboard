@@ -206,10 +206,10 @@
             </objects>
             <point key="canvasLocation" x="807" y="-134"/>
         </scene>
-        <!--View Controller - A propos-->
+        <!--Apropos View Controller - A propos-->
         <scene sceneID="hFQ-py-rjr">
             <objects>
-                <viewController id="OVw-dw-UOO" sceneMemberID="viewController">
+                <viewController id="OVw-dw-UOO" customClass="AproposViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FPf-Zn-wqk"/>
                         <viewControllerLayoutGuide type="bottom" id="Oq7-Ea-oGo"/>
@@ -219,68 +219,126 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4b-gv-Adu">
-                                <rect key="frame" x="20" y="232" width="283" height="102"/>
+                                <rect key="frame" x="20" y="418" width="280" height="78"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" staticText="YES" notEnabled="YES"/>
                                 </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="LoK-gH-8dM"/>
+                                    <constraint firstAttribute="height" constant="78" id="ROi-4m-FCN"/>
+                                </constraints>
                                 <string key="text">Contenu entièrement gratuit - vidéos toutes réalisées par senbazuru.fr - pliages non-traditionnels créés par leurs auteurs respectifs dont les noms sont indiqués lorsque connus. Les diagrammes originals non-traditionnels ne sont jamais distribués par senbazuru.fr.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Les origami de Senbazuru" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBk-fg-lYG">
-                                <rect key="frame" x="61" y="170" width="200" height="21"/>
+                                <rect key="frame" x="60" y="116" width="200" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="BPh-Fz-1Ql"/>
+                                    <constraint firstAttribute="width" constant="200" id="qxS-w8-bsN"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view appearanceType="aqua" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K0w-39-Eyb">
+                                <rect key="frame" x="61" y="235" width="239" height="98"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Devant l'éclair -" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23G-fv-ma9">
+                                        <rect key="frame" x="-164" y="5" width="400" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Baskerville-Italic" family="Baskerville" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CCR-9L-ERa">
+                                        <rect key="frame" x="-164" y="25" width="400" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <string key="text">Sublime est celui
+</string>
+                                        <fontDescription key="fontDescription" name="Baskerville-Italic" family="Baskerville" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWk-5P-sbc">
+                                        <rect key="frame" x="-164" y="45" width="400" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <string key="text">Qui ne sait rien !
+</string>
+                                        <fontDescription key="fontDescription" name="Baskerville-Italic" family="Baskerville" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bashõ" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbH-B9-f4t">
+                                        <rect key="frame" x="-164" y="73" width="400" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Baskerville-SemiBoldItalic" family="Baskerville" pointSize="14"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="239" id="Kaa-EE-Qgi"/>
+                                    <constraint firstAttribute="height" constant="98" id="Kx2-ys-ZM4"/>
+                                </constraints>
+                            </view>
                             <textView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="contact@senbazuru.fr" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5uj-yQ-Lmh">
-                                <rect key="frame" x="41" y="191" width="240" height="33"/>
+                                <rect key="frame" x="40" y="145" width="240" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="33" id="KDx-O2-BFw"/>
+                                    <constraint firstAttribute="width" constant="240" id="e8N-Ww-P1c"/>
+                                    <constraint firstAttribute="height" constant="33" id="pqz-Ge-ocS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="logo_senbazuru_smaller" translatesAutoresizingMaskIntoConstraints="NO" id="iI7-fs-3dm">
-                                <rect key="frame" x="90" y="20" width="142" height="142"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
                             <textView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="v1.0 - www.senbazuru.fr" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3XT-uG-HjT">
-                                <rect key="frame" x="20" y="469" width="280" height="48"/>
+                                <rect key="frame" x="76" y="486" width="168" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="GZJ-u7-fop"/>
+                                    <constraint firstAttribute="width" constant="168" id="1Kv-xQ-gSL"/>
+                                    <constraint firstAttribute="height" constant="32" id="QF6-lu-Tro"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="logo_senbazuru_smallest" translatesAutoresizingMaskIntoConstraints="NO" id="lqa-hq-iaD">
+                                <rect key="frame" x="125" y="37" width="71" height="71"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="Rar-T7-jM1"/>
+                                    <constraint firstAttribute="width" constant="71" id="bPK-17-WPj"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="S4b-gv-Adu" firstAttribute="leading" secondItem="RQy-j5-Hfa" secondAttribute="leading" constant="20" symbolic="YES" id="7QK-gZ-D88"/>
-                            <constraint firstItem="qBk-fg-lYG" firstAttribute="centerX" secondItem="5uj-yQ-Lmh" secondAttribute="centerX" id="9q6-86-dd0"/>
-                            <constraint firstAttribute="trailing" secondItem="3XT-uG-HjT" secondAttribute="trailing" constant="20" id="P0Y-n0-ymO"/>
-                            <constraint firstItem="qBk-fg-lYG" firstAttribute="centerX" secondItem="iI7-fs-3dm" secondAttribute="centerX" id="RvF-s5-hoF"/>
-                            <constraint firstItem="5uj-yQ-Lmh" firstAttribute="top" secondItem="qBk-fg-lYG" secondAttribute="bottom" id="SIK-ZQ-Lr4"/>
-                            <constraint firstItem="iI7-fs-3dm" firstAttribute="top" secondItem="FPf-Zn-wqk" secondAttribute="bottom" id="Sjm-pV-eA4"/>
-                            <constraint firstItem="Oq7-Ea-oGo" firstAttribute="top" secondItem="3XT-uG-HjT" secondAttribute="bottom" constant="2" id="aOY-pU-PEe"/>
-                            <constraint firstItem="3XT-uG-HjT" firstAttribute="leading" secondItem="RQy-j5-Hfa" secondAttribute="leading" constant="20" id="cSd-Ym-naI"/>
-                            <constraint firstItem="S4b-gv-Adu" firstAttribute="top" secondItem="5uj-yQ-Lmh" secondAttribute="bottom" constant="8" id="d4m-Ml-anr"/>
-                            <constraint firstItem="S4b-gv-Adu" firstAttribute="centerX" secondItem="5uj-yQ-Lmh" secondAttribute="centerX" id="ehz-Tf-FAA"/>
-                            <constraint firstItem="5uj-yQ-Lmh" firstAttribute="leading" secondItem="RQy-j5-Hfa" secondAttribute="leading" constant="41" id="n0d-Hb-NXG"/>
-                            <constraint firstItem="qBk-fg-lYG" firstAttribute="top" secondItem="iI7-fs-3dm" secondAttribute="bottom" constant="8" id="rDh-Mw-ytv"/>
-                            <constraint firstAttribute="trailing" secondItem="5uj-yQ-Lmh" secondAttribute="trailing" constant="39" id="u6A-IP-df5"/>
+                            <constraint firstItem="5uj-yQ-Lmh" firstAttribute="leading" secondItem="RQy-j5-Hfa" secondAttribute="leading" constant="40" id="8FM-qA-ktV"/>
+                            <constraint firstItem="3XT-uG-HjT" firstAttribute="leading" secondItem="RQy-j5-Hfa" secondAttribute="leading" constant="76" id="9UP-nl-a9P"/>
+                            <constraint firstAttribute="centerY" secondItem="K0w-39-Eyb" secondAttribute="centerY" id="I93-HI-xiD"/>
+                            <constraint firstItem="qBk-fg-lYG" firstAttribute="leading" secondItem="RQy-j5-Hfa" secondAttribute="leading" constant="60" id="J6p-eN-CC9"/>
+                            <constraint firstItem="5uj-yQ-Lmh" firstAttribute="top" secondItem="qBk-fg-lYG" secondAttribute="bottom" constant="8" id="KU6-Ii-cBU"/>
+                            <constraint firstAttribute="trailing" secondItem="K0w-39-Eyb" secondAttribute="trailing" constant="20" id="L2D-Gi-IA3"/>
+                            <constraint firstItem="Oq7-Ea-oGo" firstAttribute="top" secondItem="3XT-uG-HjT" secondAttribute="bottom" constant="1" id="Zxa-ZP-itL"/>
+                            <constraint firstItem="Oq7-Ea-oGo" firstAttribute="top" secondItem="S4b-gv-Adu" secondAttribute="bottom" constant="23" id="bD9-KP-rD4"/>
+                            <constraint firstItem="qBk-fg-lYG" firstAttribute="top" secondItem="lqa-hq-iaD" secondAttribute="bottom" constant="8" id="c6v-wB-kQh"/>
+                            <constraint firstItem="lqa-hq-iaD" firstAttribute="top" secondItem="FPf-Zn-wqk" secondAttribute="bottom" constant="17" id="dHy-CO-e5Y"/>
+                            <constraint firstItem="S4b-gv-Adu" firstAttribute="leading" secondItem="RQy-j5-Hfa" secondAttribute="leading" constant="20" id="prg-8j-UOD"/>
+                            <constraint firstItem="lqa-hq-iaD" firstAttribute="leading" secondItem="RQy-j5-Hfa" secondAttribute="leading" constant="125" id="uJ7-rx-YEd"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="A propos" image="info" id="MS9-xc-Uxy"/>
+                    <connections>
+                        <outlet property="auteur" destination="bbH-B9-f4t" id="H5A-6U-fAT"/>
+                        <outlet property="vers1" destination="23G-fv-ma9" id="lEI-eS-oTt"/>
+                        <outlet property="vers2" destination="CCR-9L-ERa" id="pty-rc-cnd"/>
+                        <outlet property="vers3" destination="sWk-5P-sbc" id="YbX-kX-J56"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kvt-KQ-VCC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -312,7 +370,7 @@
         <image name="info" width="25" height="25"/>
         <image name="like-25" width="25" height="25"/>
         <image name="like-50" width="50" height="50"/>
-        <image name="logo_senbazuru_smaller" width="142" height="142"/>
+        <image name="logo_senbazuru_smallest" width="71" height="71"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
