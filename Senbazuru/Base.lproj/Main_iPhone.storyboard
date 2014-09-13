@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14A343f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--All Origami View Controller-->
@@ -52,7 +51,9 @@
                             <outlet property="delegate" destination="CZ4-MO-1fc" id="GwM-T9-X9y"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Tous nos origamis" id="Tuo-PI-tSq"/>
+                    <navigationItem key="navigationItem" title="Tous nos origamis" id="Tuo-PI-tSq">
+                        <barButtonItem key="backBarButtonItem" title="Origamis" id="laq-iB-FcE"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchDisplayController" destination="Kou-ZU-5Am" id="CSf-i4-wLl"/>
                         <segue destination="24f-52-Zav" kind="push" identifier="detailSegue" id="hJa-be-aZk"/>
@@ -217,22 +218,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="logo_senbazuru_smaller" translatesAutoresizingMaskIntoConstraints="NO" id="FnW-Tn-3ca">
-                                <rect key="frame" x="19" y="20" width="283" height="283"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="FnW-Tn-3ca" secondAttribute="height" multiplier="1:1" id="jk1-GN-lS8"/>
-                                </constraints>
-                            </imageView>
-                            <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Les origami de Senbazuru" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBk-fg-lYG">
-                                <rect key="frame" x="60" y="311" width="200" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4b-gv-Adu">
-                                <rect key="frame" x="20" y="373" width="283" height="102"/>
+                            <textView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4b-gv-Adu">
+                                <rect key="frame" x="20" y="232" width="283" height="102"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -242,18 +229,35 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="contact@senbazuru.fr" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5uj-yQ-Lmh">
-                                <rect key="frame" x="41" y="332" width="240" height="33"/>
+                            <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Les origami de Senbazuru" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBk-fg-lYG">
+                                <rect key="frame" x="61" y="170" width="200" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="contact@senbazuru.fr" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5uj-yQ-Lmh">
+                                <rect key="frame" x="41" y="191" width="240" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="KDx-O2-BFw"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
-                            <textView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="v1.0 - www.senbazuru.fr" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3XT-uG-HjT">
-                                <rect key="frame" x="56" y="479" width="209" height="34"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="logo_senbazuru_smaller" translatesAutoresizingMaskIntoConstraints="NO" id="iI7-fs-3dm">
+                                <rect key="frame" x="90" y="20" width="142" height="142"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <textView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="v1.0 - www.senbazuru.fr" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3XT-uG-HjT">
+                                <rect key="frame" x="20" y="469" width="280" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="GZJ-u7-fop"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
@@ -261,8 +265,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="FnW-Tn-3ca" firstAttribute="top" secondItem="FPf-Zn-wqk" secondAttribute="bottom" id="lQx-e6-ixS"/>
-                            <constraint firstAttribute="centerX" secondItem="FnW-Tn-3ca" secondAttribute="centerX" id="r15-9J-aef"/>
+                            <constraint firstItem="S4b-gv-Adu" firstAttribute="leading" secondItem="RQy-j5-Hfa" secondAttribute="leading" constant="20" symbolic="YES" id="7QK-gZ-D88"/>
+                            <constraint firstItem="qBk-fg-lYG" firstAttribute="centerX" secondItem="5uj-yQ-Lmh" secondAttribute="centerX" id="9q6-86-dd0"/>
+                            <constraint firstAttribute="trailing" secondItem="3XT-uG-HjT" secondAttribute="trailing" constant="20" id="P0Y-n0-ymO"/>
+                            <constraint firstItem="qBk-fg-lYG" firstAttribute="centerX" secondItem="iI7-fs-3dm" secondAttribute="centerX" id="RvF-s5-hoF"/>
+                            <constraint firstItem="5uj-yQ-Lmh" firstAttribute="top" secondItem="qBk-fg-lYG" secondAttribute="bottom" id="SIK-ZQ-Lr4"/>
+                            <constraint firstItem="iI7-fs-3dm" firstAttribute="top" secondItem="FPf-Zn-wqk" secondAttribute="bottom" id="Sjm-pV-eA4"/>
+                            <constraint firstItem="Oq7-Ea-oGo" firstAttribute="top" secondItem="3XT-uG-HjT" secondAttribute="bottom" constant="2" id="aOY-pU-PEe"/>
+                            <constraint firstItem="3XT-uG-HjT" firstAttribute="leading" secondItem="RQy-j5-Hfa" secondAttribute="leading" constant="20" id="cSd-Ym-naI"/>
+                            <constraint firstItem="S4b-gv-Adu" firstAttribute="top" secondItem="5uj-yQ-Lmh" secondAttribute="bottom" constant="8" id="d4m-Ml-anr"/>
+                            <constraint firstItem="S4b-gv-Adu" firstAttribute="centerX" secondItem="5uj-yQ-Lmh" secondAttribute="centerX" id="ehz-Tf-FAA"/>
+                            <constraint firstItem="5uj-yQ-Lmh" firstAttribute="leading" secondItem="RQy-j5-Hfa" secondAttribute="leading" constant="41" id="n0d-Hb-NXG"/>
+                            <constraint firstItem="qBk-fg-lYG" firstAttribute="top" secondItem="iI7-fs-3dm" secondAttribute="bottom" constant="8" id="rDh-Mw-ytv"/>
+                            <constraint firstAttribute="trailing" secondItem="5uj-yQ-Lmh" secondAttribute="trailing" constant="39" id="u6A-IP-df5"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="A propos" image="info" id="MS9-xc-Uxy"/>
@@ -297,7 +312,7 @@
         <image name="info" width="25" height="25"/>
         <image name="like-25" width="25" height="25"/>
         <image name="like-50" width="50" height="50"/>
-        <image name="logo_senbazuru_smaller" width="283" height="283"/>
+        <image name="logo_senbazuru_smaller" width="142" height="142"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -305,6 +320,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="RJy-t5-fD8"/>
+        <segue reference="hJa-be-aZk"/>
     </inferredMetricsTieBreakers>
 </document>
