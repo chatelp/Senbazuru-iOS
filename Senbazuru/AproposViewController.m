@@ -28,11 +28,17 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    //[self parseHaikuXMLSource];
+    [self parseHaikuXMLSource];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    //[self randomizeDisplay];
+    [self randomizeDisplay];
+}
+
+//Bug ios7 http://stackoverflow.com/questions/19440197/uiviews-ending-up-beneath-tab-bar
+- (UIRectEdge)edgesForExtendedLayout
+{
+    return [super edgesForExtendedLayout] ^ UIRectEdgeBottom;
 }
 
 - (void)parseHaikuXMLSource {
