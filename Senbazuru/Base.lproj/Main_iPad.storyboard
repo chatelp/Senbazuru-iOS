@@ -130,7 +130,7 @@
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" staticText="YES" notEnabled="YES"/>
                                 </accessibility>
-                                <string key="text">Contenu entièrement gratuit - vidéos toutes réalisées par senbazuru.fr - pliages non-traditionnels créés par leurs auteurs respectifs dont les noms sont indiqués lorsque connus. Les diagrammes originals non-traditionnels ne sont jamais distribués par senbazuru.fr.</string>
+                                <string key="text">Contenu entièrement gratuit - vidéos toutes réalisées par senbazuru.fr - pliages non-traditionnels créés par leurs auteurs respectifs dont les noms sont indiqués lorsque connus. Les diagrammes originaux non-traditionnels ne sont jamais distribués par senbazuru.fr.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>

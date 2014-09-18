@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MainController.h"
+#import "iPadMainController.h"
 
 @implementation AppDelegate
 
@@ -133,9 +134,15 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
 	
     #if !TARGET_IPHONE_SIMULATOR
-    	
-    MainController *mainController = (MainController *) [[self window] rootViewController];
-    [mainController parseFeed];
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        iPadMainController *mainController = (iPadMainController *) [[self window] rootViewController];
+        [mainController parseFeed];
+    }
+    else {
+        MainController *mainController = (MainController *) [[self window] rootViewController];
+        [mainController parseFeed];
+    }
     
     #endif
 }

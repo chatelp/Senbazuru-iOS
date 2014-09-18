@@ -34,6 +34,8 @@
 		8FA4BE6A197FD5D300B2928F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8FA4BE68197FD5D300B2928F /* InfoPlist.strings */; };
 		8FA4BE6C197FD5D300B2928F /* SenbazuruTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA4BE6B197FD5D300B2928F /* SenbazuruTests.m */; };
 		8FB096B019825EE3004E2EB5 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB096AE19825EE3004E2EB5 /* libxml2.dylib */; };
+		8FBA1B0719C9EEA3002FA262 /* CustomRefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA1B0119C9EEA3002FA262 /* CustomRefreshViewController.m */; };
+		8FBA1B0819C9EEA3002FA262 /* CustomRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA1B0319C9EEA3002FA262 /* CustomRefreshTableViewController.m */; };
 		8FF965E719AE14E400ACE234 /* DDXMLDocument+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF965E319AE14E400ACE234 /* DDXMLDocument+HTML.m */; };
 		8FF965E819AE14E400ACE234 /* DDXMLNode+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF965E519AE14E400ACE234 /* DDXMLNode+HTML.m */; };
 		8FF965E919AE14E400ACE234 /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 8FF965E619AE14E400ACE234 /* README.markdown */; };
@@ -90,6 +92,11 @@
 		8FA4BE69197FD5D300B2928F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8FA4BE6B197FD5D300B2928F /* SenbazuruTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SenbazuruTests.m; sourceTree = "<group>"; };
 		8FB096AE19825EE3004E2EB5 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		8FBA1B0019C9EEA3002FA262 /* CustomRefreshViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomRefreshViewController.h; sourceTree = "<group>"; };
+		8FBA1B0119C9EEA3002FA262 /* CustomRefreshViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomRefreshViewController.m; sourceTree = "<group>"; };
+		8FBA1B0219C9EEA3002FA262 /* CustomRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomRefreshTableViewController.h; sourceTree = "<group>"; };
+		8FBA1B0319C9EEA3002FA262 /* CustomRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomRefreshTableViewController.m; sourceTree = "<group>"; };
+		8FBA1B0419C9EEA3002FA262 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		8FF965E119AE14E400ACE234 /* DDXML+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDXML+HTML.h"; sourceTree = "<group>"; };
 		8FF965E219AE14E400ACE234 /* DDXMLDocument+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDXMLDocument+HTML.h"; sourceTree = "<group>"; };
 		8FF965E319AE14E400ACE234 /* DDXMLDocument+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDXMLDocument+HTML.m"; sourceTree = "<group>"; };
@@ -193,6 +200,7 @@
 		8FA4BE40197FD5D300B2928F /* Senbazuru */ = {
 			isa = PBXGroup;
 			children = (
+				8FBA1AFC19C9EE68002FA262 /* Custom refresh */,
 				8FF965E019AE14CC00ACE234 /* DDXML+HTML */,
 				8F1762EB19C1F80000EC8577 /* Other */,
 				8F3CC53519BEEDC100FEAF1D /* Model */,
@@ -246,6 +254,18 @@
 				8FA4BE68197FD5D300B2928F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8FBA1AFC19C9EE68002FA262 /* Custom refresh */ = {
+			isa = PBXGroup;
+			children = (
+				8FBA1B0019C9EEA3002FA262 /* CustomRefreshViewController.h */,
+				8FBA1B0119C9EEA3002FA262 /* CustomRefreshViewController.m */,
+				8FBA1B0219C9EEA3002FA262 /* CustomRefreshTableViewController.h */,
+				8FBA1B0319C9EEA3002FA262 /* CustomRefreshTableViewController.m */,
+				8FBA1B0419C9EEA3002FA262 /* Common.h */,
+			);
+			name = "Custom refresh";
 			sourceTree = "<group>";
 		};
 		8FF965E019AE14CC00ACE234 /* DDXML+HTML */ = {
@@ -402,9 +422,11 @@
 				8F63A02A19B21C6400918FCD /* MainController.m in Sources */,
 				8F3CC53819BEEDE100FEAF1D /* Origami.m in Sources */,
 				8FF965E819AE14E400ACE234 /* DDXMLNode+HTML.m in Sources */,
+				8FBA1B0819C9EEA3002FA262 /* CustomRefreshTableViewController.m in Sources */,
 				8F2A759B19C4A46600048F96 /* Haiku.m in Sources */,
 				8FA3F9081982951500318069 /* OrigamiDetailViewController.m in Sources */,
 				8F3CC53419BE0C6D00FEAF1D /* IconDownloader.m in Sources */,
+				8FBA1B0719C9EEA3002FA262 /* CustomRefreshViewController.m in Sources */,
 				8FA4BE4B197FD5D300B2928F /* AppDelegate.m in Sources */,
 				8F1762EA19C1F2D100EC8577 /* Constants.m in Sources */,
 				8F2A759819C4A31A00048F96 /* AproposViewController.m in Sources */,
