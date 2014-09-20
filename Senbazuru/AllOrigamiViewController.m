@@ -8,7 +8,7 @@
 
 #import "AllOrigamiViewController.h"
 #import "NSString+HTML.h"
-#import "MainController.h"
+#import "iPhoneMainController.h"
 #import "iPadMainController.h"
 #import "IconDownloader.h"
 #import "Origami.h"
@@ -53,7 +53,6 @@
     
 }
 
-
 #pragma mark -
 #pragma mark Parsing
 
@@ -61,7 +60,7 @@
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         parsedOrigamis = ((iPadMainController *)self.splitViewController).parsedOrigamis;
     } else {
-        parsedOrigamis = ((MainController *)self.tabBarController).parsedOrigamis;
+        parsedOrigamis = ((iPhoneMainController *)self.tabBarController).parsedOrigamis;
     }
     [self updateTable];
 }

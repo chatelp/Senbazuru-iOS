@@ -10,3 +10,4 @@
 
 NSString * const ItemsParsed = @"ItemsParsed";
 NSString * const FavoritesChanged = @"FavoritesChanged";
+NSString * const RequestOrigamiSourceRefresh = @"RequestOrigamiSourceRefresh";

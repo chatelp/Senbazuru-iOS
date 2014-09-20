@@ -11,5 +11,6 @@
 
 FOUNDATION_EXPORT NSString * const ItemsParsed;
 FOUNDATION_EXPORT NSString * const FavoritesChanged;
+FOUNDATION_EXPORT NSString * const RequestOrigamiSourceRefresh;
 
 #endif

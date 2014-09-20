@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "OrigamiDetailViewController.h"
+#import "CustomRefreshTableViewController.h"
 
-@interface AllOrigamiViewController : UITableViewController <UIScrollViewDelegate> {
+@interface AllOrigamiViewController : CustomRefreshTableViewController <UIScrollViewDelegate> {
 	NSArray *parsedOrigamis;
     NSDateFormatter *formatter;
     NSArray *origamisToDisplay;

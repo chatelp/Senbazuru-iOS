@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Pierre Chatel. All rights reserved.
 //
 
-#import "MainController.h"
+#import "iPhoneMainController.h"
 #import "Origami.h"
 #import "Constants.h"
 
 static NSString *const senbazuruRSSfeed = @"http://senbazuru.fr/files/feed.xml";
 
-@implementation MainController
+@implementation iPhoneMainController
 
 
 @synthesize parsedOrigamis;
@@ -31,7 +31,20 @@ static NSString *const senbazuruRSSfeed = @"http://senbazuru.fr/files/feed.xml";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self parseFeed];
+   
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(requestOrigamiSourceRefresh:)
+                                                 name:RequestOrigamiSourceRefresh
+                                               object:nil];
     
+    
+}
+
+#pragma mark -
+#pragma mark Parsing
+
+- (void)requestOrigamiSourceRefresh:(NSNotification *) notification {
+    [self parseFeed];
 }
 
 - (void)parseFeed {
@@ -50,7 +63,6 @@ static NSString *const senbazuruRSSfeed = @"http://senbazuru.fr/files/feed.xml";
 #pragma mark MWFeedParserDelegate
 
 - (void)feedParserDidStart:(MWFeedParser *)parser {
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	NSLog(@"Started Parsing: %@", parser.url);
 }
 
@@ -63,14 +75,12 @@ static NSString *const senbazuruRSSfeed = @"http://senbazuru.fr/files/feed.xml";
 }
 
 - (void)feedParserDidFinish:(MWFeedParser *)parser {
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	NSLog(@"Finished Parsing%@", (parser.stopped ? @" (Stopped)" : @""));
     
     [[NSNotificationCenter defaultCenter] postNotificationName:ItemsParsed object:self];
 }
 
 - (void)feedParser:(MWFeedParser *)parser didFailWithError:(NSError *)error {
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	NSLog(@"Finished Parsing With Error: %@", error);
     if (parsedOrigamis.count == 0) {
         [self handleError:error];

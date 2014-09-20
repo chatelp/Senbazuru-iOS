@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "MainController.h"
+#import "iPhoneMainController.h"
 #import "iPadMainController.h"
 
 @implementation AppDelegate
