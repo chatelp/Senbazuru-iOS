@@ -294,6 +294,7 @@
 				8FA4BE34197FD5D300B2928F /* Frameworks */,
 				8FA4BE35197FD5D300B2928F /* Resources */,
 				6668EA021D2A4F518050FB2B /* Copy Pods Resources */,
+				8F3B139D19D2FC2B00F3692C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -396,6 +397,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		8F3B139D19D2FC2B00F3692C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+				"${PROJECT_DIR}/${INFOPLIST_FILE}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#Update build number with number of git commits if in release mode\nif [ ${CONFIGURATION} == \"Release\" ]; then\nbuildNumber=$(git rev-list HEAD | wc -l | tr -d ' ')\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\nfi;";
 		};
 		BAD4A175B0E34115BFD7393A /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
