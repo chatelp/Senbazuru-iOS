@@ -130,12 +130,14 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
 }
 
 - (void)randomizeDisplay {
-    int position = [self randomNumberBetween:0 notIncludingMaxNumber:haikus.count];
-    Haiku *haiku = [haikus objectAtIndex:position];
-    self.vers1.text = haiku.vers1;
-    self.vers2.text = haiku.vers2;
-    self.vers3.text = haiku.vers3;
-    self.auteur.text = haiku.auteur;
+    if(haikus && [haikus count] > 0) {
+        int position = [self randomNumberBetween:0 notIncludingMaxNumber:haikus.count];
+        Haiku *haiku = [haikus objectAtIndex:position];
+        self.vers1.text = haiku.vers1;
+        self.vers2.text = haiku.vers2;
+        self.vers3.text = haiku.vers3;
+        self.auteur.text = haiku.auteur;
+    }
 }
 
 - (NSInteger)randomNumberBetween:(NSInteger)min notIncludingMaxNumber:(NSInteger)max
