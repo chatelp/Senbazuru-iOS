@@ -140,7 +140,7 @@
         [mainController parseFeed];
     }
     else {
-        MainController *mainController = (MainController *) [[self window] rootViewController];
+        iPhoneMainController *mainController = (iPhoneMainController *) [[self window] rootViewController];
         [mainController parseFeed];
     }
     

@@ -81,16 +81,11 @@
 }
 
 - (void)refresh:(id)sender{
-
-    // -- DO SOMETHING AWESOME (... or just wait 3 seconds) --
-    // This is where you'll make requests to an API, reload data, or process information
-
-    [[NSNotificationCenter defaultCenter] postNotificationName:RequestOrigamiSourceRefresh object:self];
-    
-    double delayInSeconds = 3.0;
+    double delayInSeconds = 2.0; //<-- wait enough time to have at least one full rotation
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        NSLog(@"DONE");
+        NSLog(@"REFRESH DONE");
+        [[NSNotificationCenter defaultCenter] postNotificationName:RequestOrigamiSourceRefresh object:self];
         
         // When done requesting/reloading/processing invoke endRefreshing, to close the control
         [self.refreshControl endRefreshing];
@@ -121,9 +116,14 @@
     CGFloat pullRatio = MIN( MAX(pullDistance, 0.0), 100.0) / 100.0;
     
     // Change alpha as view is being pulled, but not during animation
-    if(!self.refreshControl.isRefreshing)
-        self.refreshLoadingView.alpha = pullRatio; // <---
-    
+    if(!self.refreshControl.isRefreshing) {
+        if(pullRatio < self.refreshLoadingView.alpha && pullDistance <= 50) {
+            self.refreshLoadingView.alpha = pullRatio;
+        }
+        else if (pullRatio > self.refreshLoadingView.alpha){
+            self.refreshLoadingView.alpha = pullRatio; // <---
+        }
+    }
     // Set the Y coord of the graphics, based on pull distance
     //CGFloat spinnerY = pullDistance / 2.0 - spinnerHeightHalf;
     CGFloat spinnerY = (self.refreshControl.bounds.origin.y + spinnerHeightHalf);
@@ -175,6 +175,7 @@
                                  self.currentAnimation = UIViewAnimationOptionCurveEaseIn;
                              [self animateRefreshView];
                          }else{
+                             
                              [self resetAnimation];
                          }
                      }];
@@ -186,6 +187,7 @@
     self.isRefreshAnimating = NO;
     self.isRefreshIconsOverlap = NO;
     self.currentAnimation = UIViewAnimationOptionCurveEaseIn;
+    self.refreshLoadingView.alpha = 0.0; // <-- peut etre pas nécessaire
 }
 
 

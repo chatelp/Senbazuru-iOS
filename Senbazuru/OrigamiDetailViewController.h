@@ -12,14 +12,16 @@
 @interface OrigamiDetailViewController : UIViewController <UIWebViewDelegate> {
     NSUserDefaults *defaults;
     NSMutableArray *haikus;
+    NSMutableArray *rightBarButtonItems;
 }
 
 @property (assign, nonatomic) Origami *origami;
 @property (assign, nonatomic) id delegate;
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *favoriteButtonItem;
-@property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *favoriteButtonItem;
+@property (strong, nonatomic) IBOutlet UIButton *favoriteButton;
+@property (strong, nonatomic) UIBarButtonItem *shareButtonItem;
 
 @property (weak, nonatomic) IBOutlet UIView *haikuView;
 @property (weak, nonatomic) IBOutlet UILabel *vers1;

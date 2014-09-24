@@ -31,19 +31,26 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
     //Init
     [self.webView setDelegate:self];
 
-    //NavigationBar additional buttons
-    UIBarButtonItem *shareButton = [[UIBarButtonItem alloc]
+    //Configure rightBarButtonItems
+    self.shareButtonItem = [[UIBarButtonItem alloc]
                                     initWithBarButtonSystemItem:UIBarButtonSystemItemAction
                                     target:self
                                     action:@selector(shareOrigami:)];
     
-    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:self.navigationItem.rightBarButtonItems.firstObject, shareButton, nil];
+    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:self.favoriteButtonItem, self.shareButtonItem, nil];
+    
+    
+    //Hide buttons until origami is assigned
+    rightBarButtonItems = [self.navigationItem.rightBarButtonItems mutableCopy];
+    [rightBarButtonItems removeObject:self.favoriteButtonItem];
+    [rightBarButtonItems removeObject:self.shareButtonItem];
+    [self.navigationItem setRightBarButtonItems:rightBarButtonItems animated:NO];
     
     //Defaults
     defaults = [NSUserDefaults standardUserDefaults];
     
     //If origami already assigned, display it (iPhone/segue case)
-    [self configureView];
+    [self configureViewForOrigami];
     
     //If iPad, display Haiku
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
@@ -53,14 +60,25 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
 }
 
 // Update user interface elements for assigned origami
-- (void)configureView
+- (void)configureViewForOrigami
 {
     if (self.origami && self.isViewLoaded) {
+        
+        //Hide haiku
         if(self.haikuView)
             [self.haikuView setHidden:YES];
+
+        //Load origami content
         self.navigationItem.title = self.origami.title;
         [self.webView loadHTMLString:self.origami.parsedHTML baseURL:[NSURL URLWithString:@"http://domain.com"]];
         
+        //Display rightBarButtonItems
+        if(![rightBarButtonItems containsObject:self.shareButtonItem] && ![rightBarButtonItems containsObject:self.favoriteButtonItem]) {
+            [rightBarButtonItems addObject:self.favoriteButtonItem];
+            [rightBarButtonItems addObject:self.shareButtonItem];
+            [self.navigationItem setRightBarButtonItems:rightBarButtonItems animated:YES];
+        }
+            
         NSArray *favorites = [defaults arrayForKey:@"Favorites"];
         if(favorites) {
             if([favorites containsObject:self.origami.title]) {
@@ -144,7 +162,7 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
 -(void) setOrigami:(Origami *)origami
 {
     _origami = origami;
-    [self configureView];
+    [self configureViewForOrigami];
 }
 
 
@@ -152,6 +170,10 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
 #pragma mark Actions (buttons, ...)
 
 - (IBAction)shareOrigami:(id)sender {
+    
+    if(!self.origami)
+        return;
+    
     NSString *message = @"Je viens de réaliser cet origami grâce à un tutoriel vidéo de Senbazuru.fr ^^";
     NSURL *videoURL = self.origami.videoURL;
     UIImage *imageToShare = self.origami.image;
@@ -160,16 +182,22 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
     
         NSArray *postItems = @[message, imageToShare, videoURL];
     
-        UIActivityViewController *activityVC = [[UIActivityViewController alloc]
+        UIActivityViewController *activityViewController = [[UIActivityViewController alloc]
                                                 initWithActivityItems:postItems
                                                 applicationActivities:nil];
+        
+        //Set anchor point (https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIPopoverPresentationController_class/index.html#//apple_ref/occ/instp/UIPopoverPresentationController/barButtonItem)
+        activityViewController.popoverPresentationController.barButtonItem = self.shareButtonItem;
     
-        [self presentViewController:activityVC animated:YES completion:nil];
+        [self presentViewController:activityViewController animated:YES completion:nil];
     }
 }
 
 
 - (IBAction)favoriteOrigami:(id)sender {
+    
+    if(!self.origami)
+        return;
     
     NSArray *favorites = [defaults arrayForKey:@"Favorites"];
     NSMutableArray *mutableFavorites;
