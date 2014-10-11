@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="14A386a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
@@ -287,14 +287,14 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="v1.1 - www.senbazuru.fr" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3XT-uG-HjT">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="version" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3XT-uG-HjT">
                                 <rect key="frame" x="76" y="486" width="168" height="32"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="168" id="1Kv-xQ-gSL"/>
                                     <constraint firstAttribute="height" constant="32" id="QF6-lu-Tro"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
@@ -319,6 +319,7 @@
                             <constraint firstItem="qBk-fg-lYG" firstAttribute="top" secondItem="lqa-hq-iaD" secondAttribute="bottom" constant="8" id="c6v-wB-kQh"/>
                             <constraint firstItem="lqa-hq-iaD" firstAttribute="top" secondItem="FPf-Zn-wqk" secondAttribute="bottom" constant="17" id="dHy-CO-e5Y"/>
                             <constraint firstItem="S4b-gv-Adu" firstAttribute="leading" secondItem="RQy-j5-Hfa" secondAttribute="leading" constant="20" id="prg-8j-UOD"/>
+                            <constraint firstItem="K0w-39-Eyb" firstAttribute="top" relation="greaterThanOrEqual" secondItem="5uj-yQ-Lmh" secondAttribute="bottom" constant="20" id="pvP-fF-Q4U"/>
                             <constraint firstItem="lqa-hq-iaD" firstAttribute="leading" secondItem="RQy-j5-Hfa" secondAttribute="leading" constant="125" id="uJ7-rx-YEd"/>
                         </constraints>
                     </view>
@@ -328,6 +329,7 @@
                         <outlet property="vers1" destination="23G-fv-ma9" id="lEI-eS-oTt"/>
                         <outlet property="vers2" destination="CCR-9L-ERa" id="pty-rc-cnd"/>
                         <outlet property="vers3" destination="sWk-5P-sbc" id="YbX-kX-J56"/>
+                        <outlet property="versionTextView" destination="3XT-uG-HjT" id="dXI-m6-FWA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kvt-KQ-VCC" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -12,6 +12,9 @@
     NSMutableArray *haikus;
 }
 
+@property (weak, nonatomic) IBOutlet UITextView *versionTextView;
+
+// Only display haiky in "A propos" for iPhone
 @property (weak, nonatomic) IBOutlet UILabel *vers1;
 @property (weak, nonatomic) IBOutlet UILabel *vers2;
 @property (weak, nonatomic) IBOutlet UILabel *vers3;

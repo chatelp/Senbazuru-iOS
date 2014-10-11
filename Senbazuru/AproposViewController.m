@@ -14,25 +14,30 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
 
 @implementation AproposViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    // Display current version / build number
+    NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+    NSString *buildNumber = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
+    [self.versionTextView setText:[NSString stringWithFormat:@"version %@ - build %@",
+                                   version,
+                                   buildNumber]];
     
-    [self parseHaikuXMLSource];
+    // Only display haiky in "A propos" for iPhone
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        [self parseHaikuXMLSource];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self randomizeDisplay];
+    // Only display haiky in "A propos" for iPhone
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        [self randomizeDisplay];
+    }
 }
 
 //Bug ios7 http://stackoverflow.com/questions/19440197/uiviews-ending-up-beneath-tab-bar
