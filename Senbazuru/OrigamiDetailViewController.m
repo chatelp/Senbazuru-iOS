@@ -10,6 +10,9 @@
 #import "Constants.h"
 #import "DDXMLDocument+HTML.h"
 #import "Haiku.h"
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAIDictionaryBuilder.h"
 
 static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
 
@@ -20,9 +23,11 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+
     }
     return self;
 }
+
 
 - (void)viewDidLoad
 {
@@ -72,6 +77,21 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
         self.navigationItem.title = self.origami.title;
         [self.webView loadHTMLString:self.origami.parsedHTML baseURL:[NSURL URLWithString:@"http://domain.com"]];
         
+        
+        // Google Analytics tracking
+        // May return nil if a tracker has not already been initialized with a
+        // property ID.
+        id tracker = [[GAI sharedInstance] defaultTracker];
+        // This screen name value will remain set on the tracker and sent with
+        // hits until it is set to a new value or to nil.
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+            [tracker set:kGAIScreenName value:[NSString stringWithFormat:@"OrigamiDetailView iPhone: %@", self.origami.title]];
+        }
+        else {
+            [tracker set:kGAIScreenName value:[NSString stringWithFormat:@"OrigamiDetailView iPad: %@", self.origami.title]];
+        }
+        [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+
         //Display rightBarButtonItems
         if(![rightBarButtonItems containsObject:self.shareButtonItem] && ![rightBarButtonItems containsObject:self.favoriteButtonItem]) {
             [rightBarButtonItems addObject:self.favoriteButtonItem];

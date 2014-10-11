@@ -20,6 +20,14 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
+    // Google Analytics tracking
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        self.screenName = @"AproposView iPhone";
+    }
+    else {
+        self.screenName = @"AproposView iPad";
+    }
+    
     // Display current version / build number
     NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
     NSString *buildNumber = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];

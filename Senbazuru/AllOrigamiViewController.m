@@ -13,6 +13,9 @@
 #import "IconDownloader.h"
 #import "Origami.h"
 #import "Constants.h"
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAIDictionaryBuilder.h"
 
 @implementation AllOrigamiViewController
 
@@ -29,6 +32,20 @@
 {
     [super viewDidLoad];
 
+    // Google Analytics tracking
+    // May return nil if a tracker has not already been initialized with a
+    // property ID.
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    // This screen name value will remain set on the tracker and sent with
+    // hits until it is set to a new value or to nil.
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        [tracker set:kGAIScreenName value:@"AllOrigamiView iPhone"];
+    }
+    else {
+        [tracker set:kGAIScreenName value:@"AllOrigamiView iPad"];
+    }
+    [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+    
     // Setup
 	formatter = [[NSDateFormatter alloc] init];
 	[formatter setDateStyle:NSDateFormatterShortStyle];

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 
-@interface AproposViewController : UIViewController {
+@interface AproposViewController : GAITrackedViewController {
     NSMutableArray *haikus;
 }
 
