@@ -1,5 +1,6 @@
 PODS:
   - CTidy (0.3.1)
+  - iRate (1.10.3)
   - KissXML (5.0)
   - MWFeedParser (1.0.1):
     - MWFeedParser/FeedParser
@@ -13,11 +14,13 @@ PODS:
 
 DEPENDENCIES:
   - CTidy (~> 0.3.1)
+  - iRate
   - KissXML (~> 5.0)
   - MWFeedParser
 
 SPEC CHECKSUMS:
   CTidy: b9586005d12def66cf4295256e9a2f49ee7dca66
+  iRate: 40ebea2bb1e88866cef7393bd0abeae232cc5d38
   KissXML: e537c38b18ede903ee6de45953a9bd86c131ebe9
   MWFeedParser: 003cbf5398e99a7f2057fbe9583054fd1b84be72
 
