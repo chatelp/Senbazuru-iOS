@@ -10,8 +10,17 @@
 #import "iPhoneMainController.h"
 #import "iPadMainController.h"
 #import "GAI.h"
+#import "iRate.h"
 
 @implementation AppDelegate
+
+
++ (void)initialize
+{
+    //configure iRate
+    [iRate sharedInstance].daysUntilPrompt = 5; // The default value is 10 days.
+    [iRate sharedInstance].usesUntilPrompt = 10; // This defaults to 10 uses.
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
