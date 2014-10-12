@@ -207,6 +207,10 @@
     return videoURL;
 }
 
+-(NSString *) difficulty {
+    return NULL;
+}
+
 #pragma mark -
 #pragma mark Parsing
 

@@ -30,14 +30,13 @@ static NSString *const senbazuruRSSfeed = @"http://senbazuru.fr/files/feed.xml";
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     [self parseFeed];
    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(requestOrigamiSourceRefresh:)
                                                  name:RequestOrigamiSourceRefresh
                                                object:nil];
-    
-    
 }
 
 #pragma mark -

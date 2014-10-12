@@ -124,16 +124,24 @@
     }
     
 	if (origami) {
-				
+    
 		cell.textLabel.font = [UIFont boldSystemFontOfSize:15];
+        
+        //Cell Title
 		cell.textLabel.text = origami.title;
-		NSMutableString *subtitle = [NSMutableString string];
+
+        //Cell Subtitle
+        NSMutableString *subtitle = [NSMutableString string];
 		if (origami.date)
-            [subtitle appendFormat:@"%@: ", [formatter stringFromDate:origami.date]];
-		[subtitle appendString:origami.summaryPlainText];
+            [subtitle appendString: [formatter stringFromDate:origami.date]];
+
+//        [subtitle appendFormat:@"%@ - Difficulté: %@",
+//         [formatter stringFromDate:origami.date],
+//         @"\U00002B50"];
+        //[subtitle appendString:origami.summaryPlainText];
 		cell.detailTextLabel.text = subtitle;
 
-        
+        //Cell Image
         cell.imageView.image = [origami iconWithBlock:^{
             cell.imageView.image = origami.icon;
         }];

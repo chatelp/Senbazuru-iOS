@@ -29,6 +29,7 @@
 @property (nonatomic, readonly) NSString *parsedHTML;
 @property (nonatomic, readonly) UIImage *image;
 @property (nonatomic, readonly) NSURL *videoURL;
+@property (nonatomic, readonly) NSString *difficulty;
 
 
 @property (nonatomic, strong) IconDownloader *iconDownloader;

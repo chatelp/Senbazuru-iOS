@@ -36,8 +36,6 @@ static NSString *const senbazuruRSSfeed = @"http://senbazuru.fr/files/feed.xml";
                                              selector:@selector(requestOrigamiSourceRefresh:)
                                                  name:RequestOrigamiSourceRefresh
                                                object:nil];
-    
-    
 }
 
 #pragma mark -

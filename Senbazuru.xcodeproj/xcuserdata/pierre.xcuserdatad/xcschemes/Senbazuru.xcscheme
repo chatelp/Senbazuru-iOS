@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0510"
+   LastUpgradeVersion = "0610"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -17,6 +17,20 @@
                BlueprintIdentifier = "8FA4BE36197FD5D300B2928F"
                BuildableName = "Senbazuru.app"
                BlueprintName = "Senbazuru"
+               ReferencedContainer = "container:Senbazuru.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8FA4BE5D197FD5D300B2928F"
+               BuildableName = "SenbazuruTests.xctest"
+               BlueprintName = "SenbazuruTests"
                ReferencedContainer = "container:Senbazuru.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
