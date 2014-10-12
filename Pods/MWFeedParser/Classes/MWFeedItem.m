@@ -31,11 +31,24 @@
 
 #define EXCERPT(str, len) (([str length] > len) ? [[str substringToIndex:len-1] stringByAppendingString:@"…"] : str)
 
+@interface MWFeedItem ()
+    @property (nonatomic, retain) NSMutableArray *mutableCategories;
+@end
+
 @implementation MWFeedItem
 
-@synthesize identifier, title, link, date, updated, summary, content, author, enclosures;
+@synthesize identifier, title, link, date, updated, summary, content, author, enclosures, mutableCategories;
 
 #pragma mark NSObject
+
+- (MWFeedItem *)init
+{
+    self = [super init];
+    if (self) {
+        mutableCategories = [NSMutableArray array];
+    }
+    return self;
+}
 
 - (NSString *)description {
 	NSMutableString *string = [[NSMutableString alloc] initWithString:@"MWFeedItem: "];
@@ -46,6 +59,15 @@
 	return string;
 }
 
+- (NSArray *)categories
+{
+    return [self.mutableCategories copy];
+}
+
+- (void) addCategory:(NSString *)category {
+    if(category)
+        [self.mutableCategories addObject:category];
+}
 
 #pragma mark NSCoding
 
@@ -60,6 +82,7 @@
 		content = [decoder decodeObjectForKey:@"content"];
 		author = [decoder decodeObjectForKey:@"author"];
 		enclosures = [decoder decodeObjectForKey:@"enclosures"];
+        self.categories = [decoder decodeObjectForKey:@"categories"];
 	}
 	return self;
 }
@@ -74,6 +97,8 @@
 	if (content) [encoder encodeObject:content forKey:@"content"];
 	if (author) [encoder encodeObject:author forKey:@"author"];
 	if (enclosures) [encoder encodeObject:enclosures forKey:@"enclosures"];
+    if (self.categories) [encoder encodeObject:self.categories forKey:@"categories"];
+
 }
 
 @end

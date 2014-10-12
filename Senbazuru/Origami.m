@@ -208,6 +208,25 @@
 }
 
 -(NSString *) difficulty {
+    if(!self.wrappedItem.categories || [self.wrappedItem.categories count] == 0)
+        return NULL;
+    
+    for (NSString *category in self.wrappedItem.categories) {
+        if ([category containsString:@"Difficulté"]) {
+            
+            NSError *error = nil;
+            NSString *pattern = @"([★]+)";
+            NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern
+                                                                                  options:NSRegularExpressionCaseInsensitive
+                                                                                    error:&error];
+            NSRange rangeOfFirstMatch = [regex rangeOfFirstMatchInString:category options:0 range:NSMakeRange(0, category.length)];
+            NSString *stars = [category substringWithRange:rangeOfFirstMatch];
+            NSString * emojiStars = [stars stringByReplacingOccurrencesOfString:@"★" withString:@"\U0001F338"];
+
+            return emojiStars;
+        }
+    }
+    
     return NULL;
 }
 

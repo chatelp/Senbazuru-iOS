@@ -110,11 +110,6 @@
     
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-//    if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-//		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-//    }
-    
 	// Configure the cell to display
 	Origami *origami = nil;
     if (tableView == self.searchDisplayController.searchResultsTableView) {
@@ -132,13 +127,12 @@
 
         //Cell Subtitle
         NSMutableString *subtitle = [NSMutableString string];
-		if (origami.date)
+        if (origami.date) {
             [subtitle appendString: [formatter stringFromDate:origami.date]];
-
-//        [subtitle appendFormat:@"%@ - Difficulté: %@",
-//         [formatter stringFromDate:origami.date],
-//         @"\U00002B50"];
-        //[subtitle appendString:origami.summaryPlainText];
+        }
+        if (origami.difficulty) {
+            [subtitle appendFormat:@" - Difficulté: %@", origami.difficulty];
+        }
 		cell.detailTextLabel.text = subtitle;
 
         //Cell Image

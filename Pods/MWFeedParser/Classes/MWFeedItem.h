@@ -60,5 +60,8 @@
 @property (nonatomic, copy) NSString *content;
 @property (nonatomic, copy) NSString *author;
 @property (nonatomic, copy) NSArray *enclosures;
+@property (nonatomic, copy) NSArray *categories;
+
+- (void) addCategory:(NSString *)category;
 
 @end
