@@ -276,10 +276,10 @@
     }
     
     //4 - supprime les <br> supperflus
-    results = [rootElement nodesForXPath:@"//br" error:&error];
-    for (DDXMLElement *breaks in results) {
-        [breaks detach];
-    }
+    //results = [rootElement nodesForXPath:@"//br" error:&error];
+    //for (DDXMLElement *breaks in results) {
+    //    [breaks detach];
+    //}
     
     //5 - change la taille des videos youtubes OU remplace par des bouttons (CAS <iframe>)
     results = [rootElement nodesForXPath:@"//iframe" error:&error];
