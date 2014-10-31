@@ -212,7 +212,7 @@
         return NULL;
     
     for (NSString *category in self.wrappedItem.categories) {
-        if ([category containsString:@"Difficulté"]) {
+        if ([category rangeOfString:@"Difficulté"].location != NSNotFound ) {
             
             NSError *error = nil;
             NSString *pattern = @"([★]+)";
