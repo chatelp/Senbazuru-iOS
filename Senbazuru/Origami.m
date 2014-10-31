@@ -212,6 +212,7 @@
         return NULL;
     
     for (NSString *category in self.wrappedItem.categories) {
+        //attention à la méthode containsString qui n'existe qu'à partir d'iOS8
         if ([category rangeOfString:@"Difficulté"].location != NSNotFound ) {
             
             NSError *error = nil;
