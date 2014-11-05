@@ -21,6 +21,8 @@
 		8F4744CE19E69C5C00E5D8A9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F4744C319E69AC000E5D8A9 /* CoreData.framework */; };
 		8F4744D019E69C9D00E5D8A9 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F4744CF19E69C9D00E5D8A9 /* libsqlite3.0.dylib */; };
 		8F63A02A19B21C6400918FCD /* iPhoneMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F63A02919B21C6400918FCD /* iPhoneMainController.m */; };
+		8F7872781A0A6CBC003E42DD /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7872761A0A6CBC003E42DD /* Crashlytics.framework */; };
+		8F7872791A0A6CBC003E42DD /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7872771A0A6CBC003E42DD /* Fabric.framework */; };
 		8FA3F9081982951500318069 /* OrigamiDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA3F9071982951500318069 /* OrigamiDetailViewController.m */; };
 		8FA4BE3B197FD5D300B2928F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA4BE3A197FD5D300B2928F /* Foundation.framework */; };
 		8FA4BE3D197FD5D300B2928F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA4BE3C197FD5D300B2928F /* CoreGraphics.framework */; };
@@ -87,6 +89,8 @@
 		8F4744CF19E69C9D00E5D8A9 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		8F63A02819B21C6400918FCD /* iPhoneMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhoneMainController.h; sourceTree = "<group>"; };
 		8F63A02919B21C6400918FCD /* iPhoneMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhoneMainController.m; sourceTree = "<group>"; };
+		8F7872761A0A6CBC003E42DD /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		8F7872771A0A6CBC003E42DD /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		8FA3F9061982951500318069 /* OrigamiDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrigamiDetailViewController.h; sourceTree = "<group>"; };
 		8FA3F9071982951500318069 /* OrigamiDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrigamiDetailViewController.m; sourceTree = "<group>"; };
 		8FA4BE37197FD5D300B2928F /* Senbazuru.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Senbazuru.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,8 +141,10 @@
 				8FB096B019825EE3004E2EB5 /* libxml2.dylib in Frameworks */,
 				8FA4BE3B197FD5D300B2928F /* Foundation.framework in Frameworks */,
 				8FA4BE3D197FD5D300B2928F /* CoreGraphics.framework in Frameworks */,
+				8F7872791A0A6CBC003E42DD /* Fabric.framework in Frameworks */,
 				8FA4BE3F197FD5D300B2928F /* UIKit.framework in Frameworks */,
 				8F0F978E19C07ACB00D729C7 /* Social.framework in Frameworks */,
+				8F7872781A0A6CBC003E42DD /* Crashlytics.framework in Frameworks */,
 				8F4744CB19E69BDB00E5D8A9 /* libGoogleAnalyticsServices.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,6 +233,8 @@
 		8FA4BE39197FD5D300B2928F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8F7872761A0A6CBC003E42DD /* Crashlytics.framework */,
+				8F7872771A0A6CBC003E42DD /* Fabric.framework */,
 				8F4744CF19E69C9D00E5D8A9 /* libsqlite3.0.dylib */,
 				8F4744CC19E69C3000E5D8A9 /* AdSupport.framework */,
 				8F4744C719E69AD500E5D8A9 /* libz.dylib */,
@@ -345,6 +353,7 @@
 				8FA4BE35197FD5D300B2928F /* Resources */,
 				6668EA021D2A4F518050FB2B /* Copy Pods Resources */,
 				8F3B139D19D2FC2B00F3692C /* Run Script */,
+				8F7872751A0A6C73003E42DD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -462,6 +471,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "echo \"Updating build number for target ${TARGET_NAME}\"\nbuildNumber=$(git rev-list HEAD | wc -l | tr -d ' ')\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
+		};
+		8F7872751A0A6C73003E42DD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 8000ceb2255c262cf53e89f19403744ce76e6644 ef7da69158c084419bd26d89d8fdedf1fe4e2c8b1f90649a53511879de3170d3";
 		};
 		BAD4A175B0E34115BFD7393A /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -636,6 +658,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-6P";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Senbazuru/Senbazuru-Prefix.pch";
 				INFOPLIST_FILE = "Senbazuru/Senbazuru-Info.plist";
@@ -657,6 +683,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-6P";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Senbazuru/Senbazuru-Prefix.pch";
 				INFOPLIST_FILE = "Senbazuru/Senbazuru-Info.plist";

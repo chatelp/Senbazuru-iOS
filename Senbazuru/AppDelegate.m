@@ -11,6 +11,9 @@
 #import "iPadMainController.h"
 #import "GAI.h"
 #import "iRate.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+
 
 @implementation AppDelegate
 
@@ -44,6 +47,9 @@
     [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
     // Initialize tracker. Replace with your tracking ID.
     [[GAI sharedInstance] trackerWithTrackingId:@"UA-556793-13"];
+
+    //Fabric / Crashlytics
+    [Fabric with:@[CrashlyticsKit]];
 
     return YES;
 }
