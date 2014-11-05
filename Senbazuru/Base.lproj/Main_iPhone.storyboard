@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B17" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--All Origami View Controller-->
@@ -219,15 +220,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4b-gv-Adu">
-                                <rect key="frame" x="20" y="418" width="280" height="78"/>
+                                <rect key="frame" x="20" y="420" width="280" height="76"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" staticText="YES" notEnabled="YES"/>
                                 </accessibility>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="LoK-gH-8dM"/>
-                                    <constraint firstAttribute="height" constant="78" id="ROi-4m-FCN"/>
-                                </constraints>
                                 <string key="text">Contenu entièrement gratuit - vidéos toutes réalisées par senbazuru.fr - pliages non-traditionnels créés par leurs auteurs respectifs dont les noms sont indiqués lorsque connus. Les diagrammes originaux non-traditionnels ne sont jamais distribués par senbazuru.fr.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -276,23 +273,12 @@
                                     <constraint firstAttribute="height" constant="98" id="Kx2-ys-ZM4"/>
                                 </constraints>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="contact@senbazuru.fr" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5uj-yQ-Lmh">
-                                <rect key="frame" x="40" y="145" width="240" height="33"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="e8N-Ww-P1c"/>
-                                    <constraint firstAttribute="height" constant="33" id="pqz-Ge-ocS"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
-                            </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="version" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3XT-uG-HjT">
                                 <rect key="frame" x="76" y="486" width="168" height="32"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="168" id="1Kv-xQ-gSL"/>
-                                    <constraint firstAttribute="height" constant="32" id="QF6-lu-Tro"/>
+                                    <constraint firstAttribute="height" constant="32" id="Ron-lM-8Gb"/>
+                                    <constraint firstAttribute="width" constant="168" id="TG3-3Y-t4i"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -305,22 +291,33 @@
                                     <constraint firstAttribute="width" constant="71" id="bPK-17-WPj"/>
                                 </constraints>
                             </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="contact@senbazuru.fr" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5uj-yQ-Lmh">
+                                <rect key="frame" x="40" y="133" width="240" height="33"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="e8N-Ww-P1c"/>
+                                    <constraint firstAttribute="height" constant="33" id="pqz-Ge-ocS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="5uj-yQ-Lmh" firstAttribute="leading" secondItem="RQy-j5-Hfa" secondAttribute="leading" constant="40" id="8FM-qA-ktV"/>
-                            <constraint firstItem="3XT-uG-HjT" firstAttribute="leading" secondItem="RQy-j5-Hfa" secondAttribute="leading" constant="76" id="9UP-nl-a9P"/>
+                            <constraint firstAttribute="centerX" secondItem="5uj-yQ-Lmh" secondAttribute="centerX" id="1S4-GV-2np"/>
                             <constraint firstAttribute="centerY" secondItem="K0w-39-Eyb" secondAttribute="centerY" id="I93-HI-xiD"/>
-                            <constraint firstItem="qBk-fg-lYG" firstAttribute="leading" secondItem="RQy-j5-Hfa" secondAttribute="leading" constant="60" id="J6p-eN-CC9"/>
-                            <constraint firstItem="5uj-yQ-Lmh" firstAttribute="top" secondItem="qBk-fg-lYG" secondAttribute="bottom" constant="8" id="KU6-Ii-cBU"/>
+                            <constraint firstItem="5uj-yQ-Lmh" firstAttribute="top" secondItem="qBk-fg-lYG" secondAttribute="bottom" constant="-4" id="KU6-Ii-cBU"/>
                             <constraint firstAttribute="trailing" secondItem="K0w-39-Eyb" secondAttribute="trailing" constant="20" id="L2D-Gi-IA3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="S4b-gv-Adu" secondAttribute="trailing" constant="4" id="Pea-R6-Xl2"/>
+                            <constraint firstAttribute="centerX" secondItem="3XT-uG-HjT" secondAttribute="centerX" id="Ps0-7j-Rga"/>
+                            <constraint firstAttribute="centerX" secondItem="qBk-fg-lYG" secondAttribute="centerX" id="T7d-c4-n1A"/>
+                            <constraint firstAttribute="centerX" secondItem="lqa-hq-iaD" secondAttribute="centerX" id="UZ0-ty-X0h"/>
                             <constraint firstItem="Oq7-Ea-oGo" firstAttribute="top" secondItem="3XT-uG-HjT" secondAttribute="bottom" constant="1" id="Zxa-ZP-itL"/>
                             <constraint firstItem="Oq7-Ea-oGo" firstAttribute="top" secondItem="S4b-gv-Adu" secondAttribute="bottom" constant="23" id="bD9-KP-rD4"/>
                             <constraint firstItem="qBk-fg-lYG" firstAttribute="top" secondItem="lqa-hq-iaD" secondAttribute="bottom" constant="8" id="c6v-wB-kQh"/>
                             <constraint firstItem="lqa-hq-iaD" firstAttribute="top" secondItem="FPf-Zn-wqk" secondAttribute="bottom" constant="17" id="dHy-CO-e5Y"/>
-                            <constraint firstItem="S4b-gv-Adu" firstAttribute="leading" secondItem="RQy-j5-Hfa" secondAttribute="leading" constant="20" id="prg-8j-UOD"/>
-                            <constraint firstItem="K0w-39-Eyb" firstAttribute="top" relation="greaterThanOrEqual" secondItem="5uj-yQ-Lmh" secondAttribute="bottom" constant="20" id="pvP-fF-Q4U"/>
-                            <constraint firstItem="lqa-hq-iaD" firstAttribute="leading" secondItem="RQy-j5-Hfa" secondAttribute="leading" constant="125" id="uJ7-rx-YEd"/>
+                            <constraint firstItem="S4b-gv-Adu" firstAttribute="leading" secondItem="RQy-j5-Hfa" secondAttribute="leadingMargin" constant="4" id="w1b-zd-unT"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="A propos" image="info" id="MS9-xc-Uxy"/>
@@ -340,7 +337,7 @@
         <scene sceneID="w9z-RL-7oi">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="m4q-pf-BPX" userLabel="Navigation Controller - Favoris" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favoris" image="like-25" id="Z7h-1E-pvt"/>
+                    <tabBarItem key="tabBarItem" title="Favoris" image="like-tab" id="Z7h-1E-pvt"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aFT-6i-w9Y">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -362,6 +359,7 @@
         <image name="info" width="25" height="25"/>
         <image name="like-25" width="25" height="25"/>
         <image name="like-50" width="50" height="50"/>
+        <image name="like-tab" width="25" height="25"/>
         <image name="logo_senbazuru_smallest" width="71" height="71"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
