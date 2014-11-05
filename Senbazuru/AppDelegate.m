@@ -38,6 +38,9 @@
         splitViewController.delegate = (id)navigationController.topViewController;
     }
     
+    //Fabric / Crashlytics
+    [Fabric with:@[CrashlyticsKit]];
+    
     //Google Analytics
     // Optional: automatically send uncaught exceptions to Google Analytics.
     [GAI sharedInstance].trackUncaughtExceptions = YES;
@@ -47,9 +50,6 @@
     [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
     // Initialize tracker. Replace with your tracking ID.
     [[GAI sharedInstance] trackerWithTrackingId:@"UA-556793-13"];
-
-    //Fabric / Crashlytics
-    [Fabric with:@[CrashlyticsKit]];
 
     return YES;
 }
