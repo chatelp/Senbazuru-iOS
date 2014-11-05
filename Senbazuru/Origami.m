@@ -68,7 +68,7 @@
 -(UIImage *) iconWithBlock:(void (^)(void))completionHandler {
     if(icon == nil) { // Singleton
         [self startIconDownloadWithBlock:completionHandler];
-        return [UIImage imageNamed:@"picture"];
+        return [UIImage imageNamed:@"cloud"];
     }
     return icon;
 }
