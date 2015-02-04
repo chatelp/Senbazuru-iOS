@@ -12,7 +12,6 @@
 
 static NSString *const senbazuruRSSfeed = @"http://senbazuru.fr/files/feed.xml";
 
-
 @implementation iPadMainController
 
 @synthesize parsedOrigamis;
