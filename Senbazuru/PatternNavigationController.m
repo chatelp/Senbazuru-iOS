@@ -12,13 +12,13 @@
 
 #define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 
-#import "iPhoneNavigationController.h"
+#import "PatternNavigationController.h"
 
-@interface iPhoneNavigationController ()
+@interface PatternNavigationController ()
 
 @end
 
-@implementation iPhoneNavigationController
+@implementation PatternNavigationController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

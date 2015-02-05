@@ -191,7 +191,7 @@
         <!--Origamis-->
         <scene sceneID="uI2-hI-Umm">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xKX-ns-rXN" customClass="iPhoneNavigationController" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xKX-ns-rXN" customClass="PatternNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Origamis" image="home" id="u1e-5L-l1D"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kb1-Qj-2vQ">
@@ -336,7 +336,7 @@
         <!--Navigation Controller - Favoris-->
         <scene sceneID="w9z-RL-7oi">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="m4q-pf-BPX" userLabel="Navigation Controller - Favoris" customClass="iPhoneNavigationController" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="m4q-pf-BPX" userLabel="Navigation Controller - Favoris" customClass="PatternNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favoris" image="like-tab" id="Z7h-1E-pvt"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aFT-6i-w9Y">
