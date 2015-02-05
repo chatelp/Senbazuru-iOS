@@ -30,6 +30,7 @@ static NSString *const senbazuruRSSfeed = @"http://senbazuru.fr/files/feed.xml";
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
     
     [self parseFeed];
    

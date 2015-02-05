@@ -35,6 +35,9 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
     
     //Init
     [self.webView setDelegate:self];
+    
+    //Change navigation bar elements tint color (for both iPhone and iPad - no segue needed)
+    [self.navigationController.navigationBar setTintColor:[UIColor darkGrayColor]];
 
     //Configure rightBarButtonItems
     self.shareButtonItem = [[UIBarButtonItem alloc]

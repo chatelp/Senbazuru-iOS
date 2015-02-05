@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "MWFeedParser.h"
+#import "MyTabBarController.h"
 
-@interface iPhoneMainController : UITabBarController <MWFeedParserDelegate> {
+@interface iPhoneMainController : MyTabBarController <MWFeedParserDelegate> {
     // Parsing
 	MWFeedParser *feedParser;
     NSMutableArray *parsedOrigamis;

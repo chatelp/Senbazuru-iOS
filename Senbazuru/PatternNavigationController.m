@@ -31,10 +31,7 @@
         [self.navigationBar setBackgroundImage:bgImage forBarMetrics:UIBarMetricsLandscapePhone];
     }
     [self.navigationBar setTranslucent:YES]; //aucun effet pour l'instant
-
-    //Change elements tint color
-    [self.navigationBar setTintColor:[UIColor darkGrayColor]];
-
+    
     //Change font
     [self.navigationBar setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
