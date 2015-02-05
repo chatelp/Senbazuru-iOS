@@ -264,6 +264,7 @@
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bashõ" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbH-B9-f4t">
                                         <rect key="frame" x="-164" y="73" width="400" height="21"/>
                                         <fontDescription key="fontDescription" name="Baskerville-SemiBoldItalic" family="Baskerville" pointSize="14"/>
+                                        <color key="textColor" red="0.68235294117647061" green="0.043137254901960784" blue="0.10980392156862745" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
