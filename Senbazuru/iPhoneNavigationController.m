@@ -36,7 +36,7 @@
     [self.navigationBar setTintColor:[UIColor darkGrayColor]];
 
     //Change font
-    [[UINavigationBar appearance] setTitleTextAttributes:
+    [self.navigationBar setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
       [UIFont fontWithName:@"Ubuntu-Light" size:18.0],
       NSFontAttributeName,

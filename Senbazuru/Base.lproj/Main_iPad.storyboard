@@ -73,7 +73,7 @@
         <!--Origamis-->
         <scene sceneID="54Q-Hi-VYt">
             <objects>
-                <navigationController id="1ET-Td-uVH" sceneMemberID="viewController">
+                <navigationController id="1ET-Td-uVH" customClass="iPhoneNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Origamis" image="home" id="jRG-xt-MOn"/>
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="rYq-Wd-Rz3">
                         <autoresizingMask key="autoresizingMask"/>
@@ -302,7 +302,7 @@
         <!--Favoris-->
         <scene sceneID="hQI-Vz-kJ6">
             <objects>
-                <navigationController id="mug-bc-KQN" sceneMemberID="viewController">
+                <navigationController id="mug-bc-KQN" customClass="iPhoneNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favoris" image="like-tab" id="tfc-zf-vwp"/>
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="B0r-1W-ZWt">
                         <autoresizingMask key="autoresizingMask"/>
