@@ -24,20 +24,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    //Navbar pattern
+    //Change navbar background image
     UIImage *bgImage = [UIImage imageNamed:@"navbar_bg_waves_pattern_transparent"];
-    
-    
     [self.navigationBar setBackgroundImage:bgImage forBarMetrics:UIBarMetricsDefault];
-    [self.navigationBar setTranslucent:YES]; //aucun effet pour l'instant
-    [self.navigationBar setTintColor:[UIColor darkGrayColor]];
-
-    
-    //Legacy - before iOS8
     if (SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(@"7.1")) {
         [self.navigationBar setBackgroundImage:bgImage forBarMetrics:UIBarMetricsLandscapePhone];
     }
-    
+    [self.navigationBar setTranslucent:YES]; //aucun effet pour l'instant
+
+    //Change elements tint color
+    [self.navigationBar setTintColor:[UIColor darkGrayColor]];
+
+    //Change font
+    [[UINavigationBar appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIFont fontWithName:@"Ubuntu-Light" size:18.0],
+      NSFontAttributeName,
+      nil]];
 }
 
 //- (void)updateConstraintsForTraitCollection:(UITraitCollection *)collection

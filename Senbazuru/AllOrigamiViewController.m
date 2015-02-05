@@ -218,11 +218,15 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    //Change back button (no text - only back arrow glyph)
+    self.navigationItem.backBarButtonItem=[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+
+    //Prepare destination view
     UIViewController *destination = segue.destinationViewController;
     
     if ([segue.identifier isEqualToString:@"detailSegue"])
         [destination setValue:sender forKeyPath:@"origami"];
-    
+ 
     [destination setValue:self forKeyPath:@"delegate"];
 }
 
