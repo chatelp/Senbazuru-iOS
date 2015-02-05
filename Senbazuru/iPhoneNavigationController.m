@@ -25,10 +25,14 @@
     // Do any additional setup after loading the view.
     
     //Navbar pattern
-    UIImage *bgImage = [[UIImage imageNamed:@"navbar_bg_waves_pattern"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0) resizingMode:UIImageResizingModeTile];
+    UIImage *bgImage = [UIImage imageNamed:@"navbar_bg_waves_pattern_transparent"];
     
     
     [self.navigationBar setBackgroundImage:bgImage forBarMetrics:UIBarMetricsDefault];
+    [self.navigationBar setTranslucent:YES]; //aucun effet pour l'instant
+    [self.navigationBar setTintColor:[UIColor darkGrayColor]];
+
+    
     //Legacy - before iOS8
     if (SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(@"7.1")) {
         [self.navigationBar setBackgroundImage:bgImage forBarMetrics:UIBarMetricsLandscapePhone];

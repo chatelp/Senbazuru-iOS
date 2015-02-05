@@ -336,7 +336,7 @@
         <!--Navigation Controller - Favoris-->
         <scene sceneID="w9z-RL-7oi">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="m4q-pf-BPX" userLabel="Navigation Controller - Favoris" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="m4q-pf-BPX" userLabel="Navigation Controller - Favoris" customClass="iPhoneNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favoris" image="like-tab" id="Z7h-1E-pvt"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aFT-6i-w9Y">
