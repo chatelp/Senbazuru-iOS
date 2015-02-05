@@ -102,7 +102,7 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
         NSArray *favorites = [defaults arrayForKey:@"Favorites"];
         if(favorites) {
             if([favorites containsObject:self.origami.title]) {
-                [_favoriteButton setImage:[UIImage imageNamed:@"like-50_selected"] forState:UIControlStateSelected];
+                [_favoriteButton setImage:[UIImage imageNamed:@"like-red_selected"] forState:UIControlStateSelected];
                 [_favoriteButton setSelected:YES];
             } else {
                 [_favoriteButton setSelected:NO];
@@ -239,7 +239,7 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
         //Add favorite
         [mutableFavorites addObject:self.origami.title];
         
-        [sender setImage:[UIImage imageNamed:@"like-50_selected"] forState:UIControlStateSelected];
+        [sender setImage:[UIImage imageNamed:@"like-red_selected"] forState:UIControlStateSelected];
         [sender setSelected:YES];
     }
     
