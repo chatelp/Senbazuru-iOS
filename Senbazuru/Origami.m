@@ -13,7 +13,7 @@
 
 @implementation Origami
 
-@synthesize icon, image, videoURL, parsedHTML;
+@synthesize icon, image, videoURL, parsedHTML, difficultyAsEmoji, difficultyAsWord;
 
 -(Origami *)initWithWrappedItem:(MWFeedItem *)item {
     self = [super init];
@@ -233,7 +233,7 @@
 
 -(NSString *) difficultyAsWord {
     if(!self.wrappedItem.categories || [self.wrappedItem.categories count] == 0)
-        return @"Facile";
+        return @"Autre";
     
     for (NSString *category in self.wrappedItem.categories) {
         //attention à la méthode containsString qui n'existe qu'à partir d'iOS8
@@ -246,8 +246,7 @@
                                                                                      error:&error];
             NSRange rangeOfFirstMatch = [regex rangeOfFirstMatchInString:category options:0 range:NSMakeRange(0, category.length)];
             NSString *stars = [category substringWithRange:rangeOfFirstMatch];
-            NSString * emojiStars = [stars stringByReplacingOccurrencesOfString:@"★" withString:@"\U0001F338"];
-            switch (emojiStars.length) {
+            switch (stars.length) {
                 case 1:
                     return @"Facile";
                     break;
@@ -259,12 +258,12 @@
                     break;
                     
                 default:
-                    return @"Facile";
+                    return @"Autre";
             }
         }
     }
     
-    return @"Facile";
+    return @"Autre";
 }
 
 #pragma mark -

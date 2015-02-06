@@ -14,9 +14,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" showsScopeBar="YES" id="gP0-SL-fs9">
+                        <searchBar key="tableHeaderView" contentMode="redraw" showsScopeBar="YES" id="gP0-SL-fs9">
                             <rect key="frame" x="0.0" y="64" width="320" height="88"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="tintColor" red="0.68235294120000001" green="0.043137254899999998" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                             <textInputTraits key="textInputTraits"/>
                             <scopeButtonTitles>
                                 <string>Tous</string>
@@ -63,6 +64,7 @@
                         <barButtonItem key="backBarButtonItem" title="Origamis" id="laq-iB-FcE"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchBar" destination="gP0-SL-fs9" id="Daz-ot-VVI"/>
                         <outlet property="searchDisplayController" destination="Kou-ZU-5Am" id="1ZP-UE-qsy"/>
                         <segue destination="24f-52-Zav" kind="push" identifier="detailSegue" id="hJa-be-aZk"/>
                     </connections>

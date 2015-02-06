@@ -18,6 +18,7 @@
 }
 
 //@property (strong, nonatomic) UISearchDisplayController *searchDisplayController;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 //iPad
 @property (strong, nonatomic) OrigamiDetailViewController *detailViewController;

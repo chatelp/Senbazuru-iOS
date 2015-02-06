@@ -59,6 +59,7 @@
     // Style des cellules de la recherche
     [self.searchDisplayController.searchResultsTableView setRowHeight:self.tableView.rowHeight];
     
+    
     //Au cas où la notification de fin de parsing serait déjà passée, avant même l'abonnement
     [self itemsParsed:nil];
     
@@ -235,7 +236,18 @@
 
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
 {
-    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"title contains[c] %@", searchText];
+    //Si scope=="Tous", on ignore le scope dans la recherche
+    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"title contains[cd] %@", searchText];
+    
+    //Si il y a un texte de recherche ET si scope!="Tous"
+    if (searchText.length != 0 && ![scope isEqualToString:@"Tous"]) {
+        resultPredicate = [NSPredicate predicateWithFormat:@"title contains[cd] %@ AND difficultyAsWord matches[cd] %@", searchText, scope];
+    }
+    //Si il y a juste un scope
+    else if(searchText.length == 0 && ![scope isEqualToString:@"Tous"]) {
+        resultPredicate = [NSPredicate predicateWithFormat:@"difficultyAsWord matches[cd] %@", scope];
+    }
+    
     searchResults = [origamisToDisplay filteredArrayUsingPredicate:resultPredicate];
 }
 
