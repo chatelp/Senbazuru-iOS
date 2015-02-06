@@ -129,8 +129,8 @@
         if (origami.date) {
             [subtitle appendString: [formatter stringFromDate:origami.date]];
         }
-        if (origami.difficulty) {
-            [subtitle appendFormat:@" - Difficulté: %@", origami.difficulty];
+        if (origami.difficultyAsEmoji) {
+            [subtitle appendFormat:@" - Difficulté: %@", origami.difficultyAsEmoji];
         }
 		cell.detailTextLabel.text = subtitle;
 
@@ -246,6 +246,17 @@
                                       objectAtIndex:[self.searchDisplayController.searchBar
                                                      selectedScopeButtonIndex]]];
     
+    // Return YES to cause the search result table view to be reloaded.
+    return YES;
+}
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
+{
+    [self filterContentForSearchText:[self.searchDisplayController.searchBar text]
+                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
+                                      objectAtIndex:searchOption]];
+    
+    // Return YES to cause the search result table view to be reloaded.
     return YES;
 }
 

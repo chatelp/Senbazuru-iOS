@@ -17,6 +17,8 @@
     NSArray *searchResults;
 }
 
+//@property (strong, nonatomic) UISearchDisplayController *searchDisplayController;
+
 //iPad
 @property (strong, nonatomic) OrigamiDetailViewController *detailViewController;
 

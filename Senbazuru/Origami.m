@@ -207,7 +207,7 @@
     return videoURL;
 }
 
--(NSString *) difficulty {
+-(NSString *) difficultyAsEmoji {
     if(!self.wrappedItem.categories || [self.wrappedItem.categories count] == 0)
         return NULL;
     
@@ -229,6 +229,42 @@
     }
     
     return NULL;
+}
+
+-(NSString *) difficultyAsWord {
+    if(!self.wrappedItem.categories || [self.wrappedItem.categories count] == 0)
+        return @"Facile";
+    
+    for (NSString *category in self.wrappedItem.categories) {
+        //attention à la méthode containsString qui n'existe qu'à partir d'iOS8
+        if ([category rangeOfString:@"Difficulté"].location != NSNotFound ) {
+            
+            NSError *error = nil;
+            NSString *pattern = @"([★]+)";
+            NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern
+                                                                                   options:NSRegularExpressionCaseInsensitive
+                                                                                     error:&error];
+            NSRange rangeOfFirstMatch = [regex rangeOfFirstMatchInString:category options:0 range:NSMakeRange(0, category.length)];
+            NSString *stars = [category substringWithRange:rangeOfFirstMatch];
+            NSString * emojiStars = [stars stringByReplacingOccurrencesOfString:@"★" withString:@"\U0001F338"];
+            switch (emojiStars.length) {
+                case 1:
+                    return @"Facile";
+                    break;
+                case 2:
+                    return @"Intermédiaire";
+                    break;
+                case 3:
+                    return @"Avancé";
+                    break;
+                    
+                default:
+                    return @"Facile";
+            }
+        }
+    }
+    
+    return @"Facile";
 }
 
 #pragma mark -
