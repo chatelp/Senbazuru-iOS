@@ -35,7 +35,7 @@
     //Change font
     [self.navigationBar setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
-      [UIFont fontWithName:@"Ubuntu-Light" size:18.0],
+      [UIFont fontWithName:@"Ubuntu" size:18.0],
       NSFontAttributeName,
       nil]];
 }
