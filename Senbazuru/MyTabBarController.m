@@ -7,6 +7,7 @@
 //
 
 #import "MyTabBarController.h"
+#import "UIColor.h"
 
 @interface MyTabBarController ()
 
@@ -19,8 +20,7 @@
     // Do any additional setup after loading the view.
     
     // Change elements tint
-    UIColor *senbazuruRed = [UIColor colorWithRed:198/255.0f green:33/255.0f blue:39/255.0f alpha:1.0f];
-    [self.tabBar setTintColor:senbazuruRed];
+    [self.tabBar setTintColor:[UIColor senbazuruRedColor]];
 }
 
 - (void)didReceiveMemoryWarning {

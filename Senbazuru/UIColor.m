@@ -1,0 +1,17 @@
+//
+//  UIColor.m
+//  Senbazuru
+//
+//  Created by Pierre Chatel on 12/02/15.
+//  Copyright (c) 2015 Pierre Chatel. All rights reserved.
+//
+
+#import "UIColor.h"
+
+@implementation UIColor (Extensions)
+
++ (UIColor *)senbazuruRedColor {
+    return [UIColor colorWithRed:198/255.0f green:33/255.0f blue:39/255.0f alpha:1.0f];
+}
+
+@end

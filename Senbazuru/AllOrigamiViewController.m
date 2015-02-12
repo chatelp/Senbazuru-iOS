@@ -63,6 +63,11 @@
     //Au cas où la notification de fin de parsing serait déjà passée, avant même l'abonnement
     [self itemsParsed:nil];
     
+    //Searchbar
+    //[self.searchBar setBackgroundImage:[UIImage imageWithCGImage:(__bridge CGImageRef)([UIColor clearColor])]];
+    //[self.searchBar setBarTintColor:[UIColor clearColor]];
+    //[self.searchBar setBackgroundImage:[[UIImage alloc]init]];
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(itemsParsed:)
                                                  name:ItemsParsed
