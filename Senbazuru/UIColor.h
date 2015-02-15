@@ -11,5 +11,6 @@
 @interface UIColor (Extensions)
 
 + (UIColor *)senbazuruRedColor;
++ (UIColor *)searchFieldGrey;
 
 @end

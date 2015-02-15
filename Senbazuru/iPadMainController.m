@@ -66,7 +66,7 @@ static NSString *const senbazuruRSSfeed = @"http://senbazuru.fr/files/feed.xml";
 
 
 - (void)feedParser:(MWFeedParser *)parser didParseFeedItem:(MWFeedItem *)item {
-	NSLog(@"Parsed Feed Item: “%@”", item.title);
+	//NSLog(@"Parsed Feed Item: “%@”", item.title);
 	if (item) {
         [parsedOrigamis addObject:[[Origami alloc] initWithWrappedItem:item]];
     }

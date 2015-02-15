@@ -11,6 +11,7 @@
 //#define IS_IPHONE_6_PLUS (fabs((double)[[UIScreen mainScreen]bounds].size.height - (double)736) < DBL_EPSILON)
 
 #define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
 #import "PatternNavigationController.h"
 
@@ -26,12 +27,14 @@
     
     //Change navbar background image
     UIImage *bgImage = [UIImage imageNamed:@"navbar_bg_waves_pattern_transparent"];
-    [self.navigationBar setBackgroundImage:bgImage forBarMetrics:UIBarMetricsDefault];
-    if (SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(@"7.1")) {
+    if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")) {
+        [self.navigationBar setBarTintColor:[UIColor colorWithPatternImage:bgImage]];
+    } else {
+        [self.navigationBar setBackgroundImage:bgImage forBarMetrics:UIBarMetricsDefault];
         [self.navigationBar setBackgroundImage:bgImage forBarMetrics:UIBarMetricsLandscapePhone];
+
     }
-    [self.navigationBar setTranslucent:YES]; //aucun effet pour l'instant
-    
+        
     //Change font
     [self.navigationBar setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:

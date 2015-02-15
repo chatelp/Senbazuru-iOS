@@ -14,4 +14,8 @@
     return [UIColor colorWithRed:198/255.0f green:33/255.0f blue:39/255.0f alpha:1.0f];
 }
 
++ (UIColor *)searchFieldGrey {
+    return [UIColor colorWithRed:234/255.0f green:235/255.0f blue:237/255.0f alpha:1.0f];
+}
+
 @end

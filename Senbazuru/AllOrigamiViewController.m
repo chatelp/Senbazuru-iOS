@@ -16,6 +16,7 @@
 #import "GAI.h"
 #import "GAIFields.h"
 #import "GAIDictionaryBuilder.h"
+#import "UIColor.h"
 
 @implementation AllOrigamiViewController
 
@@ -64,9 +65,18 @@
     [self itemsParsed:nil];
     
     //Searchbar
-    //[self.searchBar setBackgroundImage:[UIImage imageWithCGImage:(__bridge CGImageRef)([UIColor clearColor])]];
-    //[self.searchBar setBarTintColor:[UIColor clearColor]];
-    //[self.searchBar setBackgroundImage:[[UIImage alloc]init]];
+    [self.searchBar setSearchBarStyle:UISearchBarStyleDefault];
+    [self.searchBar setBackgroundImage:[UIImage imageWithCGImage:(__bridge CGImageRef)([UIColor clearColor])]];
+    [self.searchBar setBarTintColor:[UIColor whiteColor]];
+    [self.searchBar setTintColor:[UIColor senbazuruRedColor]];
+    for (UIView *subView in self.searchBar.subviews) {
+        for(id field in subView.subviews){
+            if ([field isKindOfClass:[UITextField class]]) {
+                UITextField *textField = (UITextField *)field;
+                [textField setBackgroundColor:[UIColor searchFieldGrey]];
+            }
+        }
+    }
 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(itemsParsed:)
