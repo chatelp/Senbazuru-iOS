@@ -27,10 +27,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Let the device know we want to receive push notifications
-	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    //Let the device know we want to receive push notifications
+    if ([[UIApplication sharedApplication] respondsToSelector:@selector(isRegisteredForRemoteNotifications)]) {
+        // iOS 8 Notifications
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
+    }
+    else {
+        // iOS < 8 Notifications
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+         (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
 
+    }
+	
     // Only for iPad (splitView)
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
@@ -84,6 +92,16 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+#pragma mark -
+#pragma mark Notifications handling
+
+//Only for iOS 8
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
+    //Call this method to initiate the registration process with Apple Push Service.
+    //If registration succeeds, the app calls your app delegate object’s application:didRegisterForRemoteNotificationsWithDeviceToken: method and passes it a device token
+     [[UIApplication sharedApplication] registerForRemoteNotifications];
+}
+
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
     #if !TARGET_IPHONE_SIMULATOR
@@ -94,13 +112,31 @@
 	NSString *appName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"];
 	NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
 	
-	// Check what Notifications the user has turned on.  We registered for all three, but they may have manually disabled some or all of them.
-	NSUInteger rntypes = [[UIApplication sharedApplication] enabledRemoteNotificationTypes];
+    NSString *pushBadge = @"disabled";
+    NSString *pushAlert = @"disabled";
+    NSString *pushSound = @"disabled";
+    
+    if ([[UIApplication sharedApplication] respondsToSelector:@selector(isRegisteredForRemoteNotifications)]) {
+        // iOS 8 Notifications
+        
+        // Check what Notifications the user has turned on
+        NSUInteger rntypes = [[UIApplication sharedApplication] currentUserNotificationSettings].types;
+        
+        // Set the defaults to disabled unless we find otherwise...
+        pushBadge = (rntypes &  UIUserNotificationTypeBadge) ? @"enabled" : @"disabled";
+        pushAlert = (rntypes & UIUserNotificationTypeAlert) ? @"enabled" : @"disabled";
+        pushSound = (rntypes & UIUserNotificationTypeSound) ? @"enabled" : @"disabled";    
+    } else {
+        // iOS < 8 Notifications
+        
+        // Check what Notifications the user has turned on
+        NSUInteger rntypes = [[UIApplication sharedApplication] enabledRemoteNotificationTypes];
 	
-	// Set the defaults to disabled unless we find otherwise...
-	NSString *pushBadge = (rntypes & UIRemoteNotificationTypeBadge) ? @"enabled" : @"disabled";
-	NSString *pushAlert = (rntypes & UIRemoteNotificationTypeAlert) ? @"enabled" : @"disabled";
-	NSString *pushSound = (rntypes & UIRemoteNotificationTypeSound) ? @"enabled" : @"disabled";
+        // Set the defaults to disabled unless we find otherwise...
+        pushBadge = (rntypes & UIRemoteNotificationTypeBadge) ? @"enabled" : @"disabled";
+        pushAlert = (rntypes & UIRemoteNotificationTypeAlert) ? @"enabled" : @"disabled";
+        pushSound = (rntypes & UIRemoteNotificationTypeSound) ? @"enabled" : @"disabled";
+    }
 	
     
 	// Get the users Device Model, Display Name, Unique ID, Token & Version Number
