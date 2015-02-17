@@ -156,6 +156,7 @@
                                 <rect key="frame" x="129" y="20" width="142" height="142"/>
                             </imageView>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="A propos" image="info" id="vsk-aT-5xV"/>
                     <connections>

@@ -42,7 +42,7 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
     }
     
     //pierre: test
-    [self.view setBackgroundColor:[UIColor senbazuruPatternColor]];
+    //[self.view setBackgroundColor:[UIColor senbazuruPatternColor]];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

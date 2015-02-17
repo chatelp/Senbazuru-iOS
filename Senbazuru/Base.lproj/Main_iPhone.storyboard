@@ -311,6 +311,7 @@
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="5uj-yQ-Lmh" secondAttribute="centerX" id="1S4-GV-2np"/>
                             <constraint firstAttribute="centerY" secondItem="K0w-39-Eyb" secondAttribute="centerY" id="I93-HI-xiD"/>
