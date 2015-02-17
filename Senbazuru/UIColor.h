@@ -12,5 +12,6 @@
 
 + (UIColor *)senbazuruRedColor;
 + (UIColor *)searchFieldGrey;
++ (UIColor *)senbazuruPatternColor;
 
 @end

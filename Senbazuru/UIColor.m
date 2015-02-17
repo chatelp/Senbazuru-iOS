@@ -18,4 +18,11 @@
     return [UIColor colorWithRed:234/255.0f green:235/255.0f blue:237/255.0f alpha:1.0f];
 }
 
++ (UIColor *)senbazuruPatternColor {
+    UIImage *bgImage = [UIImage imageNamed:@"navbar_bg_waves_pattern_transparent"];
+    return [UIColor colorWithPatternImage:bgImage];
+}
+
+
+
 @end

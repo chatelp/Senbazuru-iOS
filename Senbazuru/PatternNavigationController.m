@@ -14,6 +14,7 @@
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
 #import "PatternNavigationController.h"
+#import "UIColor.h"
 
 @interface PatternNavigationController ()
 
@@ -26,10 +27,11 @@
     // Do any additional setup after loading the view.
     
     //Change navbar background image
-    UIImage *bgImage = [UIImage imageNamed:@"navbar_bg_waves_pattern_transparent"];
+    
     if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")) {
-        [self.navigationBar setBarTintColor:[UIColor colorWithPatternImage:bgImage]];
+        [self.navigationBar setBarTintColor:[UIColor senbazuruPatternColor]];
     } else {
+        UIImage *bgImage = [UIImage imageNamed:@"navbar_bg_waves_pattern_transparent"];
         [self.navigationBar setBackgroundImage:bgImage forBarMetrics:UIBarMetricsDefault];
         [self.navigationBar setBackgroundImage:bgImage forBarMetrics:UIBarMetricsLandscapePhone];
 
