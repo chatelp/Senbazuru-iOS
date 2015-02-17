@@ -19,7 +19,7 @@
 }
 
 + (UIColor *)senbazuruPatternColor {
-    UIImage *bgImage = [UIImage imageNamed:@"navbar_bg_waves_pattern_transparent"];
+    UIImage *bgImage = [UIImage imageNamed:@"navbar_bg_waves_pattern"];
     return [UIColor colorWithPatternImage:bgImage];
 }
 

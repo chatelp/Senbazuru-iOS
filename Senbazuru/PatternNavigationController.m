@@ -6,10 +6,6 @@
 //  Copyright (c) 2015 Pierre Chatel. All rights reserved.
 //
 
-//#define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
-//#define IS_IPHONE_6 (fabs((double)[[UIScreen mainScreen]bounds].size.height - (double)667) < DBL_EPSILON)
-//#define IS_IPHONE_6_PLUS (fabs((double)[[UIScreen mainScreen]bounds].size.height - (double)736) < DBL_EPSILON)
-
 #define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
@@ -27,7 +23,6 @@
     // Do any additional setup after loading the view.
     
     //Change navbar background image
-    
     if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")) {
         [self.navigationBar setBarTintColor:[UIColor senbazuruPatternColor]];
     } else {
