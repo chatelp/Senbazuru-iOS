@@ -23,6 +23,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *favoriteButton;
 @property (strong, nonatomic) UIBarButtonItem *shareButtonItem;
 
+//iPad
 @property (weak, nonatomic) IBOutlet UIView *haikuView;
 @property (weak, nonatomic) IBOutlet UILabel *vers1;
 @property (weak, nonatomic) IBOutlet UILabel *vers2;

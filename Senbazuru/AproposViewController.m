@@ -9,6 +9,7 @@
 #import "AproposViewController.h"
 #import "DDXMLDocument+HTML.h"
 #import "Haiku.h"
+#import "UIColor.h"
 
 static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
 
@@ -39,6 +40,9 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         [self parseHaikuXMLSource];
     }
+    
+    //pierre: test
+    [self.view setBackgroundColor:[UIColor senbazuruPatternColor]];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

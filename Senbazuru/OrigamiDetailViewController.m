@@ -96,11 +96,16 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
         [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
 
         //Display rightBarButtonItems
-        if(![rightBarButtonItems containsObject:self.shareButtonItem] && ![rightBarButtonItems containsObject:self.favoriteButtonItem]) {
+        if(![rightBarButtonItems containsObject:self.favoriteButtonItem]) {
             [rightBarButtonItems addObject:self.favoriteButtonItem];
-            [rightBarButtonItems addObject:self.shareButtonItem];
-            [self.navigationItem setRightBarButtonItems:rightBarButtonItems animated:YES];
+            
         }
+        if(![rightBarButtonItems containsObject:self.shareButtonItem]) {
+            if(self.origami.videoURL) {
+                [rightBarButtonItems addObject:self.shareButtonItem];
+            }
+        }
+        [self.navigationItem setRightBarButtonItems:rightBarButtonItems animated:YES];
             
         NSArray *favorites = [defaults arrayForKey:@"Favorites"];
         if(favorites) {
@@ -211,9 +216,13 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
                                                 initWithActivityItems:postItems
                                                 applicationActivities:nil];
         
-        //Set anchor point (https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIPopoverPresentationController_class/index.html#//apple_ref/occ/instp/UIPopoverPresentationController/barButtonItem)
-        activityViewController.popoverPresentationController.barButtonItem = self.shareButtonItem;
-    
+        //Available in iOS 8.0 and later.
+        if ([activityViewController respondsToSelector:@selector(popoverPresentationController)]) {
+
+            //Set anchor point (https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIPopoverPresentationController_class/index.html#//apple_ref/occ/instp/UIPopoverPresentationController/barButtonItem)
+            activityViewController.popoverPresentationController.barButtonItem = self.shareButtonItem;
+        }
+        
         [self presentViewController:activityViewController animated:YES completion:nil];
     }
 }
