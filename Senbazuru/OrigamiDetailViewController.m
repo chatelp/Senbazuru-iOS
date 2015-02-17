@@ -45,13 +45,9 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
                                     target:self
                                     action:@selector(shareOrigami:)];
     
-    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:self.favoriteButtonItem, self.shareButtonItem, nil];
     
-    
-    //Hide buttons until origami is assigned
-    rightBarButtonItems = [self.navigationItem.rightBarButtonItems mutableCopy];
-    [rightBarButtonItems removeObject:self.favoriteButtonItem];
-    [rightBarButtonItems removeObject:self.shareButtonItem];
+    //Hide nav bar buttons until origami is assigned
+    rightBarButtonItems = [[NSMutableArray alloc] init];
     [self.navigationItem setRightBarButtonItems:rightBarButtonItems animated:NO];
     
     //Defaults
@@ -95,15 +91,14 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
         }
         [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
 
-        //Display rightBarButtonItems
+        //Nav bar buttons display/hide
         if(![rightBarButtonItems containsObject:self.favoriteButtonItem]) {
             [rightBarButtonItems addObject:self.favoriteButtonItem];
-            
         }
-        if(![rightBarButtonItems containsObject:self.shareButtonItem]) {
-            if(self.origami.videoURL) {
-                [rightBarButtonItems addObject:self.shareButtonItem];
-            }
+        if(!self.origami.videoURL) {
+            [rightBarButtonItems removeObject:self.shareButtonItem];
+        } else if(![rightBarButtonItems containsObject:self.shareButtonItem]) {
+            [rightBarButtonItems addObject:self.shareButtonItem];
         }
         [self.navigationItem setRightBarButtonItems:rightBarButtonItems animated:YES];
             
