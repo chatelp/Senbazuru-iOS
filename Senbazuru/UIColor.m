@@ -23,6 +23,9 @@
     return [UIColor colorWithPatternImage:bgImage];
 }
 
-
++ (UIColor *)senbazuruRicePaper2Color {
+    UIImage *bgImage = [UIImage imageNamed:@"ricepaper2"];
+    return [UIColor colorWithPatternImage:bgImage];
+}
 
 @end

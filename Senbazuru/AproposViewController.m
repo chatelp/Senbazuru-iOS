@@ -41,8 +41,8 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
         [self parseHaikuXMLSource];
     }
     
-    //pierre: test
-    //[self.view setBackgroundColor:[UIColor senbazuruPatternColor]];
+    //A propos view background pattern
+    [self.view setBackgroundColor:[UIColor senbazuruRicePaper2Color]];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
