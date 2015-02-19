@@ -4,6 +4,11 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7512"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Ubuntu-R.ttf">
+            <string>Ubuntu</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--All Origami View Controller-->
         <scene sceneID="0zt-It-EGB">
@@ -124,12 +129,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="400" height="500"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Les origami de Senbazuru" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAV-yQ-oy9">
-                                <rect key="frame" x="100" y="170" width="200" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dhc-8X-ggg">
                                 <rect key="frame" x="20" y="273" width="360" height="122"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -155,6 +154,12 @@
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="logo_senbazuru_smaller" translatesAutoresizingMaskIntoConstraints="NO" id="Tpv-NC-3hl">
                                 <rect key="frame" x="129" y="20" width="142" height="142"/>
                             </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="senbazuru.fr" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAV-yQ-oy9">
+                                <rect key="frame" x="131" y="170" width="138" height="20"/>
+                                <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="21"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -181,39 +186,38 @@
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qtA-ki-BUP">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ub-6Y-VDV">
-                                <rect key="frame" x="506" y="427" width="253" height="171"/>
+                                <rect key="frame" x="386" y="426" width="373" height="171"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Devant l'éclair -" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uqz-bL-ntL">
-                                        <rect key="frame" x="1" y="52" width="250" height="21"/>
-                                        <fontDescription key="fontDescription" name="Baskerville-Italic" family="Baskerville" pointSize="17"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tsW-b8-0dA">
-                                        <rect key="frame" x="1" y="72" width="250" height="21"/>
-                                        <string key="text">Sublime est celui
-</string>
-                                        <fontDescription key="fontDescription" name="Baskerville-Italic" family="Baskerville" pointSize="17"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZU-go-63L">
-                                        <rect key="frame" x="1" y="92" width="250" height="21"/>
-                                        <string key="text">Qui ne sait rien !
-</string>
-                                        <fontDescription key="fontDescription" name="Baskerville-Italic" family="Baskerville" pointSize="17"/>
+                                        <rect key="frame" x="121" y="45" width="250" height="22"/>
+                                        <fontDescription key="fontDescription" name="Baskerville-Italic" family="Baskerville" pointSize="21"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bashõ" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOp-st-sG9">
-                                        <rect key="frame" x="1" y="125" width="250" height="21"/>
-                                        <fontDescription key="fontDescription" name="Baskerville-SemiBoldItalic" family="Baskerville" pointSize="14"/>
+                                        <rect key="frame" x="121" y="142" width="250" height="21"/>
+                                        <fontDescription key="fontDescription" name="Baskerville-SemiBoldItalic" family="Baskerville" pointSize="17"/>
                                         <color key="textColor" red="0.68235294120000001" green="0.043137254899999998" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZU-go-63L">
+                                        <rect key="frame" x="121" y="105" width="250" height="22"/>
+                                        <string key="text">Qui ne sait rien !
+</string>
+                                        <fontDescription key="fontDescription" name="Baskerville-Italic" family="Baskerville" pointSize="20"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tsW-b8-0dA">
+                                        <rect key="frame" x="121" y="75" width="250" height="22"/>
+                                        <string key="text">Sublime est celui
+</string>
+                                        <fontDescription key="fontDescription" name="Baskerville-Italic" family="Baskerville" pointSize="20"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="253" id="8F9-Je-eR5"/>
+                                    <constraint firstAttribute="width" constant="373" id="8F9-Je-eR5"/>
                                     <constraint firstAttribute="height" constant="171" id="WPT-QO-UYK"/>
                                 </constraints>
                             </view>

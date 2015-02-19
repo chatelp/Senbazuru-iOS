@@ -13,6 +13,7 @@
 #import "GAI.h"
 #import "GAIFields.h"
 #import "GAIDictionaryBuilder.h"
+#import "UIColor.h"
 
 static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
 
@@ -58,6 +59,11 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
     
     //If iPad, display Haiku
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        //Background pattern
+        [self.view setBackgroundColor:[UIColor senbazuruRicePaper2Color]];
+        //Hide webview to show pattern
+        [self.webView setHidden:YES];
+        
         [self parseHaikuXMLSource];
         [self randomizeDisplay];
     }
@@ -68,9 +74,11 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
 {
     if (self.origami && self.isViewLoaded) {
         
-        //Hide haiku
-        if(self.haikuView)
+        //Hide haiku and display webview
+        if(self.haikuView) {
             [self.haikuView setHidden:YES];
+            [self.webView setHidden:NO];
+        }
 
         //Load origami content
         self.navigationItem.title = self.origami.title;
