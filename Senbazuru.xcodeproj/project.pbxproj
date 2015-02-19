@@ -24,8 +24,6 @@
 		8F4744CE19E69C5C00E5D8A9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F4744C319E69AC000E5D8A9 /* CoreData.framework */; };
 		8F4744D019E69C9D00E5D8A9 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F4744CF19E69C9D00E5D8A9 /* libsqlite3.0.dylib */; };
 		8F63A02A19B21C6400918FCD /* iPhoneMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F63A02919B21C6400918FCD /* iPhoneMainController.m */; };
-		8F77939F1A924BC100505BA1 /* libAdIdAccess.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F77939E1A924BC100505BA1 /* libAdIdAccess.a */; };
-		8F7793A01A924C2D00505BA1 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F4744CC19E69C3000E5D8A9 /* AdSupport.framework */; };
 		8F7872781A0A6CBC003E42DD /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7872761A0A6CBC003E42DD /* Crashlytics.framework */; };
 		8F7872791A0A6CBC003E42DD /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7872771A0A6CBC003E42DD /* Fabric.framework */; };
 		8FA3F9081982951500318069 /* OrigamiDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA3F9071982951500318069 /* OrigamiDetailViewController.m */; };
@@ -96,11 +94,9 @@
 		8F4744C519E69ACB00E5D8A9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8F4744C719E69AD500E5D8A9 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		8F4744C919E69AFC00E5D8A9 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
-		8F4744CC19E69C3000E5D8A9 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		8F4744CF19E69C9D00E5D8A9 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		8F63A02819B21C6400918FCD /* iPhoneMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhoneMainController.h; sourceTree = "<group>"; };
 		8F63A02919B21C6400918FCD /* iPhoneMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhoneMainController.m; sourceTree = "<group>"; };
-		8F77939E1A924BC100505BA1 /* libAdIdAccess.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdIdAccess.a; sourceTree = "<group>"; };
 		8F7872761A0A6CBC003E42DD /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		8F7872771A0A6CBC003E42DD /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		8FA3F9061982951500318069 /* OrigamiDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrigamiDetailViewController.h; sourceTree = "<group>"; };
@@ -149,7 +145,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F7793A01A924C2D00505BA1 /* AdSupport.framework in Frameworks */,
 				8F4744D019E69C9D00E5D8A9 /* libsqlite3.0.dylib in Frameworks */,
 				8F4744CE19E69C5C00E5D8A9 /* CoreData.framework in Frameworks */,
 				8F4744C819E69AD500E5D8A9 /* libz.dylib in Frameworks */,
@@ -162,7 +157,6 @@
 				8FA4BE3F197FD5D300B2928F /* UIKit.framework in Frameworks */,
 				8F0F978E19C07ACB00D729C7 /* Social.framework in Frameworks */,
 				8F7872781A0A6CBC003E42DD /* Crashlytics.framework in Frameworks */,
-				8F77939F1A924BC100505BA1 /* libAdIdAccess.a in Frameworks */,
 				8F4744CB19E69BDB00E5D8A9 /* libGoogleAnalyticsServices.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,7 +218,6 @@
 		8F4744B819E699ED00E5D8A9 /* Google Analytics SDK */ = {
 			isa = PBXGroup;
 			children = (
-				8F77939E1A924BC100505BA1 /* libAdIdAccess.a */,
 				8F4744C919E69AFC00E5D8A9 /* libGoogleAnalyticsServices.a */,
 				8F4744B919E69A5300E5D8A9 /* GAI.h */,
 				8F4744BA19E69A5300E5D8A9 /* GAIDictionaryBuilder.h */,
@@ -266,7 +259,6 @@
 				8F7872761A0A6CBC003E42DD /* Crashlytics.framework */,
 				8F7872771A0A6CBC003E42DD /* Fabric.framework */,
 				8F4744CF19E69C9D00E5D8A9 /* libsqlite3.0.dylib */,
-				8F4744CC19E69C3000E5D8A9 /* AdSupport.framework */,
 				8F4744C719E69AD500E5D8A9 /* libz.dylib */,
 				8F4744C519E69ACB00E5D8A9 /* SystemConfiguration.framework */,
 				8F4744C319E69AC000E5D8A9 /* CoreData.framework */,
