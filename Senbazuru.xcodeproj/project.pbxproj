@@ -24,6 +24,7 @@
 		8F4744CE19E69C5C00E5D8A9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F4744C319E69AC000E5D8A9 /* CoreData.framework */; };
 		8F4744D019E69C9D00E5D8A9 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F4744CF19E69C9D00E5D8A9 /* libsqlite3.0.dylib */; };
 		8F63A02A19B21C6400918FCD /* iPhoneMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F63A02919B21C6400918FCD /* iPhoneMainController.m */; };
+		8F6D472D1A9E290200379DEE /* Origami.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D472C1A9E290200379DEE /* Origami.swift */; };
 		8F7872781A0A6CBC003E42DD /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7872761A0A6CBC003E42DD /* Crashlytics.framework */; };
 		8F7872791A0A6CBC003E42DD /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7872771A0A6CBC003E42DD /* Fabric.framework */; };
 		8FA3F9081982951500318069 /* OrigamiDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA3F9071982951500318069 /* OrigamiDetailViewController.m */; };
@@ -97,6 +98,8 @@
 		8F4744CF19E69C9D00E5D8A9 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		8F63A02819B21C6400918FCD /* iPhoneMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhoneMainController.h; sourceTree = "<group>"; };
 		8F63A02919B21C6400918FCD /* iPhoneMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhoneMainController.m; sourceTree = "<group>"; };
+		8F6D472B1A9E290100379DEE /* Senbazuru-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Senbazuru-Bridging-Header.h"; sourceTree = "<group>"; };
+		8F6D472C1A9E290200379DEE /* Origami.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Origami.swift; sourceTree = "<group>"; };
 		8F7872761A0A6CBC003E42DD /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		8F7872771A0A6CBC003E42DD /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		8FA3F9061982951500318069 /* OrigamiDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrigamiDetailViewController.h; sourceTree = "<group>"; };
@@ -233,6 +236,15 @@
 			name = "Google Analytics SDK";
 			sourceTree = "<group>";
 		};
+		8F6D472A1A9E27E500379DEE /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				8F6D472C1A9E290200379DEE /* Origami.swift */,
+				8F6D472B1A9E290100379DEE /* Senbazuru-Bridging-Header.h */,
+			);
+			name = Swift;
+			sourceTree = "<group>";
+		};
 		8FA4BE2E197FD5D300B2928F = {
 			isa = PBXGroup;
 			children = (
@@ -276,6 +288,7 @@
 		8FA4BE40197FD5D300B2928F /* Senbazuru */ = {
 			isa = PBXGroup;
 			children = (
+				8F6D472A1A9E27E500379DEE /* Swift */,
 				8F34605A1A8387E100047AB0 /* Fonts */,
 				8F4744B819E699ED00E5D8A9 /* Google Analytics SDK */,
 				8FBA1AFC19C9EE68002FA262 /* Custom refresh */,
@@ -545,6 +558,7 @@
 				8FA3F9081982951500318069 /* OrigamiDetailViewController.m in Sources */,
 				8F3CC53419BE0C6D00FEAF1D /* IconDownloader.m in Sources */,
 				8FA4BE4B197FD5D300B2928F /* AppDelegate.m in Sources */,
+				8F6D472D1A9E290200379DEE /* Origami.swift in Sources */,
 				8F1762EA19C1F2D100EC8577 /* Constants.m in Sources */,
 				8F2A759819C4A31A00048F96 /* AproposViewController.m in Sources */,
 				8FF32ED51A8D1614009460BC /* UIColor.m in Sources */,
@@ -689,6 +703,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-6P";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -698,12 +713,15 @@
 				GCC_PREFIX_HEADER = "Senbazuru/Senbazuru-Prefix.pch";
 				INFOPLIST_FILE = "Senbazuru/Senbazuru-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Senbazuru",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Senbazuru/Senbazuru-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -714,6 +732,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-6P";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -723,12 +742,14 @@
 				GCC_PREFIX_HEADER = "Senbazuru/Senbazuru-Prefix.pch";
 				INFOPLIST_FILE = "Senbazuru/Senbazuru-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Senbazuru",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Senbazuru/Senbazuru-Bridging-Header.h";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
