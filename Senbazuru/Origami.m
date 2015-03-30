@@ -50,6 +50,12 @@
     return nil;
 }
 
+-(NSString *) link {
+    if(self.link)
+        return self.wrappedItem.link ? self.wrappedItem.link : @"[No Link]";
+    return nil;
+}
+
 #pragma mark -
 #pragma mark Accessor for dedicated origami properties
 

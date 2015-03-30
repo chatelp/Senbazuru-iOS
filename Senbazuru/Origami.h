@@ -22,6 +22,8 @@
 @property (nonatomic, readonly) NSString *title;
 @property (nonatomic, readonly) NSString *summary;
 @property (nonatomic, readonly) NSString *content;
+@property (nonatomic, readonly) NSString *link;
+
 
 @property (nonatomic, readonly) NSString *summaryPlainText;
 @property (nonatomic, readonly) NSString *contentPlainText;
