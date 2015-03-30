@@ -17,6 +17,11 @@
 
 static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
 
+@interface OrigamiDetailViewController ()
+@property (strong, nonatomic) NSMutableData *responseData;
+@property (assign, nonatomic) id delegate;
+@end
+
 @implementation OrigamiDetailViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -69,6 +74,18 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
     }
 }
 
+
+// Load HTML Content from Original Origami RSS Data
+- (void)loadHTMLContent {
+    [self.webView loadHTMLString:self.origami.parsedHTML baseURL:[NSURL URLWithString:@"http://domain.com"]];
+}
+
+// Load HTML Content using alternative method (senbazuru source article URL)
+- (void)loadHTMLContentAlt {
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.origami.linkNoAnchor]];
+    [self.webView loadRequest:request];
+}
+    
 // Update user interface elements for assigned origami
 - (void)configureViewForOrigami
 {
@@ -82,8 +99,7 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
 
         //Load origami content
         self.navigationItem.title = self.origami.title;
-        [self.webView loadHTMLString:self.origami.parsedHTML baseURL:[NSURL URLWithString:@"http://domain.com"]];
-        
+        [self loadHTMLContentAlt];
         
         // Google Analytics tracking
         // May return nil if a tracker has not already been initialized with a

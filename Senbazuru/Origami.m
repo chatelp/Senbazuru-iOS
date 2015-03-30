@@ -51,8 +51,33 @@
 }
 
 -(NSString *) link {
-    if(self.link)
-        return self.wrappedItem.link ? self.wrappedItem.link : @"[No Link]";
+    if(self.wrappedItem)
+        return self.wrappedItem.link;
+    return nil;
+}
+
+-(NSString *) linkNoAnchor {
+    if(self.wrappedItem && self.wrappedItem.link) {
+        
+        NSString *regexSource = @"^(.*)#.*";
+        NSError *error = NULL;
+        NSRegularExpression *regex = [NSRegularExpression
+                                      regularExpressionWithPattern:regexSource
+                                      options:NSRegularExpressionCaseInsensitive
+                                      error:&error];
+        
+        NSString *sourceLink = self.wrappedItem.link;
+        NSTextCheckingResult *match = [regex firstMatchInString:sourceLink
+                                                        options:0
+                                                          range:NSMakeRange(0, [sourceLink length])];
+        if (match) {
+            NSRange sourceURLNoAnchorRange = [match rangeAtIndex:1];
+            NSString *sourceURLNoAnchor = [sourceLink substringWithRange:sourceURLNoAnchorRange];
+            return sourceURLNoAnchor;
+        }
+
+        return self.wrappedItem.link;
+    }
     return nil;
 }
 

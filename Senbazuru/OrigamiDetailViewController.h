@@ -16,7 +16,6 @@
 }
 
 @property (assign, nonatomic) Origami *origami;
-@property (assign, nonatomic) id delegate;
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *favoriteButtonItem;

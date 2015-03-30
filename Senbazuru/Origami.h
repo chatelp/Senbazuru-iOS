@@ -23,6 +23,7 @@
 @property (nonatomic, readonly) NSString *summary;
 @property (nonatomic, readonly) NSString *content;
 @property (nonatomic, readonly) NSString *link;
+-(NSString *) linkNoAnchor;
 
 
 @property (nonatomic, readonly) NSString *summaryPlainText;
