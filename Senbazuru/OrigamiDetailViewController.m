@@ -18,8 +18,14 @@
 static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
 
 @interface OrigamiDetailViewController ()
-@property (strong, nonatomic) NSMutableData *responseData;
 @property (assign, nonatomic) id delegate;
+@property (strong, nonatomic) NSMutableArray *rightBarButtonItems;
+@property (strong, nonatomic) NSUserDefaults *defaults;
+@property (strong, nonatomic) NSMutableArray *haikus;
+@property (strong, nonatomic) UIBarButtonItem *shareButtonItem;
+@property (strong, nonatomic) UIBarButtonItem *backButtonItem;
+@property (strong, nonatomic) NSString *baseURL;
+
 @end
 
 @implementation OrigamiDetailViewController
@@ -45,19 +51,25 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
     //Change navigation bar elements tint color (for both iPhone and iPad - no segue needed)
     [self.navigationController.navigationBar setTintColor:[UIColor darkGrayColor]];
 
-    //Configure rightBarButtonItems
+    //Configure NavBar ButtonItems
     self.shareButtonItem = [[UIBarButtonItem alloc]
                                     initWithBarButtonSystemItem:UIBarButtonSystemItemAction
                                     target:self
                                     action:@selector(shareOrigami:)];
     
+    self.backButtonItem = [[UIBarButtonItem alloc]
+                           initWithImage:[UIImage imageNamed:@"previous-navbarButton"]
+                           style:UIBarButtonItemStylePlain
+                           target:self
+                           action:@selector(back:)];
+    self.navigationItem.leftBarButtonItem = self.backButtonItem;
     
-    //Hide nav bar buttons until origami is assigned
-    rightBarButtonItems = [[NSMutableArray alloc] init];
-    [self.navigationItem setRightBarButtonItems:rightBarButtonItems animated:NO];
+    //Hide NavBar right buttons until origami is assigned
+    self.rightBarButtonItems = [[NSMutableArray alloc] init];
+    [self.navigationItem setRightBarButtonItems:self.rightBarButtonItems animated:NO];
     
     //Defaults
-    defaults = [NSUserDefaults standardUserDefaults];
+    self.defaults = [NSUserDefaults standardUserDefaults];
     
     //If origami already assigned, display it (iPhone/segue case)
     [self configureViewForOrigami];
@@ -82,7 +94,8 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
 
 // Load HTML Content using alternative method (senbazuru source article URL)
 - (void)loadHTMLContentAlt {
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.origami.linkNoAnchor]];
+    self.baseURL = self.origami.linkNoAnchor;
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.baseURL]];
     [self.webView loadRequest:request];
 }
     
@@ -115,18 +128,21 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
         }
         [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
 
-        //Nav bar buttons display/hide
-        if(![rightBarButtonItems containsObject:self.favoriteButtonItem]) {
-            [rightBarButtonItems addObject:self.favoriteButtonItem];
+        
+        //configure navbar buttons
+        if(![self.rightBarButtonItems containsObject:self.favoriteButtonItem]) {
+            [self.rightBarButtonItems addObject:self.favoriteButtonItem];
         }
         if(!self.origami.videoURL) {
-            [rightBarButtonItems removeObject:self.shareButtonItem];
-        } else if(![rightBarButtonItems containsObject:self.shareButtonItem]) {
-            [rightBarButtonItems addObject:self.shareButtonItem];
+            [self.rightBarButtonItems removeObject:self.shareButtonItem];
+        } else if(![self.rightBarButtonItems containsObject:self.shareButtonItem]) {
+            [self.rightBarButtonItems addObject:self.shareButtonItem];
         }
-        [self.navigationItem setRightBarButtonItems:rightBarButtonItems animated:YES];
-            
-        NSArray *favorites = [defaults arrayForKey:@"Favorites"];
+        
+        [self.navigationItem setRightBarButtonItems:self.rightBarButtonItems animated:YES];
+        
+        //check favorited status and toggle like button
+        NSArray *favorites = [self.defaults arrayForKey:@"Favorites"];
         if(favorites) {
             if([favorites containsObject:self.origami.title]) {
                 [_favoriteButton setImage:[UIImage imageNamed:@"like-red_selected"] forState:UIControlStateSelected];
@@ -138,8 +154,10 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
     }
 }
 
+
+
 - (void)parseHaikuXMLSource {
-    haikus = [NSMutableArray array];
+    self.haikus = [NSMutableArray array];
     
     NSURL *sourceURL = [NSURL URLWithString:haikuXMLSource];
     
@@ -168,7 +186,7 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
                     vers3String = ((DDXMLElement *)vers3.firstObject).stringValue;
                 
                 if(auteurString && vers1String && vers2String && vers3String)
-                    [haikus addObject:[[Haiku alloc] initWithAuteur:auteurString vers1:vers1String vers2:vers2String vers3:vers3String]];
+                    [self.haikus addObject:[[Haiku alloc] initWithAuteur:auteurString vers1:vers1String vers2:vers2String vers3:vers3String]];
             }
             
         }
@@ -177,9 +195,9 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
 }
 
 - (void)randomizeDisplay {
-    if(haikus && [haikus count] > 0) {
-        int position = [self randomNumberBetween:0 notIncludingMaxNumber:haikus.count];
-        Haiku *haiku = [haikus objectAtIndex:position];
+    if(self.haikus && [self.haikus count] > 0) {
+        int position = [self randomNumberBetween:0 notIncludingMaxNumber:self.haikus.count];
+        Haiku *haiku = [self.haikus objectAtIndex:position];
         self.vers1.text = haiku.vers1;
         self.vers2.text = haiku.vers2;
         self.vers3.text = haiku.vers3;
@@ -252,7 +270,7 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
     if(!self.origami)
         return;
     
-    NSArray *favorites = [defaults arrayForKey:@"Favorites"];
+    NSArray *favorites = [self.defaults arrayForKey:@"Favorites"];
     NSMutableArray *mutableFavorites;
     if(favorites) {
         mutableFavorites = [NSMutableArray arrayWithArray:favorites];
@@ -274,8 +292,8 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
         [sender setSelected:YES];
     }
     
-    [defaults setObject:mutableFavorites forKey:@"Favorites"];
-    [defaults synchronize];
+    [self.defaults setObject:mutableFavorites forKey:@"Favorites"];
+    [self.defaults synchronize];
 
     [[NSNotificationCenter defaultCenter] postNotificationName:FavoritesChanged object:self];
 
@@ -284,18 +302,73 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
 - (IBAction)aboutSenbazuru:(id)sender {
 }
 
+- (IBAction)back:(id)sender {    
+    NSString *currentURL = [[self.webView.request URL] absoluteString];
+    
+    if(self.webView.canGoBack && ![currentURL isEqualToString:self.baseURL]) {
+        [self.webView goBack];
+    } else {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+
+}
+
 #pragma mark -
 #pragma mark Web view delegate
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+    
+    //Finish Disqus Loging-in
+    NSString *loadedURL = [[webView.request URL] absoluteString];
+    //NSLog(@"+-+-> URL: %@", destinationURL);
+    
+    NSString *regexSource = @"^https://disqus.com/_ax/(?:twitter|google|facebook)/complete";
+    NSError *error = NULL;
+    NSRegularExpression *regex = [NSRegularExpression
+                                  regularExpressionWithPattern:regexSource
+                                  options:NSRegularExpressionCaseInsensitive
+                                  error:&error];
+    
+    int matchNumber = [regex numberOfMatchesInString:loadedURL
+                                             options:0
+                                               range:NSMakeRange(0, [loadedURL length])];
+    if (matchNumber > 0 || error) {
+        [self loadHTMLContentAlt];
+        return;
+    }
+    
+    if(webView.canGoBack && ![loadedURL isEqualToString:self.baseURL]) {
+        [self.backButtonItem setTintColor:[UIColor senbazuruRedColor]];
+    } else {
+        [self.backButtonItem setTintColor:[UIColor darkGrayColor]];
+    }
+
 }
 
-//Ouvrir les URLs à l'extérieur de la webView
 -(BOOL) webView:(UIWebView *)inWeb shouldStartLoadWithRequest:(NSURLRequest *)inRequest navigationType:(UIWebViewNavigationType)inType {
-    if ( inType == UIWebViewNavigationTypeLinkClicked ) {
-        [[UIApplication sharedApplication] openURL:[inRequest URL]];
+    NSString *destinationURL = [[inRequest URL] absoluteString];
+    //NSLog(@"--> URL: %@", destinationURL);
+    
+    NSString *regexSource = @"disqus.com/next/login-success/";
+    NSError *error = NULL;
+    NSRegularExpression *regex = [NSRegularExpression
+                                  regularExpressionWithPattern:regexSource
+                                  options:NSRegularExpressionCaseInsensitive
+                                  error:&error];
+    
+    int matchNumber = [regex numberOfMatchesInString:destinationURL
+                                             options:0
+                                               range:NSMakeRange(0, [destinationURL length])];
+    if (matchNumber > 0 || error) {
+        [self loadHTMLContentAlt];
         return NO;
     }
+
+//    open external app
+//    if ( inType == UIWebViewNavigationTypeLinkClicked ) {
+//        [[UIApplication sharedApplication] openURL:[inRequest URL]];
+//        return NO;
+//    }
     
     return YES;
 }

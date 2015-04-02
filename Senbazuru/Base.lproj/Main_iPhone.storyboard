@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D113c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7525" systemVersion="14D127a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7516"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -85,7 +85,7 @@
                 </searchDisplayController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1457" y="-134"/>
+            <point key="canvasLocation" x="1297" y="-668"/>
         </scene>
         <!--Origami Detail View Controller-->
         <scene sceneID="NKI-cy-hlb">
@@ -118,7 +118,7 @@
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3hJ-GJ-aIf">
                                 <rect key="frame" x="279" y="9" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="like-50"/>
+                                <state key="normal" image="like-navbarButton"/>
                                 <state key="disabled" image="first"/>
                                 <state key="selected" image="like-25" backgroundImage="like-25"/>
                                 <connections>
@@ -135,7 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N2a-DO-9Pi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2092" y="-134"/>
+            <point key="canvasLocation" x="1932" y="-668"/>
         </scene>
         <!--Favorites View Controller-->
         <scene sceneID="ot8-2e-RuS">
@@ -179,12 +179,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qq-4t-Ow8" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1457" y="588"/>
+            <point key="canvasLocation" x="1297" y="54"/>
         </scene>
-        <!--I Phone Main Controller-->
+        <!--Main Controller-->
         <scene sceneID="Vex-rW-GRa">
             <objects>
-                <tabBarController id="8YX-ce-x5E" customClass="iPhoneMainController" sceneMemberID="viewController">
+                <tabBarController id="8YX-ce-x5E" userLabel="Main Controller" customClass="iPhoneMainController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="JQR-rB-NYL">
                         <rect key="frame" x="0.0" y="431" width="320" height="49"/>
@@ -194,12 +194,13 @@
                     <connections>
                         <segue destination="xKX-ns-rXN" kind="relationship" relationship="viewControllers" id="SUk-Ux-ee1"/>
                         <segue destination="m4q-pf-BPX" kind="relationship" relationship="viewControllers" id="M8t-EP-wfW"/>
+                        <segue destination="Y4u-NP-kZy" kind="relationship" relationship="viewControllers" id="zeC-t0-aBZ"/>
                         <segue destination="OVw-dw-UOO" kind="relationship" relationship="viewControllers" id="sV7-IF-siy"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="590"/>
+            <point key="canvasLocation" x="-269" y="1490"/>
         </scene>
         <!--Origamis-->
         <scene sceneID="uI2-hI-Umm">
@@ -218,7 +219,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bda-xR-TzA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="807" y="-134"/>
+            <point key="canvasLocation" x="647" y="-668"/>
         </scene>
         <!--A propos-->
         <scene sceneID="hFQ-py-rjr">
@@ -344,12 +345,65 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kvt-KQ-VCC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="807" y="1313"/>
+            <point key="canvasLocation" x="647" y="779"/>
         </scene>
-        <!--Navigation Controller - Favoris-->
+        <!--Community View-->
+        <scene sceneID="aKA-0d-Rjm">
+            <objects>
+                <viewController id="Bcd-QB-DDO" userLabel="Community View" customClass="CommunityViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JYC-4M-D7L"/>
+                        <viewControllerLayoutGuide type="bottom" id="L92-js-7y4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EiO-ax-9Qh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o12-X7-eo6">
+                                <rect key="frame" x="0.0" y="-5" width="320" height="573"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <dataDetectorType key="dataDetectorTypes"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="o12-X7-eo6" firstAttribute="leading" secondItem="EiO-ax-9Qh" secondAttribute="leadingMargin" constant="-16" id="3gq-ml-dLa"/>
+                            <constraint firstItem="o12-X7-eo6" firstAttribute="top" secondItem="EiO-ax-9Qh" secondAttribute="topMargin" constant="-5" id="993-eH-cgG"/>
+                            <constraint firstItem="o12-X7-eo6" firstAttribute="bottom" secondItem="EiO-ax-9Qh" secondAttribute="bottomMargin" id="EL5-v8-Yyc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="o12-X7-eo6" secondAttribute="trailing" constant="-16" id="W4E-A4-QMi"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Communauté" image="talk" id="kB9-dO-d8I"/>
+                    <navigationItem key="navigationItem" title="Tous les commentaires" id="Tht-KV-mhn"/>
+                    <connections>
+                        <outlet property="webView" destination="o12-X7-eo6" id="rd4-7Q-Gab"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IKF-fr-FBO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1297" y="1490"/>
+        </scene>
+        <!--Community Nav Controller-->
+        <scene sceneID="zV7-I2-IvJ">
+            <objects>
+                <navigationController id="Y4u-NP-kZy" userLabel="Community Nav Controller" customClass="PatternNavigationController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Communauté" image="talk" id="9qA-GB-H4i"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="r4S-3i-hmM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Bcd-QB-DDO" kind="relationship" relationship="rootViewController" id="buR-r7-yFi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mgz-Au-hjk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="647" y="1490"/>
+        </scene>
+        <!--Favoris-->
         <scene sceneID="w9z-RL-7oi">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="m4q-pf-BPX" userLabel="Navigation Controller - Favoris" customClass="PatternNavigationController" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="m4q-pf-BPX" customClass="PatternNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favoris" image="like-tab" id="Z7h-1E-pvt"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aFT-6i-w9Y">
@@ -363,7 +417,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fOr-e7-VSG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="807" y="588"/>
+            <point key="canvasLocation" x="647" y="54"/>
         </scene>
     </scenes>
     <resources>
@@ -371,9 +425,10 @@
         <image name="home" width="25" height="25"/>
         <image name="info" width="25" height="25"/>
         <image name="like-25" width="25" height="25"/>
-        <image name="like-50" width="50" height="50"/>
+        <image name="like-navbarButton" width="50" height="50"/>
         <image name="like-tab" width="25" height="25"/>
         <image name="logo_senbazuru_smallest" width="71" height="71"/>
+        <image name="talk" width="25" height="25"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -381,6 +436,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="hJa-be-aZk"/>
+        <segue reference="RJy-t5-fD8"/>
     </inferredMetricsTieBreakers>
 </document>

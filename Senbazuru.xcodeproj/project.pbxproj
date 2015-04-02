@@ -46,6 +46,7 @@
 		8FA4BE6C197FD5D300B2928F /* SenbazuruTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA4BE6B197FD5D300B2928F /* SenbazuruTests.m */; };
 		8FB096B019825EE3004E2EB5 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB096AE19825EE3004E2EB5 /* libxml2.dylib */; };
 		8FBA1B0819C9EEA3002FA262 /* CustomRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA1B0319C9EEA3002FA262 /* CustomRefreshTableViewController.m */; };
+		8FBA48341ACAA211004D7226 /* CommunityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA48331ACAA211004D7226 /* CommunityViewController.m */; };
 		8FC27F0C1A7FB306000594DD /* PatternNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC27F0B1A7FB306000594DD /* PatternNavigationController.m */; };
 		8FF32ED51A8D1614009460BC /* UIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF32ED41A8D1614009460BC /* UIColor.m */; };
 		8FF965E719AE14E400ACE234 /* DDXMLDocument+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF965E319AE14E400ACE234 /* DDXMLDocument+HTML.m */; };
@@ -129,6 +130,8 @@
 		8FB096AE19825EE3004E2EB5 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		8FBA1B0219C9EEA3002FA262 /* CustomRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomRefreshTableViewController.h; sourceTree = "<group>"; };
 		8FBA1B0319C9EEA3002FA262 /* CustomRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomRefreshTableViewController.m; sourceTree = "<group>"; };
+		8FBA48321ACAA211004D7226 /* CommunityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunityViewController.h; sourceTree = "<group>"; };
+		8FBA48331ACAA211004D7226 /* CommunityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunityViewController.m; sourceTree = "<group>"; };
 		8FC27F0A1A7FB306000594DD /* PatternNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatternNavigationController.h; sourceTree = "<group>"; };
 		8FC27F0B1A7FB306000594DD /* PatternNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatternNavigationController.m; sourceTree = "<group>"; };
 		8FF32ED31A8D1614009460BC /* UIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColor.h; sourceTree = "<group>"; };
@@ -303,6 +306,8 @@
 				8FA4BE4A197FD5D300B2928F /* AppDelegate.m */,
 				8F2A759619C4A31A00048F96 /* AproposViewController.h */,
 				8F2A759719C4A31A00048F96 /* AproposViewController.m */,
+				8FBA48321ACAA211004D7226 /* CommunityViewController.h */,
+				8FBA48331ACAA211004D7226 /* CommunityViewController.m */,
 				8FA3F9061982951500318069 /* OrigamiDetailViewController.h */,
 				8FA3F9071982951500318069 /* OrigamiDetailViewController.m */,
 				8FA4BE52197FD5D300B2928F /* AllOrigamiViewController.h */,
@@ -561,6 +566,7 @@
 				8F6D472D1A9E290200379DEE /* Origami.swift in Sources */,
 				8F1762EA19C1F2D100EC8577 /* Constants.m in Sources */,
 				8F2A759819C4A31A00048F96 /* AproposViewController.m in Sources */,
+				8FBA48341ACAA211004D7226 /* CommunityViewController.m in Sources */,
 				8FF32ED51A8D1614009460BC /* UIColor.m in Sources */,
 				8FA4BE54197FD5D300B2928F /* AllOrigamiViewController.m in Sources */,
 				8FA4BE47197FD5D300B2928F /* main.m in Sources */,
