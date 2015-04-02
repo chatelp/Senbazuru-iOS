@@ -13,11 +13,11 @@
 @interface iPhoneMainController : MyTabBarController <MWFeedParserDelegate> {
     // Parsing
 	MWFeedParser *feedParser;
-    NSMutableArray *parsedOrigamis;
+    NSMutableArray *_parsedOrigamis;
 }
 
 - (void)parseFeed;
 
-@property (nonatomic, copy) NSArray *parsedOrigamis;
+@property (nonatomic, readonly) NSArray *parsedOrigamis;
 
 @end

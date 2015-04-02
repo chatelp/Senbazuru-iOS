@@ -14,7 +14,6 @@ static NSString *const senbazuruRSSfeed = @"http://senbazuru.fr/files/feed.xml";
 
 @implementation iPadMainController
 
-@synthesize parsedOrigamis;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -46,7 +45,7 @@ static NSString *const senbazuruRSSfeed = @"http://senbazuru.fr/files/feed.xml";
 
 
 - (void)parseFeed {
-    parsedOrigamis = [NSMutableArray array];
+    _parsedOrigamis = [NSMutableArray array];
     
     NSURL *feedURL = [NSURL URLWithString:senbazuruRSSfeed];
 	
@@ -68,7 +67,7 @@ static NSString *const senbazuruRSSfeed = @"http://senbazuru.fr/files/feed.xml";
 - (void)feedParser:(MWFeedParser *)parser didParseFeedItem:(MWFeedItem *)item {
 	//NSLog(@"Parsed Feed Item: “%@”", item.title);
 	if (item) {
-        [parsedOrigamis addObject:[[Origami alloc] initWithWrappedItem:item]];
+        [_parsedOrigamis addObject:[[Origami alloc] initWithWrappedItem:item]];
     }
 }
 
@@ -81,7 +80,7 @@ static NSString *const senbazuruRSSfeed = @"http://senbazuru.fr/files/feed.xml";
 - (void)feedParser:(MWFeedParser *)parser didFailWithError:(NSError *)error {
 
     NSLog(@"Finished Parsing With Error: %@", error);
-    if (parsedOrigamis.count == 0) {
+    if (_parsedOrigamis.count == 0) {
         [self handleError:error];
     } else {
         // Failed but some items parsed, so show and inform of error
