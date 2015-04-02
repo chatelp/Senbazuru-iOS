@@ -16,15 +16,17 @@
 #import "PatternNavigationController.h"
 #import "UIColor.h"
 
-@interface PatternNavigationController ()
-
-@end
-
 @implementation PatternNavigationController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    // Hack: Interactive Pop Gesture With Custom Back Button --> http://keighl.com/post/ios7-interactive-pop-gesture-custom-back-button/
+    __weak PatternNavigationController *weakSelf = self;
+    if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.interactivePopGestureRecognizer.delegate = weakSelf;
+        self.delegate = weakSelf;
+    }
     
     //Change navbar background image
     if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")) {
@@ -44,6 +46,24 @@
       nil]];
 }
 
+// Hack: Interactive Pop Gesture With Custom Back Button --> http://keighl.com/post/ios7-interactive-pop-gesture-custom-back-button/
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    // Hijack the push method to disable the gesture during push
+    if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)])
+        self.interactivePopGestureRecognizer.enabled = NO;
+    
+    [super pushViewController:viewController animated:animated];
+}
+
+// Hack: Interactive Pop Gesture With Custom Back Button --> http://keighl.com/post/ios7-interactive-pop-gesture-custom-back-button/
+#pragma mark - UINavigationControllerDelegate
+- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animate {
+    // Enable the gesture again once the new controller is shown
+    self.interactivePopGestureRecognizer.enabled = ([self respondsToSelector:@selector(interactivePopGestureRecognizer)] && [self.viewControllers count] > 1);
+}
+
+
+#pragma mark - Traits Management (unimplemented as of now)
 //- (void)updateConstraintsForTraitCollection:(UITraitCollection *)collection
 //{
 //    UIImage *bgImage;
@@ -88,6 +108,7 @@
 //    } completion:nil];
 //}
 
+#pragma mark - Memory Management
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

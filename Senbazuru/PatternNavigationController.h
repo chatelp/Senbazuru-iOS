@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PatternNavigationController : UINavigationController
+@interface PatternNavigationController : UINavigationController <UIGestureRecognizerDelegate, UINavigationControllerDelegate>
 
 @end
