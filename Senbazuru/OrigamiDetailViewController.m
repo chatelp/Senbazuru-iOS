@@ -24,6 +24,7 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
 @property (strong, nonatomic) NSMutableArray *haikus;
 @property (strong, nonatomic) UIBarButtonItem *shareButtonItem;
 @property (strong, nonatomic) UIBarButtonItem *backButtonItem;
+@property (strong, nonatomic) UIBarButtonItem *webBackButtonItem;
 @property (strong, nonatomic) NSString *baseURL;
 
 @end
@@ -62,6 +63,15 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
                            style:UIBarButtonItemStylePlain
                            target:self
                            action:@selector(back:)];
+    //[self.backButtonItem setTintColor:[UIColor darkGrayColor]];
+
+    self.webBackButtonItem = [[UIBarButtonItem alloc]
+                           initWithImage:[UIImage imageNamed:@"double-previous-navbarButton"]
+                           style:UIBarButtonItemStylePlain
+                           target:self
+                           action:@selector(back:)];
+    //[self.webBackButtonItem setTintColor:[UIColor senbazuruRedColor]];
+
     self.navigationItem.leftBarButtonItem = self.backButtonItem;
     
     //Hide NavBar right buttons until origami is assigned
@@ -338,9 +348,10 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
     }
     
     if(webView.canGoBack && ![loadedURL isEqualToString:self.baseURL]) {
-        [self.backButtonItem setTintColor:[UIColor senbazuruRedColor]];
+        self.navigationItem.leftBarButtonItem = self.webBackButtonItem;
+
     } else {
-        [self.backButtonItem setTintColor:[UIColor darkGrayColor]];
+        self.navigationItem.leftBarButtonItem = self.backButtonItem;
     }
 
 }
