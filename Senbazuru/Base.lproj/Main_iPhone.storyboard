@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7525" systemVersion="14D127a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7525" systemVersion="14D130a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7516"/>
@@ -373,8 +373,8 @@
                             <constraint firstAttribute="trailingMargin" secondItem="o12-X7-eo6" secondAttribute="trailing" constant="-16" id="W4E-A4-QMi"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Communauté" image="talk" id="kB9-dO-d8I"/>
-                    <navigationItem key="navigationItem" title="Tous les commentaires" id="Tht-KV-mhn"/>
+                    <tabBarItem key="tabBarItem" title="Communauté" image="community-button" id="kB9-dO-d8I"/>
+                    <navigationItem key="navigationItem" title="Dernières discussions" id="Tht-KV-mhn"/>
                     <connections>
                         <outlet property="webView" destination="o12-X7-eo6" id="rd4-7Q-Gab"/>
                     </connections>
@@ -387,7 +387,7 @@
         <scene sceneID="zV7-I2-IvJ">
             <objects>
                 <navigationController id="Y4u-NP-kZy" userLabel="Community Nav Controller" customClass="PatternNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Communauté" image="talk" id="9qA-GB-H4i"/>
+                    <tabBarItem key="tabBarItem" title="Communauté" image="community-button" id="9qA-GB-H4i"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="r4S-3i-hmM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -421,6 +421,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="community-button" width="25" height="25"/>
         <image name="first" width="25" height="25"/>
         <image name="home" width="25" height="25"/>
         <image name="info" width="25" height="25"/>
@@ -428,7 +429,6 @@
         <image name="like-navbarButton" width="50" height="50"/>
         <image name="like-tab" width="25" height="25"/>
         <image name="logo_senbazuru_smallest" width="71" height="71"/>
-        <image name="talk" width="25" height="25"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *favoriteButtonItem;
 @property (strong, nonatomic) IBOutlet UIButton *favoriteButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *aboutButtonItem;
 
 //iPad
 @property (weak, nonatomic) IBOutlet UIView *haikuView;

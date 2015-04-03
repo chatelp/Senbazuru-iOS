@@ -19,12 +19,14 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
 
 @interface OrigamiDetailViewController ()
 @property (assign, nonatomic) id delegate;
+@property (strong, nonatomic) NSMutableArray *leftBarButtonItems;
 @property (strong, nonatomic) NSMutableArray *rightBarButtonItems;
 @property (strong, nonatomic) NSUserDefaults *defaults;
 @property (strong, nonatomic) NSMutableArray *haikus;
 @property (strong, nonatomic) UIBarButtonItem *shareButtonItem;
 @property (strong, nonatomic) UIBarButtonItem *backButtonItem;
 @property (strong, nonatomic) UIBarButtonItem *webBackButtonItem;
+@property (strong, nonatomic) UIBarButtonItem *communityButtonItem;
 @property (strong, nonatomic) NSString *baseURL;
 
 @end
@@ -52,29 +54,49 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
     //Change navigation bar elements tint color (for both iPhone and iPad - no segue needed)
     [self.navigationController.navigationBar setTintColor:[UIColor darkGrayColor]];
 
-    //Configure NavBar ButtonItems
-    self.shareButtonItem = [[UIBarButtonItem alloc]
-                                    initWithBarButtonSystemItem:UIBarButtonSystemItemAction
-                                    target:self
-                                    action:@selector(shareOrigami:)];
+    //Configure Left NavBar ButtonItems
     
-    self.backButtonItem = [[UIBarButtonItem alloc]
-                           initWithImage:[UIImage imageNamed:@"previous-navbarButton"]
-                           style:UIBarButtonItemStylePlain
-                           target:self
-                           action:@selector(back:)];
-    //[self.backButtonItem setTintColor:[UIColor darkGrayColor]];
 
     self.webBackButtonItem = [[UIBarButtonItem alloc]
-                           initWithImage:[UIImage imageNamed:@"double-previous-navbarButton"]
-                           style:UIBarButtonItemStylePlain
-                           target:self
-                           action:@selector(back:)];
+                              initWithImage:[UIImage imageNamed:@"double-previous-navbarButton"]
+                              style:UIBarButtonItemStylePlain
+                              target:self
+                              action:@selector(back:)];
     //[self.webBackButtonItem setTintColor:[UIColor senbazuruRedColor]];
 
-    self.navigationItem.leftBarButtonItem = self.backButtonItem;
     
-    //Hide NavBar right buttons until origami is assigned
+    //Only iPhone interface needs back button
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        self.backButtonItem = [[UIBarButtonItem alloc]
+                               initWithImage:[UIImage imageNamed:@"previous-navbarButton"]
+                               style:UIBarButtonItemStylePlain
+                               target:self
+                               action:@selector(back:)];
+        self.navigationItem.leftBarButtonItem = self.backButtonItem;
+    }
+    else {
+        self.leftBarButtonItems = [[NSMutableArray alloc] init];
+        if(self.aboutButtonItem && ![self.leftBarButtonItems containsObject:self.aboutButtonItem]) {
+            [self.leftBarButtonItems addObject:self.aboutButtonItem];
+        }
+        self.communityButtonItem = [[UIBarButtonItem alloc]
+                                    initWithImage:[UIImage imageNamed:@"community-button"]
+                                    style:UIBarButtonItemStylePlain
+                                    target:self
+                                    action:@selector(showCommunity:)];
+//        if(![self.leftBarButtonItems containsObject:self.communityButtonItem]) {
+//            [self.leftBarButtonItems addObject:self.communityButtonItem];
+//        }
+        
+        [self.navigationItem setLeftBarButtonItems:self.leftBarButtonItems animated:YES];
+    }
+    
+    //Configure Right NavBar ButtonItems
+    self.shareButtonItem = [[UIBarButtonItem alloc]
+                            initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+                            target:self
+                            action:@selector(shareOrigami:)];
+    
     self.rightBarButtonItems = [[NSMutableArray alloc] init];
     [self.navigationItem setRightBarButtonItems:self.rightBarButtonItems animated:NO];
     
@@ -312,6 +334,10 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
 - (IBAction)aboutSenbazuru:(id)sender {
 }
 
+- (IBAction)showCommunity:(id)sender {
+}
+
+
 - (IBAction)back:(id)sender {    
     NSString *currentURL = [[self.webView.request URL] absoluteString];
     
@@ -348,10 +374,24 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
     }
     
     if(webView.canGoBack && ![loadedURL isEqualToString:self.baseURL]) {
-        self.navigationItem.leftBarButtonItem = self.webBackButtonItem;
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+            self.navigationItem.leftBarButtonItem = self.webBackButtonItem;
+        } else {
+            if(![self.leftBarButtonItems containsObject:self.webBackButtonItem]) {
+                [self.leftBarButtonItems addObject:self.webBackButtonItem];
+                [self.navigationItem setLeftBarButtonItems:self.leftBarButtonItems animated:YES];
+            }
+        }
 
     } else {
-        self.navigationItem.leftBarButtonItem = self.backButtonItem;
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+            self.navigationItem.leftBarButtonItem = self.backButtonItem;
+        } else {
+            if([self.leftBarButtonItems containsObject:self.webBackButtonItem]) {
+                [self.leftBarButtonItems removeObject:self.webBackButtonItem];
+                [self.navigationItem setLeftBarButtonItems:self.leftBarButtonItems animated:YES];
+            }
+        }
     }
 
 }
