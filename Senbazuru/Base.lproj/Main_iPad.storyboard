@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7525" systemVersion="14D130a" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="s0G-U8-C2g">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D130a" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="s0G-U8-C2g">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7516"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Ubuntu-R.ttf">
@@ -85,7 +84,7 @@
         <!--Origamis-->
         <scene sceneID="54Q-Hi-VYt">
             <objects>
-                <navigationController id="1ET-Td-uVH" customClass="PatternNavigationController" sceneMemberID="viewController">
+                <navigationController id="1ET-Td-uVH" customClass="CustomNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Origamis" image="home" id="jRG-xt-MOn"/>
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="rYq-Wd-Rz3">
                         <autoresizingMask key="autoresizingMask"/>
@@ -312,7 +311,7 @@
         <!--Favoris-->
         <scene sceneID="hQI-Vz-kJ6">
             <objects>
-                <navigationController id="mug-bc-KQN" customClass="PatternNavigationController" sceneMemberID="viewController">
+                <navigationController id="mug-bc-KQN" customClass="CustomNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favoris" image="like-tab" id="tfc-zf-vwp"/>
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="B0r-1W-ZWt">
                         <autoresizingMask key="autoresizingMask"/>

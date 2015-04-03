@@ -47,7 +47,7 @@
 		8FB096B019825EE3004E2EB5 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB096AE19825EE3004E2EB5 /* libxml2.dylib */; };
 		8FBA1B0819C9EEA3002FA262 /* CustomRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA1B0319C9EEA3002FA262 /* CustomRefreshTableViewController.m */; };
 		8FBA48341ACAA211004D7226 /* CommunityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA48331ACAA211004D7226 /* CommunityViewController.m */; };
-		8FC27F0C1A7FB306000594DD /* PatternNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC27F0B1A7FB306000594DD /* PatternNavigationController.m */; };
+		8FC27F0C1A7FB306000594DD /* CustomNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC27F0B1A7FB306000594DD /* CustomNavigationController.m */; };
 		8FF32ED51A8D1614009460BC /* UIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF32ED41A8D1614009460BC /* UIColor.m */; };
 		8FF965E719AE14E400ACE234 /* DDXMLDocument+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF965E319AE14E400ACE234 /* DDXMLDocument+HTML.m */; };
 		8FF965E819AE14E400ACE234 /* DDXMLNode+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF965E519AE14E400ACE234 /* DDXMLNode+HTML.m */; };
@@ -132,8 +132,8 @@
 		8FBA1B0319C9EEA3002FA262 /* CustomRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomRefreshTableViewController.m; sourceTree = "<group>"; };
 		8FBA48321ACAA211004D7226 /* CommunityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunityViewController.h; sourceTree = "<group>"; };
 		8FBA48331ACAA211004D7226 /* CommunityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunityViewController.m; sourceTree = "<group>"; };
-		8FC27F0A1A7FB306000594DD /* PatternNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatternNavigationController.h; sourceTree = "<group>"; };
-		8FC27F0B1A7FB306000594DD /* PatternNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatternNavigationController.m; sourceTree = "<group>"; };
+		8FC27F0A1A7FB306000594DD /* CustomNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavigationController.h; sourceTree = "<group>"; };
+		8FC27F0B1A7FB306000594DD /* CustomNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavigationController.m; sourceTree = "<group>"; };
 		8FF32ED31A8D1614009460BC /* UIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColor.h; sourceTree = "<group>"; };
 		8FF32ED41A8D1614009460BC /* UIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColor.m; sourceTree = "<group>"; };
 		8FF965E119AE14E400ACE234 /* DDXML+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDXML+HTML.h"; sourceTree = "<group>"; };
@@ -314,8 +314,8 @@
 				8FA4BE53197FD5D300B2928F /* AllOrigamiViewController.m */,
 				8FA4BE55197FD5D300B2928F /* FavoritesViewController.h */,
 				8FA4BE56197FD5D300B2928F /* FavoritesViewController.m */,
-				8FC27F0A1A7FB306000594DD /* PatternNavigationController.h */,
-				8FC27F0B1A7FB306000594DD /* PatternNavigationController.m */,
+				8FC27F0A1A7FB306000594DD /* CustomNavigationController.h */,
+				8FC27F0B1A7FB306000594DD /* CustomNavigationController.m */,
 				8F3CC53219BE0C6D00FEAF1D /* IconDownloader.h */,
 				8F3CC53319BE0C6D00FEAF1D /* IconDownloader.m */,
 				8FA4BE58197FD5D300B2928F /* Images.xcassets */,
@@ -572,7 +572,7 @@
 				8FA4BE47197FD5D300B2928F /* main.m in Sources */,
 				8FF965E719AE14E400ACE234 /* DDXMLDocument+HTML.m in Sources */,
 				8F3460611A83D74400047AB0 /* MyTabBarController.m in Sources */,
-				8FC27F0C1A7FB306000594DD /* PatternNavigationController.m in Sources */,
+				8FC27F0C1A7FB306000594DD /* CustomNavigationController.m in Sources */,
 				8F17629C19C180F100EC8577 /* iPadMainController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

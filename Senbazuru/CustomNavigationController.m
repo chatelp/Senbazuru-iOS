@@ -1,5 +1,5 @@
 //
-//  iPhoneNavigationController.m
+//  CustomNavigationController.m
 //  Senbazuru
 //
 //  Created by Pierre Chatel on 02/02/15.
@@ -13,16 +13,16 @@
 #define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
-#import "PatternNavigationController.h"
+#import "CustomNavigationController.h"
 #import "UIColor.h"
 
-@implementation PatternNavigationController
+@implementation CustomNavigationController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     // Hack: Interactive Pop Gesture With Custom Back Button --> http://keighl.com/post/ios7-interactive-pop-gesture-custom-back-button/
-    __weak PatternNavigationController *weakSelf = self;
+    __weak CustomNavigationController *weakSelf = self;
     if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.interactivePopGestureRecognizer.delegate = weakSelf;
         self.delegate = weakSelf;

@@ -26,7 +26,6 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
 @property (strong, nonatomic) UIBarButtonItem *shareButtonItem;
 @property (strong, nonatomic) UIBarButtonItem *backButtonItem;
 @property (strong, nonatomic) UIBarButtonItem *webBackButtonItem;
-@property (strong, nonatomic) UIBarButtonItem *communityButtonItem;
 @property (strong, nonatomic) NSString *baseURL;
 
 @end
@@ -62,10 +61,8 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
                               style:UIBarButtonItemStylePlain
                               target:self
                               action:@selector(back:)];
-    //[self.webBackButtonItem setTintColor:[UIColor senbazuruRedColor]];
-
     
-    //Only iPhone interface needs back button
+    //Only iPhone interface needs custom back button
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         self.backButtonItem = [[UIBarButtonItem alloc]
                                initWithImage:[UIImage imageNamed:@"previous-navbarButton"]
@@ -79,14 +76,6 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
         if(self.aboutButtonItem && ![self.leftBarButtonItems containsObject:self.aboutButtonItem]) {
             [self.leftBarButtonItems addObject:self.aboutButtonItem];
         }
-        self.communityButtonItem = [[UIBarButtonItem alloc]
-                                    initWithImage:[UIImage imageNamed:@"community-button"]
-                                    style:UIBarButtonItemStylePlain
-                                    target:self
-                                    action:@selector(showCommunity:)];
-//        if(![self.leftBarButtonItems containsObject:self.communityButtonItem]) {
-//            [self.leftBarButtonItems addObject:self.communityButtonItem];
-//        }
         
         [self.navigationItem setLeftBarButtonItems:self.leftBarButtonItems animated:YES];
     }
