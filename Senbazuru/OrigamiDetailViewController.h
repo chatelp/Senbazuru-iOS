@@ -9,15 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "Origami.h"
 
-@interface OrigamiDetailViewController : UIViewController <UIWebViewDelegate> {
-}
+@interface OrigamiDetailViewController : UIViewController <UIWebViewDelegate>
 
 @property (assign, nonatomic) Origami *origami;
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *favoriteButtonItem;
-@property (strong, nonatomic) IBOutlet UIButton *favoriteButton;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *aboutButtonItem;
+@property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *aboutButtonItem;
 
 //iPad
 @property (weak, nonatomic) IBOutlet UIView *haikuView;
