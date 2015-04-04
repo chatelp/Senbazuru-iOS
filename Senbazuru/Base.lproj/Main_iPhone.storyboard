@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D130a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -375,6 +376,7 @@
                     <tabBarItem key="tabBarItem" title="Communauté" image="community-button" id="kB9-dO-d8I"/>
                     <navigationItem key="navigationItem" title="Dernières discussions" id="Tht-KV-mhn"/>
                     <connections>
+                        <outlet property="navBarTitle" destination="Tht-KV-mhn" id="u9E-AW-GB0"/>
                         <outlet property="webView" destination="o12-X7-eo6" id="rd4-7Q-Gab"/>
                     </connections>
                 </viewController>

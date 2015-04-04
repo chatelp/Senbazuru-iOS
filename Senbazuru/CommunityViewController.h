@@ -11,5 +11,9 @@
 @interface CommunityViewController : GAITrackedViewController <UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *homeButtonItem;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navBarTitle;
+
+- (IBAction)goToCommunityHome:(id)sender;
 
 @end

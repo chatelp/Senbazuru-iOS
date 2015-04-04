@@ -12,5 +12,6 @@
 FOUNDATION_EXPORT NSString * const ItemsParsed;
 FOUNDATION_EXPORT NSString * const FavoritesChanged;
 FOUNDATION_EXPORT NSString * const RequestOrigamiSourceRefresh;
+FOUNDATION_EXPORT NSString * const SenbazuruCommunityURL;
 
 #endif
