@@ -50,12 +50,7 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
     //Init
     [self.webView setDelegate:self];
     
-    //Change navigation bar elements tint color (for both iPhone and iPad - no segue needed)
-    [self.navigationController.navigationBar setTintColor:[UIColor darkGrayColor]];
-
     //Configure Left NavBar ButtonItems
-    
-
     self.webBackButtonItem = [[UIBarButtonItem alloc]
                               initWithImage:[UIImage imageNamed:@"double-previous-navbarButton"]
                               style:UIBarButtonItemStylePlain

@@ -374,8 +374,15 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Communauté" image="community-button" id="kB9-dO-d8I"/>
-                    <navigationItem key="navigationItem" title="Dernières discussions" id="Tht-KV-mhn"/>
+                    <navigationItem key="navigationItem" title="Dernières discussions" id="Tht-KV-mhn">
+                        <barButtonItem key="rightBarButtonItem" image="home" id="SiH-OY-J3b">
+                            <connections>
+                                <action selector="goToCommunityHome:" destination="Bcd-QB-DDO" id="qtV-KV-ksS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="homeButtonItem" destination="SiH-OY-J3b" id="33E-MM-5oU"/>
                         <outlet property="navBarTitle" destination="Tht-KV-mhn" id="u9E-AW-GB0"/>
                         <outlet property="webView" destination="o12-X7-eo6" id="rd4-7Q-Gab"/>
                     </connections>

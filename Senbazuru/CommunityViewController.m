@@ -12,6 +12,7 @@
 
 @interface CommunityViewController ()
 
+@property (strong, nonatomic) UIBarButtonItem *webRollbackButtonItem;
 @property (strong, nonatomic) UIBarButtonItem *backButtonItem;
 @property (strong, nonatomic) UIBarButtonItem *forwardButtonItem;
 @property (strong, nonatomic) NSMutableArray *rightBarButtonItems;
@@ -24,9 +25,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [self.navigationController.navigationBar setTintColor:[UIColor senbazuruRedColor]];
 
+    self.webRollbackButtonItem = [[UIBarButtonItem alloc]
+                              initWithImage:[UIImage imageNamed:@"double-previous-navbarButton"]
+                              style:UIBarButtonItemStylePlain
+                              target:self
+                              action:@selector(rollback:)];
+    
+    //self.navigationItem.leftBarButtonItem = self.webRollbackButtonItem;
+    //self.navigationItem.leftBarButtonItem.enabled = NO;
+    
     self.backButtonItem = [[UIBarButtonItem alloc]
                               initWithImage:[UIImage imageNamed:@"webBack-navbarButton"]
                               style:UIBarButtonItemStylePlain
@@ -39,10 +47,11 @@
                            target:self
                            action:@selector(forward:)];
     
+    
     self.rightBarButtonItems = [[NSMutableArray alloc] init];
     [self.rightBarButtonItems addObject:self.forwardButtonItem];
     [self.rightBarButtonItems addObject:self.backButtonItem];
-    [self.navigationItem setRightBarButtonItems:self.rightBarButtonItems animated:NO];
+    //[self.navigationItem setRightBarButtonItems:self.rightBarButtonItems animated:NO];
 
     [self.webView setDelegate:self];
     [self loadRequestFromString:SenbazuruCommunityURL];
@@ -51,6 +60,10 @@
 
 #pragma mark - Buttons
 - (IBAction)goToCommunityHome:(id)sender {
+    [self loadRequestFromString:SenbazuruCommunityURL];
+}
+
+- (IBAction)rollback:(id)sender {
     [self loadRequestFromString:SenbazuruCommunityURL];
 }
 
@@ -85,8 +98,7 @@
 
 - (void)updateButtons
 {
-    self.forwardButtonItem.enabled = self.webView.canGoForward;
-    self.backButtonItem.enabled = self.webView.canGoBack;
+    self.webRollbackButtonItem.enabled = self.webView.canGoBack;
 }
 
 #pragma mark - UIWebViewDelegate

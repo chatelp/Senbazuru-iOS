@@ -21,6 +21,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //Change navigation bar elements tint color (for both iPhone and iPad - no segue needed)
+    [self.navigationBar setTintColor:[UIColor darkGrayColor]];
+    
     // Hack: Interactive Pop Gesture With Custom Back Button --> http://keighl.com/post/ios7-interactive-pop-gesture-custom-back-button/
     __weak CustomNavigationController *weakSelf = self;
     if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
