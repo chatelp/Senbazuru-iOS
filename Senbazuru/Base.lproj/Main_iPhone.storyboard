@@ -206,7 +206,7 @@
         <scene sceneID="uI2-hI-Umm">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xKX-ns-rXN" customClass="CustomNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Origamis" image="home" id="u1e-5L-l1D"/>
+                    <tabBarItem key="tabBarItem" title="Origamis" image="origami-home" id="u1e-5L-l1D"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kb1-Qj-2vQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -437,6 +437,7 @@
         <image name="like-navbarButton" width="50" height="50"/>
         <image name="like-tab" width="25" height="25"/>
         <image name="logo_senbazuru_smallest" width="71" height="71"/>
+        <image name="origami-home" width="25" height="25"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

@@ -86,7 +86,7 @@
         <scene sceneID="54Q-Hi-VYt">
             <objects>
                 <navigationController id="1ET-Td-uVH" customClass="CustomNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Origamis" image="home" id="jRG-xt-MOn"/>
+                    <tabBarItem key="tabBarItem" title="Origamis" image="origami-home" id="jRG-xt-MOn"/>
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="rYq-Wd-Rz3">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -389,6 +389,7 @@
         <image name="like-navbarButton" width="50" height="50"/>
         <image name="like-tab" width="25" height="25"/>
         <image name="logo_senbazuru_smaller" width="142" height="142"/>
+        <image name="origami-home" width="25" height="25"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
