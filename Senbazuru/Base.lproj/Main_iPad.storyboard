@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7525" systemVersion="14D130a" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="s0G-U8-C2g">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="s0G-U8-C2g">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7516"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Ubuntu-R.ttf">
@@ -86,7 +86,11 @@
         <scene sceneID="54Q-Hi-VYt">
             <objects>
                 <navigationController id="1ET-Td-uVH" customClass="CustomNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Origamis" image="origami-home" id="jRG-xt-MOn"/>
+                    <tabBarItem key="tabBarItem" title="Origamis" image="origami-home-tab" id="jRG-xt-MOn">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="origami-home-tab_selected"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="rYq-Wd-Rz3">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -313,7 +317,11 @@
         <scene sceneID="hQI-Vz-kJ6">
             <objects>
                 <navigationController id="mug-bc-KQN" customClass="CustomNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favoris" image="like-tab" id="tfc-zf-vwp"/>
+                    <tabBarItem key="tabBarItem" title="Favoris" image="like-tab" id="tfc-zf-vwp">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="like-tab_selected"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="B0r-1W-ZWt">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -388,8 +396,10 @@
         <image name="info" width="25" height="25"/>
         <image name="like-navbarButton" width="50" height="50"/>
         <image name="like-tab" width="25" height="25"/>
+        <image name="like-tab_selected" width="25" height="25"/>
         <image name="logo_senbazuru_smaller" width="142" height="142"/>
-        <image name="origami-home" width="25" height="25"/>
+        <image name="origami-home-tab" width="25" height="25"/>
+        <image name="origami-home-tab_selected" width="25" height="25"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

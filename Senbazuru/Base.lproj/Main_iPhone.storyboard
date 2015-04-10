@@ -206,7 +206,11 @@
         <scene sceneID="uI2-hI-Umm">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xKX-ns-rXN" customClass="CustomNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Origamis" image="origami-home" id="u1e-5L-l1D"/>
+                    <tabBarItem key="tabBarItem" title="Origamis" image="origami-home-tab" id="u1e-5L-l1D">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="origami-home-tab_selected"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kb1-Qj-2vQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -334,7 +338,11 @@
                             <constraint firstItem="S4b-gv-Adu" firstAttribute="leading" secondItem="RQy-j5-Hfa" secondAttribute="leadingMargin" constant="4" id="w1b-zd-unT"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="A propos" image="info" id="MS9-xc-Uxy"/>
+                    <tabBarItem key="tabBarItem" title="A propos" image="info" id="MS9-xc-Uxy">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="info_selected"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <connections>
                         <outlet property="auteur" destination="bbH-B9-f4t" id="H5A-6U-fAT"/>
                         <outlet property="vers1" destination="23G-fv-ma9" id="lEI-eS-oTt"/>
@@ -373,7 +381,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="o12-X7-eo6" secondAttribute="trailing" constant="-16" id="W4E-A4-QMi"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Communauté" image="community-button" id="kB9-dO-d8I"/>
+                    <tabBarItem key="tabBarItem" title="Communauté" image="community-tab" id="kB9-dO-d8I"/>
                     <navigationItem key="navigationItem" title="Dernières discussions" id="Tht-KV-mhn">
                         <barButtonItem key="rightBarButtonItem" image="home" id="SiH-OY-J3b">
                             <connections>
@@ -395,7 +403,11 @@
         <scene sceneID="zV7-I2-IvJ">
             <objects>
                 <navigationController id="Y4u-NP-kZy" userLabel="Community Nav Controller" customClass="CustomNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Communauté" image="community-button" id="9qA-GB-H4i"/>
+                    <tabBarItem key="tabBarItem" title="Communauté" image="community-tab" id="9qA-GB-H4i">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="community-tab_selected"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="r4S-3i-hmM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -412,7 +424,11 @@
         <scene sceneID="w9z-RL-7oi">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="m4q-pf-BPX" customClass="CustomNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favoris" image="like-tab" id="Z7h-1E-pvt"/>
+                    <tabBarItem key="tabBarItem" title="Favoris" image="like-tab" id="Z7h-1E-pvt">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="like-tab_selected"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aFT-6i-w9Y">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -429,15 +445,19 @@
         </scene>
     </scenes>
     <resources>
-        <image name="community-button" width="25" height="25"/>
+        <image name="community-tab" width="25" height="25"/>
+        <image name="community-tab_selected" width="25" height="25"/>
         <image name="first" width="25" height="25"/>
         <image name="home" width="25" height="25"/>
         <image name="info" width="25" height="25"/>
+        <image name="info_selected" width="25" height="25"/>
         <image name="like-25" width="25" height="25"/>
         <image name="like-navbarButton" width="50" height="50"/>
         <image name="like-tab" width="25" height="25"/>
+        <image name="like-tab_selected" width="25" height="25"/>
         <image name="logo_senbazuru_smallest" width="71" height="71"/>
-        <image name="origami-home" width="25" height="25"/>
+        <image name="origami-home-tab" width="25" height="25"/>
+        <image name="origami-home-tab_selected" width="25" height="25"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -445,6 +465,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="RJy-t5-fD8"/>
+        <segue reference="hJa-be-aZk"/>
     </inferredMetricsTieBreakers>
 </document>
