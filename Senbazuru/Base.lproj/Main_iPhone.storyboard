@@ -291,15 +291,8 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="logo_senbazuru_smallest" translatesAutoresizingMaskIntoConstraints="NO" id="lqa-hq-iaD">
-                                <rect key="frame" x="125" y="37" width="71" height="71"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="71" id="Rar-T7-jM1"/>
-                                    <constraint firstAttribute="width" constant="71" id="bPK-17-WPj"/>
-                                </constraints>
-                            </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="contact@senbazuru.fr" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5uj-yQ-Lmh">
-                                <rect key="frame" x="40" y="133" width="240" height="33"/>
+                                <rect key="frame" x="40" y="128" width="240" height="33"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.68235294120000001" green="0.043137254899999998" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -311,7 +304,7 @@
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="senbazuru.fr" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBk-fg-lYG">
-                                <rect key="frame" x="60" y="116" width="200" height="21"/>
+                                <rect key="frame" x="60" y="111" width="200" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="BPh-Fz-1Ql"/>
                                     <constraint firstAttribute="width" constant="200" id="qxS-w8-bsN"/>
@@ -320,21 +313,49 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hq4-sf-ud8" customClass="CSAnimationView">
+                                <rect key="frame" x="125" y="30" width="71" height="71"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="logo_senbazuru_smallest" translatesAutoresizingMaskIntoConstraints="NO" id="lqa-hq-iaD">
+                                        <rect key="frame" x="0.0" y="0.0" width="71" height="71"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="71" id="Rar-T7-jM1"/>
+                                            <constraint firstAttribute="width" constant="71" id="bPK-17-WPj"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="Glo-LR-yB0"/>
+                                    <constraint firstAttribute="centerY" secondItem="lqa-hq-iaD" secondAttribute="centerY" id="V45-9a-fDc"/>
+                                    <constraint firstAttribute="width" constant="71" id="oKB-r4-4Xb"/>
+                                    <constraint firstAttribute="centerX" secondItem="lqa-hq-iaD" secondAttribute="centerX" id="u4O-2v-6gX"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="pop"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.10000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="5uj-yQ-Lmh" secondAttribute="centerX" id="1S4-GV-2np"/>
+                            <constraint firstAttribute="centerX" secondItem="Hq4-sf-ud8" secondAttribute="centerX" id="2CS-bL-lkL"/>
+                            <constraint firstItem="qBk-fg-lYG" firstAttribute="top" secondItem="Hq4-sf-ud8" secondAttribute="bottom" constant="10" id="5qf-W0-5Jh"/>
                             <constraint firstAttribute="centerY" secondItem="K0w-39-Eyb" secondAttribute="centerY" id="I93-HI-xiD"/>
                             <constraint firstItem="5uj-yQ-Lmh" firstAttribute="top" secondItem="qBk-fg-lYG" secondAttribute="bottom" constant="-4" id="KU6-Ii-cBU"/>
                             <constraint firstAttribute="trailing" secondItem="K0w-39-Eyb" secondAttribute="trailing" constant="20" id="L2D-Gi-IA3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="S4b-gv-Adu" secondAttribute="trailing" constant="4" id="Pea-R6-Xl2"/>
                             <constraint firstAttribute="centerX" secondItem="3XT-uG-HjT" secondAttribute="centerX" id="Ps0-7j-Rga"/>
                             <constraint firstAttribute="centerX" secondItem="qBk-fg-lYG" secondAttribute="centerX" id="T7d-c4-n1A"/>
-                            <constraint firstAttribute="centerX" secondItem="lqa-hq-iaD" secondAttribute="centerX" id="UZ0-ty-X0h"/>
                             <constraint firstItem="Oq7-Ea-oGo" firstAttribute="top" secondItem="3XT-uG-HjT" secondAttribute="bottom" constant="1" id="Zxa-ZP-itL"/>
                             <constraint firstItem="Oq7-Ea-oGo" firstAttribute="top" secondItem="S4b-gv-Adu" secondAttribute="bottom" constant="23" id="bD9-KP-rD4"/>
-                            <constraint firstItem="qBk-fg-lYG" firstAttribute="top" secondItem="lqa-hq-iaD" secondAttribute="bottom" constant="8" id="c6v-wB-kQh"/>
-                            <constraint firstItem="lqa-hq-iaD" firstAttribute="top" secondItem="FPf-Zn-wqk" secondAttribute="bottom" constant="17" id="dHy-CO-e5Y"/>
+                            <constraint firstItem="Hq4-sf-ud8" firstAttribute="top" secondItem="RQy-j5-Hfa" secondAttribute="topMargin" constant="30" id="lA6-Vb-XXl"/>
                             <constraint firstItem="S4b-gv-Adu" firstAttribute="leading" secondItem="RQy-j5-Hfa" secondAttribute="leadingMargin" constant="4" id="w1b-zd-unT"/>
                         </constraints>
                     </view>
@@ -344,6 +365,7 @@
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <connections>
+                        <outlet property="animationView" destination="Hq4-sf-ud8" id="0to-e8-bLk"/>
                         <outlet property="auteur" destination="bbH-B9-f4t" id="H5A-6U-fAT"/>
                         <outlet property="vers1" destination="23G-fv-ma9" id="lEI-eS-oTt"/>
                         <outlet property="vers2" destination="CCR-9L-ERa" id="pty-rc-cnd"/>

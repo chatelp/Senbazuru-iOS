@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "GAITrackedViewController.h"
+#import "CSAnimationView.h"
 
 @interface AproposViewController : GAITrackedViewController {
     NSMutableArray *haikus;
 }
 
+@property (weak, nonatomic) IBOutlet CSAnimationView *animationView;
 @property (weak, nonatomic) IBOutlet UITextView *versionTextView;
 
 // Only display haiky in "A propos" for iPhone

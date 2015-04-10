@@ -143,7 +143,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="contact@senbazuru.fr" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TWr-Ix-ygQ">
-                                <rect key="frame" x="80" y="199" width="240" height="33"/>
+                                <rect key="frame" x="80" y="232" width="240" height="33"/>
                                 <color key="tintColor" red="0.68235294120000001" green="0.043137254899999998" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -155,20 +155,50 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="logo_senbazuru_smaller" translatesAutoresizingMaskIntoConstraints="NO" id="Tpv-NC-3hl">
-                                <rect key="frame" x="129" y="20" width="142" height="142"/>
-                            </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="senbazuru.fr" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAV-yQ-oy9">
-                                <rect key="frame" x="131" y="170" width="138" height="20"/>
+                                <rect key="frame" x="131" y="210" width="138" height="20"/>
                                 <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="21"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="un2-su-hoq" customClass="CSAnimationView">
+                                <rect key="frame" x="129" y="47" width="142" height="142"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="logo_senbazuru_smaller" translatesAutoresizingMaskIntoConstraints="NO" id="Tpv-NC-3hl">
+                                        <rect key="frame" x="0.0" y="0.0" width="142" height="142"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="142" id="cMb-do-CL8"/>
+                                            <constraint firstAttribute="height" constant="142" id="pxK-Gu-DDN"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="Tpv-NC-3hl" secondAttribute="centerX" id="9SU-x3-Ccm"/>
+                                    <constraint firstAttribute="width" constant="142" id="JQl-uy-1oB"/>
+                                    <constraint firstAttribute="height" constant="142" id="SGV-YN-2f8"/>
+                                    <constraint firstAttribute="centerY" secondItem="Tpv-NC-3hl" secondAttribute="centerY" id="cCn-Pg-23o"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="shake"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.10000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="un2-su-hoq" firstAttribute="top" secondItem="b1z-HE-3Hy" secondAttribute="bottom" constant="27" id="UgS-pX-7LU"/>
+                            <constraint firstAttribute="centerX" secondItem="un2-su-hoq" secondAttribute="centerX" id="t2C-vs-fZu"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="A propos" image="info" id="vsk-aT-5xV"/>
                     <connections>
+                        <outlet property="animationView" destination="un2-su-hoq" id="Nzv-VS-GKV"/>
                         <outlet property="versionTextView" destination="RF7-aB-ZvK" id="nJC-C2-uRo"/>
                     </connections>
                 </viewController>
