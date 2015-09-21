@@ -54,6 +54,7 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
 
 - (void)handleSingleTapOnLogo:(UITapGestureRecognizer *)recognizer {
     [self.animationView startCanvasAnimation];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
