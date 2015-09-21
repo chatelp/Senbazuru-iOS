@@ -12,7 +12,6 @@ PODS:
     - MWFeedParser/NSString+HTML
   - MWFeedParser/NSDate+InternetDateTime (1.0.1)
   - MWFeedParser/NSString+HTML (1.0.1)
-  - pop (1.0.7)
 
 DEPENDENCIES:
   - Canvas
@@ -20,7 +19,6 @@ DEPENDENCIES:
   - iRate
   - KissXML (~> 5.0)
   - MWFeedParser
-  - pop (~> 1.0)
 
 SPEC CHECKSUMS:
   Canvas: eb861e3b555d032648146c8ffda1a5dea40059ca
@@ -28,6 +26,5 @@ SPEC CHECKSUMS:
   iRate: 724a3e080d5b0681e50a57d6cef1a81f83c23df3
   KissXML: ce643413d618ad69886d0d43c3792b7dedfe476e
   MWFeedParser: 2cf646014c1baf6ad1b08c480b40a08180079247
-  pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
 
 COCOAPODS: 0.33.1

@@ -1,9 +1,7 @@
-CLANG_CXX_LANGUAGE_STANDARD = c++11
-CLANG_CXX_LIBRARY = libc++
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 GCC_WARN_64_TO_32_BIT_CONVERSION = NO
 GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = NO
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/CTidy" "${PODS_ROOT}/Headers/Canvas" "${PODS_ROOT}/Headers/KissXML" "${PODS_ROOT}/Headers/MWFeedParser" "${PODS_ROOT}/Headers/iRate" "${PODS_ROOT}/Headers/pop" "$(SDKROOT)/usr/include/libxml2"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers" -isystem "${PODS_ROOT}/Headers/CTidy" -isystem "${PODS_ROOT}/Headers/Canvas" -isystem "${PODS_ROOT}/Headers/KissXML" -isystem "${PODS_ROOT}/Headers/MWFeedParser" -isystem "${PODS_ROOT}/Headers/iRate" -isystem "${PODS_ROOT}/Headers/pop"
-OTHER_LDFLAGS = -ObjC -lc++ -lxml2
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/CTidy" "${PODS_ROOT}/Headers/Canvas" "${PODS_ROOT}/Headers/KissXML" "${PODS_ROOT}/Headers/MWFeedParser" "${PODS_ROOT}/Headers/iRate" "$(SDKROOT)/usr/include/libxml2"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers" -isystem "${PODS_ROOT}/Headers/CTidy" -isystem "${PODS_ROOT}/Headers/Canvas" -isystem "${PODS_ROOT}/Headers/KissXML" -isystem "${PODS_ROOT}/Headers/MWFeedParser" -isystem "${PODS_ROOT}/Headers/iRate"
+OTHER_LDFLAGS = -ObjC -lxml2
 PODS_ROOT = ${SRCROOT}/Pods
