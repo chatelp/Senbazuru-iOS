@@ -1,0 +1,6 @@
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+GCC_WARN_64_TO_32_BIT_CONVERSION = NO
+GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = NO
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/CTidy" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/CTidy" "${PODS_ROOT}/Headers/Public/Crashlytics" "${PODS_ROOT}/Headers/Public/Fabric" "${PODS_ROOT}/Headers/Public/KissXML" "${PODS_ROOT}/Headers/Public/MWFeedParser" "${PODS_ROOT}/Headers/Public/iRate"
+PODS_ROOT = ${SRCROOT}
+SKIP_INSTALL = YES

@@ -3,5 +3,6 @@ pod 'CTidy', '~> 0.3.1'
 pod 'MWFeedParser'
 pod 'KissXML', '~> 5.0'
 pod 'iRate'
-pod 'Canvas'
+pod 'Fabric'
+pod 'Crashlytics'
 

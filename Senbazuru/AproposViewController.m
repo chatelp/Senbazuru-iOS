@@ -44,18 +44,8 @@ static NSString *const haikuXMLSource = @"http://senbazuru.fr/ios/haiku.xml";
     //Background pattern
     [self.view setBackgroundColor:[UIColor senbazuruRicePaper2Color]];
     
-    //Click on logo setup
-    UITapGestureRecognizer *singleFingerTap =
-    [[UITapGestureRecognizer alloc] initWithTarget:self
-                                            action:@selector(handleSingleTapOnLogo:)];
-    [self.animationView addGestureRecognizer:singleFingerTap];
-
 }
 
-- (void)handleSingleTapOnLogo:(UITapGestureRecognizer *)recognizer {
-    [self.animationView startCanvasAnimation];
-    
-}
 
 - (void)viewDidAppear:(BOOL)animated {
     // Only display haiky in "A propos" for iPhone

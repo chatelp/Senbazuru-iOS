@@ -161,7 +161,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="un2-su-hoq" customClass="CSAnimationView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="un2-su-hoq" userLabel="Logo View">
                                 <rect key="frame" x="129" y="47" width="142" height="142"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="logo_senbazuru_smaller" translatesAutoresizingMaskIntoConstraints="NO" id="Tpv-NC-3hl">
@@ -179,15 +179,6 @@
                                     <constraint firstAttribute="height" constant="142" id="SGV-YN-2f8"/>
                                     <constraint firstAttribute="centerY" secondItem="Tpv-NC-3hl" secondAttribute="centerY" id="cCn-Pg-23o"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="shake"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
-                                        <real key="value" value="0.10000000000000001"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
-                                        <real key="value" value="0.5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -278,7 +269,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" id="KWy-aO-1Qu">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7VZ-9Q-Moj">
-                                <rect key="frame" x="727" y="9" width="25" height="25"/>
+                                <rect key="frame" x="723" y="9" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="like-navbarButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
