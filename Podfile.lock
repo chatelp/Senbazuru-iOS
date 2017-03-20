@@ -1,0 +1,35 @@
+PODS:
+  - Crashlytics (3.3.4)
+  - CTidy (0.3.1)
+  - Fabric (1.5.5):
+    - Fabric/Base (= 1.5.5)
+  - Fabric/Base (1.5.5)
+  - iRate (1.10.3)
+  - KissXML (5.0)
+  - MWFeedParser (1.0.1):
+    - MWFeedParser/FeedParser (= 1.0.1)
+    - MWFeedParser/NSDate+InternetDateTime (= 1.0.1)
+    - MWFeedParser/NSString+HTML (= 1.0.1)
+  - MWFeedParser/FeedParser (1.0.1):
+    - MWFeedParser/NSDate+InternetDateTime
+    - MWFeedParser/NSString+HTML
+  - MWFeedParser/NSDate+InternetDateTime (1.0.1)
+  - MWFeedParser/NSString+HTML (1.0.1)
+
+DEPENDENCIES:
+  - Crashlytics
+  - CTidy (~> 0.3.1)
+  - Fabric
+  - iRate
+  - KissXML (~> 5.0)
+  - MWFeedParser
+
+SPEC CHECKSUMS:
+  Crashlytics: 41c082440d2e14da444186fff65e79c0b4b35d4c
+  CTidy: f43e98bca701c27d9ecdda51d18734622b8cca70
+  Fabric: 190bf1a6eb65f7500de1347d027d2e59a7e53db1
+  iRate: 724a3e080d5b0681e50a57d6cef1a81f83c23df3
+  KissXML: ce643413d618ad69886d0d43c3792b7dedfe476e
+  MWFeedParser: 2cf646014c1baf6ad1b08c480b40a08180079247
+
+COCOAPODS: 0.39.0

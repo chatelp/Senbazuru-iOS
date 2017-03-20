@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[CommunityViewController back:]:CommunityViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.webView.canGoBack;">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[Origami difficultyAsWord]:Origami.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "stars.length">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[AllOrigamiViewController filterContentForSearchText:scope:]:AllOrigamiViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
